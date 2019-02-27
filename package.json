@@ -7,7 +7,7 @@
   "author": "Rebecca Jackson <zimbecs@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server --watch",
+    "dev": "nodemon server --watch & webpack --watch",
     "server": "node server",
     "start": "nodemon server",
     "test": "jest --watchAll",
