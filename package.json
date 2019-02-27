@@ -1,0 +1,62 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "Full stack build of a typical todo list",
+  "main": "server/index.js",
+  "repository": "https://github.com/rebeccajackson/todo-list.git",
+  "author": "Rebecca Jackson <zimbecs@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server --watch",
+    "server": "node server",
+    "start": "nodemon server",
+    "test": "jest --watchAll",
+    "postinstall": "webpack",
+    "win": "webpack --watch"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "express": "^4.16.4",
+    "knex": "^0.16.3",
+    "nodemon": "^1.18.10",
+    "path": "^0.12.7",
+    "pg": "^7.8.1",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
+    "sqlite3": "^4.0.6",
+    "superagent": "^4.1.0",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread"
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "./tests/setup.js"
+    ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "jest": "^23.6.0"
+  }
+}
