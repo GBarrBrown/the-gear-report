@@ -144,6 +144,80 @@ exports.default = About;
 
 /***/ }),
 
+/***/ "./client/components/AddTicketButton.jsx":
+/*!***********************************************!*\
+  !*** ./client/components/AddTicketButton.jsx ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.AddTicketButton = AddTicketButton;
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function AddTicketButton() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'button',
+      null,
+      'add icon here'
+    )
+  );
+}
+
+exports.default = AddTicketButton;
+
+/***/ }),
+
+/***/ "./client/components/ResolveTicketButton.jsx":
+/*!***************************************************!*\
+  !*** ./client/components/ResolveTicketButton.jsx ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ResolveTicketButton = ResolveTicketButton;
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ResolveTicketButton() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'button',
+      null,
+      'resolve icon here'
+    )
+  );
+}
+
+exports.default = ResolveTicketButton;
+
+/***/ }),
+
 /***/ "./client/containers/AllTickets.jsx":
 /*!******************************************!*\
   !*** ./client/containers/AllTickets.jsx ***!
@@ -167,6 +241,14 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
+var _AddTicketButton = __webpack_require__(/*! ../components/AddTicketButton */ "./client/components/AddTicketButton.jsx");
+
+var _AddTicketButton2 = _interopRequireDefault(_AddTicketButton);
+
+var _ResolveTicketButton = __webpack_require__(/*! ../components/ResolveTicketButton */ "./client/components/ResolveTicketButton.jsx");
+
+var _ResolveTicketButton2 = _interopRequireDefault(_ResolveTicketButton);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -174,6 +256,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import EditTicketButton from '../components/EditTicketButton'
+
 
 var AllTickets = exports.AllTickets = function (_React$Component) {
   _inherits(AllTickets, _React$Component);
@@ -211,11 +295,21 @@ var AllTickets = exports.AllTickets = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'keys-container' },
+          { className: 'sidebar' },
           _react2.default.createElement(
-            'h4',
-            null,
-            'import keys component here'
+            'div',
+            { className: 'keys-container' },
+            _react2.default.createElement(
+              'h4',
+              null,
+              'import keys component here'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'action-bar' },
+            _react2.default.createElement(_ResolveTicketButton2.default, null),
+            _react2.default.createElement(_AddTicketButton2.default, null)
           )
         )
       );

@@ -1,6 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import AddTicketButton from '../components/AddTicketButton'
+// import EditTicketButton from '../components/EditTicketButton'
+import ResolveTicketButton from '../components/ResolveTicketButton'
+
 export class AllTickets extends React.Component {
 
 
@@ -17,9 +21,16 @@ export class AllTickets extends React.Component {
           </div>
 
         </div>
-        <div className="keys-container">
-          <h4>import keys component here</h4>
+        <div className='sidebar'>
+          <div className="keys-container">
+            <h4>import keys component here</h4>
+          </div>
+          <div className='action-bar'>
+            <ResolveTicketButton />
+            <AddTicketButton />
+          </div>
         </div>
+       
       </div>
     )
   }
