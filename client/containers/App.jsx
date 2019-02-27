@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import HeadFoot from './HeadFoot'
 import Dashboard from './Dashboard'
-import Login from '../components/Login'
-import Register from '../components/Register'
+import Login from './Login'
+import Register from './Register'
 import About from '../components/About'
-import Ticket from '../components/Ticket'
-import AllTickets from '../components/AllTickets'
+import Ticket from './Ticket'
+import AllTickets from './AllTickets'
 
 
 export default function App() {
