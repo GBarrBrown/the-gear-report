@@ -14,3 +14,5 @@ class HeadFoot extends React.Component {
         )
     }
 }
+
+export default HeadFoot
