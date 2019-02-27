@@ -266,12 +266,12 @@ function App() {
       null,
       _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _HeadFoot2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Dashboard2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/login/', component: _Login2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _Register2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _About2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/tickets', component: _AllTickets2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/tickets/:id', component: _Ticket2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/tickets/:id/resolve', component: _ResolveTicket2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/tickets/:id', component: _Ticket2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: 'tickets/:id/resolve', component: _ResolveTicket2.default })
     )
   );
 }
