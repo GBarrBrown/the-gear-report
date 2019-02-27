@@ -155,17 +155,14 @@ exports.default = About;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
-exports.AllTickets = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -175,65 +172,33 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var AllTickets = exports.AllTickets = function (_React$Component) {
-  _inherits(AllTickets, _React$Component);
+var AllTickets = function (_React$Component) {
+    _inherits(AllTickets, _React$Component);
 
-  function AllTickets() {
-    _classCallCheck(this, AllTickets);
+    function AllTickets(props) {
+        _classCallCheck(this, AllTickets);
 
-    return _possibleConstructorReturn(this, (AllTickets.__proto__ || Object.getPrototypeOf(AllTickets)).apply(this, arguments));
-  }
+        var _this = _possibleConstructorReturn(this, (AllTickets.__proto__ || Object.getPrototypeOf(AllTickets)).call(this, props));
 
-  _createClass(AllTickets, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'tickets-container' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Tickets'
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'tickets-table' },
-          _react2.default.createElement(
-            'div',
-            { className: 'table-header' },
-            'sortby header'
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            'map through info here'
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'keys-container' },
-          _react2.default.createElement(
-            'h4',
-            null,
-            'import keys component here'
-          )
-        )
-      );
+        _this.state = {};
+        return _this;
     }
-  }]);
 
-  return AllTickets;
+    _createClass(AllTickets, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                'AllTickets'
+            );
+        }
+    }]);
+
+    return AllTickets;
 }(_react2.default.Component);
 
-function mapStateToProps(_ref) {
-  var allTickets = _ref.allTickets;
-
-  return {
-    allTickets: allTickets
-  };
-}
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(AllTickets);
+exports.default = AllTickets;
 
 /***/ }),
 
@@ -301,12 +266,12 @@ function App() {
       null,
       _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _HeadFoot2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Dashboard2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/login/', component: _Login2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _Register2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _About2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/tickets', component: _AllTickets2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/tickets/:id', component: _Ticket2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/tickets/:id/resolve', component: _ResolveTicket2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/tickets/:id', component: _Ticket2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: 'tickets/:id/resolve', component: _ResolveTicket2.default })
     )
   );
 }
