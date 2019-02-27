@@ -1,8 +1,39 @@
-# todo-list
-A typical todo list from scratch, full-stack with React, Redux, Thunk
+# the-gear-report
 
+## Group roles
+- Becs: Gitmaster, readme
+- George: Scrummaster, vibeswatcher
+- Richard: product owner and currently accepting other roles
 
-## Build process
-This is a step-by-step walkthrough of my thought process in building this web-app.
+## User Stories
 
-- Starting with creating loading dev dependencies
+Base User
+
+As a user I want to:
+
+View individual climbs (routes)  in Nz and filter by ‘area’
+View tickets by area
+View climbing area ‘status’ (open or closed)
+View comments on tickets
+
+Authenticated User
+
+As a user I want to:
+
+Add new tickets 
+When viewing a route or crag I want to be able to add a ticket and have the ticket form auto-populate with said crag or route
+Edit existing tickets
+Apply for grants
+Comment on forums
+Add new climbing route
+Edit user profile
+
+Admin - Charity
+
+As a user I want to:
+
+Review new tickets
+Create new tickets
+Update area status
+Edit ticket
+Close ticket
