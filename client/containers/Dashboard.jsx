@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Directory from './Directory'
+
 class Dashboard extends React.Component {
     constructor(props) {
         super(props)
@@ -10,7 +12,9 @@ class Dashboard extends React.Component {
 
     render() {
         return (
-            <div>Dashboard</div>
+            <div>Dashboard
+                <Directory />
+            </div>
         )
     }
 }
