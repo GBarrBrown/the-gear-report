@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import ActionStack from './ActionStack'
+
 export class AllTickets extends React.Component {
 
 
@@ -17,9 +19,15 @@ export class AllTickets extends React.Component {
           </div>
 
         </div>
-        <div className="keys-container">
-          <h4>import keys component here</h4>
+        <div className='sidebar'>
+          <div className="keys-container">
+            <h4>import keys component here</h4>
+          </div>
+          <div className='action-bar'>
+            <ActionStack />
+          </div>
         </div>
+       
       </div>
     )
   }
