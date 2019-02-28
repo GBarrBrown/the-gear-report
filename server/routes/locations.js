@@ -26,4 +26,5 @@ router.get('/parent/:id', (req,res) => {
         res.json(locations)
     })
 })
-  module.exports = router
+
+module.exports = router
