@@ -16,6 +16,7 @@ module.exports = {
       user:     'username',
       password: 'password'
     },
+    useNullAsDefault: true,
     pool: {
       min: 2,
       max: 10
