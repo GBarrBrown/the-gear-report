@@ -1,6 +1,6 @@
 import React from 'react'
 
-class HeadFoot extends React.Component {
+class Header extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -10,9 +10,9 @@ class HeadFoot extends React.Component {
 
     render() {
         return (
-            <div>HeadFoot</div>
+            <div className="header">Header</div>
         )
     }
 }
 
-export default HeadFoot
+export default Header

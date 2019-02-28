@@ -4,3 +4,43 @@
   padding: 0;
   border: 0;
   }
+
+#app {
+    display: grid;
+    height: auto;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.app-container {
+    display: grid;
+    height: auto;
+    width: 100%;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto, auto, auto;
+    background-color: red;
+}
+
+.header {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background-color: red;
+    height: 15vh;
+}
+
+.footer {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    background-color: green;
+    height: 20vh;
+}
+
+.body {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background-color: blue;
+    height: auto;
+}
