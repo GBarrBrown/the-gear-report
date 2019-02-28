@@ -29,6 +29,8 @@
     grid-row: 1 / 2;
     background-color: red;
     height: 15vh;
+    position: sticky;
+    top: 0;
 }
 
 .footer {
@@ -39,8 +41,75 @@
 }
 
 .body {
+    display: grid;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     background-color: blue;
     height: auto;
 }
+
+.dashboard-container {
+    display: grid;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+    background-color: blue;
+    height: auto;
+}
+
+.dashboard {
+    display: grid;
+    grid-column: 4 / 12;
+    grid-row: 1 / 15;
+    /* height: 80vh; */
+    background-color: orange;
+}
+
+.directory {
+    grid-column: 1 / 4;
+    grid-row: 1 / 10;
+    height: 75vh;
+    background-color: pink;
+
+    /* Potential to make position sticky to keep at top */
+}
+
+.globe {
+    grid-column: 4 / 12;
+    grid-row: 1 / 7;
+    background-color: brown;
+}
+
+.topResolvedTi {
+    grid-column: 4 / 8;
+    grid-row: 7 / 11;
+    background-color: white;
+}
+
+.topNewRoutes {
+    grid-column: 8 / 12;
+    grid-row: 11 / 15;
+    background-color: white;
+}
+
+.topRoutes {
+    grid-column: 4 / 8;
+    grid-row: 11 / 15;
+    background-color: white;
+}
+
+.topRecentTi {
+    grid-column: 12 / 15;
+    grid-row: 1 / 10;
+    background-color: white;
+}
+
+.topContribs {
+    grid-column: 8 / 12;
+    grid-row: 7 / 11;
+    background-color: white;
+}
+
