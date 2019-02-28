@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Input from '@material-ui/core/Input';
+import { bindActionCreators } from 'redux';
+
+import {addTicket} from '../fire/tickets'
 
 export class AddTicket extends Component {
   constructor(props){
@@ -32,8 +35,9 @@ export class AddTicket extends Component {
     this.setState({ [prop]: event.target.value });
   };
 
-  handleClickShowPassword = () => {
-    this.setState(state => ({ showPassword: !state.showPassword }));
+  handleSumbit = () => {
+    let payload = {title: this.state.title}
+    this.props.addTicket(payload)
   };
 
   render() {
@@ -41,7 +45,7 @@ export class AddTicket extends Component {
       <div className='add-ticket-container'>
         <form onSubmit={this.handleSubmit} method="post">
           <Input
-          placeholder="Name"
+          placeholder="Title"
           inputProps={{
             'aria-label': 'title',
           }}
@@ -53,8 +57,12 @@ export class AddTicket extends Component {
   }
 }
 
-function mapStateToProps({ currentTicket }){
-  return { currentTicket }
+function mapStateToProps({ user }){
+  return { user }
 }
 
-export default connect(mapStateToProps)(AddTicket)
+function mapDispatchToProps( dispatch ){
+  return bindActionCreators({addTicket}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddTicket)
