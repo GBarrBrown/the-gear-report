@@ -1,9 +1,30 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Input from '@material-ui/core/Input';
 import { bindActionCreators } from 'redux';
 
+import Input from '@material-ui/core/Input';
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+
 import {addTicket} from '../fire/tickets'
+
+const ranges = [
+  {
+    value: '1'
+  },
+  {
+    value: '2'
+  },
+  {
+    value: '3'
+  },
+  {
+    value: '4'
+  },
+  {
+    value: '5'
+  },
+];
 
 export class AddTicket extends Component {
   constructor(props){
@@ -16,23 +37,11 @@ export class AddTicket extends Component {
     };
   }
 
-  ranges = [
-    {
-      value: '1',
-      label: '1 Mild',
-    },
-    {
-      value: '21-50',
-      label: '21 to 50',
-    },
-    {
-      value: '51-100',
-      label: '51 to 100',
-    },
-  ];
+ 
 
-  handleChange = prop => event => {
-    this.setState({ [prop]: event.target.value });
+  handleChange = event => {
+    console.log(event.target.value)
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleSumbit = () => {
@@ -43,13 +52,27 @@ export class AddTicket extends Component {
   render() {
     return (
       <div className='add-ticket-container'>
-        <form onSubmit={this.handleSubmit} method="post">
-          <Input
-          placeholder="Title"
-          inputProps={{
-            'aria-label': 'title',
-          }}
-          />
+        <form onSubmit={this.handleSubmit}>
+          
+          <Input placeholder="Title" onChange={this.handleChange}/>
+
+          <br/>
+          <TextField
+            select
+            label="Severity"
+            value={this.state.severity}
+            onChange={this.handleChange}
+            inputProps={{
+              name: 'severity'
+            }}
+            >
+            {ranges.map(option => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.value}
+                </MenuItem>
+              ))}
+          </TextField>
+            
         </form>
         
       </div>
