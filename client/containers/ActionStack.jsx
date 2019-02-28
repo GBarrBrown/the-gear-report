@@ -10,9 +10,11 @@ export class ActionStack extends Component {
   render() {
     return (
       <div className='action-stack'>
-        <AddTicketButton />
-        <EditTicketButton />
-        <ResolveTicketButton />
+      
+        <a href="/tickets/add"> <AddTicketButton /> </a>
+        <a href="/tickets/:id/edit"> <EditTicketButton /> </a>  
+        <a href="/tickets/:id/resolve"> <ResolveTicketButton /> </a>
+        
       </div>
     )
   }
