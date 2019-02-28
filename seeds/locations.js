@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
         {id: 2,  name: 'South', island_name: 'South', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: 'island', lat_long: ''},
         {id: 3,  name: 'Northland', island_name: 'North', region_name: 'Northland', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat_long: ''},
         {id: 4,  name: 'Auckland', island_name: 'North', region_name: 'Auckland', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat_long: ''},
-        {id: 5,  name: 'Coromandel Peninsula', island_name: 'North', region_name: 'Coromandel Peninsula', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat_long: ''},
+        {id: 5,  name: 'Coromandel Peninsula', island_name: 'North', region_name: '', area_name: 'Coromandel Peninsula', crag_name: '', tc_id: '', parent_id: '1', type: 'area', lat_long: ''},
         {id: 6,  name: 'Waikato', island_name: 'North', region_name: 'Waikato', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat_long: ''},
         {id: 7,  name: 'Bay Of Plenty', island_name: 'North', region_name: '', area_name: 'Bay Of Plenty', crag_name: '', tc_id: '', parent_id: '1', type: 'area', lat_long: ''},
         {id: 8,  name: 'Lake Taupo', island_name: 'North', region_name: 'Lake Taupo', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat_long: ''},
@@ -24,7 +24,7 @@ exports.seed = function(knex, Promise) {
         {id: 17,  name: 'Whangarei Heads', island_name: 'North', region_name: 'Northland', area_name: 'Whangarei Heads', crag_name: '', tc_id: '', parent_id: '3', type: 'area', lat_long: ''},
         {id: 18,  name: 'Ngahere Drive ', island_name: 'North', region_name: 'Northland', area_name: '', crag_name: 'Ngahere Drive ', tc_id: '', parent_id: '3', type: 'crag', lat_long: ''},
         {id: 19,  name: 'Waro Reserve', island_name: 'North', region_name: 'Northland', area_name: '', crag_name: 'Waro Reserve', tc_id: '', parent_id: '3', type: 'crag', lat_long: ''},
-        {id: 20,  name: 'Auckland City', island_name: 'North', region_name: 'Auckland City', area_name: '', crag_name: '', tc_id: '', parent_id: '4', type: 'region', lat_long: ''},
+        {id: 20,  name: '', island_name: '', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: '', lat_long: ''},
         {id: 21,  name: '', island_name: '', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: '', lat_long: ''},
         {id: 22,  name: '', island_name: '', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: '', lat_long: ''},
         {id: 23,  name: '', island_name: '', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: '', lat_long: ''},
@@ -51,8 +51,6 @@ exports.seed = function(knex, Promise) {
         {id: 44,  name: '', island_name: '', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: '', lat_long: ''},
         {id: 45,  name: '', island_name: '', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: '', lat_long: ''},
         {id: 46,  name: '', island_name: '', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: '', lat_long: ''},
-        {id: 1,  name: '', island_name: '', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: '', lat_long: ''},
-        {id: 1,  name: '', island_name: '', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: '', lat_long: ''},
         
       ]);
     });

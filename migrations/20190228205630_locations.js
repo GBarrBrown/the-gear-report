@@ -2,6 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('locations', (t) => {
       t.increments('id').primary()
+      t.string('name')
       t.string('island_name')
       t.string('region_name')
       t.string('area_name')
