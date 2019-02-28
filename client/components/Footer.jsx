@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Directory extends React.Component {
+class Footer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -10,9 +10,9 @@ class Directory extends React.Component {
 
     render() {
         return (
-            <div className="directory">Directory</div>
+            <div className="footer">Footer</div>
         )
     }
 }
 
-export default Directory
+export default Footer

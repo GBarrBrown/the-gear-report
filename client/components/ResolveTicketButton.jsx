@@ -18,7 +18,7 @@ export function ResolveTicketButton() {
     <div>
       <MuiThemeProvider theme={theme}>
         <Fab color='primary' aria-label="Resolve" >
-          <img classname='layer-top' src="/images/icons8-checkmark-filled-24.png" alt=""/>
+          <img src="/images/icons8-checkmark-filled-24.png" alt=""/>
         </Fab>
       </MuiThemeProvider>
     </div>
