@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {Fragment} from 'react'
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 export function AddTicketButton() {
   return (
-    <div>
-      <button>
-        add icon here
-      </button>
-    </div>
+    <Fragment>
+      <Fab color="secondary" aria-label="Add" className=''>
+        <AddIcon />
+      </Fab>
+    </Fragment>
   )
 }
 
