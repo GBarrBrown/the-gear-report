@@ -6,3 +6,4 @@ export function addTicket(currentTicket) {
     currentTicket
   };
 }
+
