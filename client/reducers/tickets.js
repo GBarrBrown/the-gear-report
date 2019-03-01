@@ -1,7 +1,6 @@
 //reducer tickets.js
 const initialState = []
 const initialFormState = {
-  island: [],
   region: [],
   area: [],
   crag: [],
@@ -13,10 +12,7 @@ export function currentTicket (state = initialState, action){
 }
 
 export function dropdownArr (state = initialFormState, action){
-  console.log(action.type)
   switch (action.type){
-    case 'UPDATE_ISLAND_DROPDOWN':
-      return {...state, island: action.islandDropdownArr}
     case 'UPDATE_REGION_DROPDOWN':
       return {...state, region: action.regionDropdownArr}
     case 'UPDATE_AREA_DROPDOWN':

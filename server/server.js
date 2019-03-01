@@ -8,9 +8,9 @@ server.use(express.json())
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
-server.use('/api/locations', require('./routes/locations'))
-server.use('/api/tickets', require('./routes/tickets'))
-server.use('/api/globe', require('./routes/globe'))
+server.use('/api/v1/locations', require('./routes/locations'))
+server.use('/api/v1/tickets', require('./routes/tickets'))
+server.use('/api/v1/globe', require('./routes/globe'))
 
 server.get('*', (req,res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'))

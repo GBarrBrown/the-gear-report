@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 
 import {TextField, MenuItem, Button, FormControl} from '@material-ui/core';
 
-import {islandRanges, severityRanges, addTicket } from '../helper-functions/allTickets'
-import { getIslandByParent, getRegionByParent, getAreaByParent, getCragByParent } from '../api/local/form'
+import {islandRanges, severityRanges } from '../helper-functions/allTickets'
+import { addTicket, getIslandByParent, getRegionByParent, getAreaByParent, getCragByParent } from '../api/local/form'
 
 export class AddTicket extends Component {
   constructor(props){
@@ -24,17 +24,20 @@ export class AddTicket extends Component {
     };
   }
 
+  onSelect = type => {
+    console.log('selected:', type)
+  }
+
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
     let parentId = event.target.value
     switch (event.target.name){
       case 'island':
-        return this.props.getIslandByParent(parentId)
-
-      case 'region':
         return this.props.getRegionByParent(parentId)
-      case 'area':
+      case 'region':
         return this.props.getAreaByParent(parentId)
+      case 'area':
+        return this.props.getCragByParent(parentId)
       case 'crag':
         return this.props.getCragByParent(parentId)
     }
@@ -42,25 +45,25 @@ export class AddTicket extends Component {
 
   handleSumbit = (e) => {
     e.preventDefault()
-
+    const {user, title, description, severity, island, region, area, crag, wall, route} = this.state;
     let newTicket = {
-      user: this.state.user,
-      title: this.state.title,
-      description: this.state.description,
-      severity: this.state.severity,
-      region: this.state.region,
-      area: this.state.area,
-      crag: this.state.crag,
-      wall: this.state.wall,
-      route: this.state.route,
+      user,
+      title,
+      description,
+      severity,
+      island,
+      region,
+      area,
+      crag,
+      wall,
+      route,
     }
     console.log(newTicket)
-    // this.props.addTicket(newTicket)
+    this.props.addTicket(newTicket)
   };
 
   render() {
     const { dropdownArr } = this.props
-    console.log(dropdownArr)
     return (
       <div className='content add-ticket-container'>
       <form onSubmit={this.handleSumbit}>
@@ -123,7 +126,7 @@ export class AddTicket extends Component {
               name: 'region'
             }}
             >
-            {dropdownArr.island && dropdownArr.island.map(option => (
+            {dropdownArr.region && dropdownArr.region.map(option => (
                 <MenuItem key={option.id} value={option.id}>
                   {option.name}
                 </MenuItem>
@@ -132,17 +135,20 @@ export class AddTicket extends Component {
           
           {this.state.region && <TextField
             select
-            label="Area"
+            label={dropdownArr.area.type}
             value={this.state.area}
             onChange={this.handleChange}
             inputProps={{
               name: 'area'
             }}
             >
-            {dropdownArr.region && dropdownArr.region.map(option => (
+            {dropdownArr.area && dropdownArr.area.map(option => (
+              
                 <MenuItem key={option.id} value={option.id }>
                   {option.name}
                 </MenuItem>
+             
+                
               ))}
           </TextField>}
           
@@ -155,7 +161,7 @@ export class AddTicket extends Component {
               name: 'crag'
             }}
             >
-            {dropdownArr.area && dropdownArr.area.map(option => (
+            {dropdownArr.crag && dropdownArr.crag.map(option => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.name}
                 </MenuItem>
@@ -164,15 +170,17 @@ export class AddTicket extends Component {
 
         </FormControl>
 
-        <div onClick={this.handleSubmit} >
+        
+        <div>
           <Button  
+            onClick={this.handleSubmit}
             variant="contained" 
             size="small"
-            type={"submit"} >
+            type="submit" >
               Create ticket
           </Button>
+        
         </div>
-          
         </form>
       </div>
     )
