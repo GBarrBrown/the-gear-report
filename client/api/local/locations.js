@@ -4,7 +4,7 @@ import {loadLocationsByParent} from '../../actions/locations'
 
 export function getLocationsByParent(parentId) {
   return (dispatch) => {
-    request.get(`/api/locations/parent/${parentId}`)
+    request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
       dispatch(loadLocationsByParent(res.body))
     })
