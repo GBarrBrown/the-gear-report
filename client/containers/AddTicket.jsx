@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import {TextField, MenuItem, Button, FormControl} from '@material-ui/core';
 
 import {islandRanges, severityRanges, addTicket } from '../helper-functions/allTickets'
-import { getChildArrByParent } from '../api/local/form'
+import { getIslandByParent } from '../api/local/form'
 
 export class AddTicket extends Component {
   constructor(props){
@@ -29,10 +29,14 @@ export class AddTicket extends Component {
     let parentId = event.target.value
     switch (event.target.name){
       case 'island':
+        return this.props.getIslandByParent(parentId)
+
       case 'region':
+        return this.props.getRegionByParent(parentId)
       case 'area':
+        return this.props.getAreaByParent(parentId)
       case 'crag':
-        return this.props.getChildArrByParent(parentId)
+        return this.props.getCragByParent(parentId)
     }
   };
 
@@ -55,9 +59,9 @@ export class AddTicket extends Component {
   };
 
   render() {
-    const { formDropdownArr } = this.props
+    const { islandDropdownArr } = this.props
     return (
-      <div className='body add-ticket-container'>
+      <div className='content add-ticket-container'>
       <form onSubmit={this.handleSumbit}>
         <FormControl >
         
@@ -118,7 +122,7 @@ export class AddTicket extends Component {
               name: 'region'
             }}
             >
-            {formDropdownArr.map(option => (
+            {islandDropdownArr.map(option => (
                 <MenuItem key={option.id} value={option.id}>
                   {option.name}
                 </MenuItem>
@@ -134,8 +138,8 @@ export class AddTicket extends Component {
               name: 'area'
             }}
             >
-            {islandRanges.map(option => (
-                <MenuItem key={option.value} value={option.value}>
+            {formDropdownArr.map(option => (
+                <MenuItem key={option.id} value={option.id }>
                   {option.name}
                 </MenuItem>
               ))}
@@ -174,12 +178,12 @@ export class AddTicket extends Component {
   }
 }
 
-function mapStateToProps({ user, formDropdownArr }){
-  return { user, formDropdownArr }
+function mapStateToProps({ user, islandDropdownArr }){
+  return { user, islandDropdownArr }
 }
 
 function mapDispatchToProps( dispatch ){
-  return bindActionCreators({addTicket, getChildArrByParent}, dispatch)
+  return bindActionCreators({addTicket, getIslandByParent}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTicket)
