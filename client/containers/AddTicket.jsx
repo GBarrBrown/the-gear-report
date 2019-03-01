@@ -99,7 +99,7 @@ export class AddTicket extends Component {
               ))}
           </TextField>
         
-          <TextField
+          {this.state.island && <TextField
             select
             label="Region"
             value={this.state.region}
@@ -113,9 +113,9 @@ export class AddTicket extends Component {
                   {option.name}
                 </MenuItem>
               ))}
-          </TextField>
+          </TextField>}
           
-          <TextField
+          {this.state.region && <TextField
             select
             label="Area"
             value={this.state.area}
@@ -129,9 +129,9 @@ export class AddTicket extends Component {
                   {option.name}
                 </MenuItem>
               ))}
-          </TextField>
+          </TextField>}
           
-          <TextField
+          {this.state.area && <TextField
             select
             label="Crag"
             value={this.state.crag}
@@ -145,7 +145,7 @@ export class AddTicket extends Component {
                   {option.name}
                 </MenuItem>
               ))}
-          </TextField>
+          </TextField>}
 
         </FormControl>
 
