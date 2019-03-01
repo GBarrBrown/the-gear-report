@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import {TextField, MenuItem, Button, FormControl} from '@material-ui/core';
 
 import {islandRanges, severityRanges, addTicket } from '../helper-functions/allTickets'
+import { getChildArrByParent } from '../api/local/form'
 
 export class AddTicket extends Component {
   constructor(props){
@@ -24,12 +25,20 @@ export class AddTicket extends Component {
   }
 
   handleChange = event => {
-    console.log(event.target.name, ':', event.target.value)
     this.setState({ [event.target.name]: event.target.value });
+    let parentId = event.target.value
+    switch (event.target.name){
+      case 'island':
+      case 'region':
+      case 'area':
+      case 'crag':
+        return this.props.getChildArrByParent(parentId)
+    }
   };
 
   handleSumbit = (e) => {
     e.preventDefault()
+
     let newTicket = {
       user: this.state.user,
       title: this.state.title,
@@ -46,6 +55,7 @@ export class AddTicket extends Component {
   };
 
   render() {
+    const { formDropdownArr } = this.props
     return (
       <div className='body add-ticket-container'>
       <form onSubmit={this.handleSumbit}>
@@ -108,8 +118,8 @@ export class AddTicket extends Component {
               name: 'region'
             }}
             >
-            {islandRanges.map(option => (
-                <MenuItem key={option.value} value={option.value}>
+            {formDropdownArr.map(option => (
+                <MenuItem key={option.id} value={option.id}>
                   {option.name}
                 </MenuItem>
               ))}
@@ -164,12 +174,12 @@ export class AddTicket extends Component {
   }
 }
 
-function mapStateToProps({ user }){
-  return { user }
+function mapStateToProps({ user, formDropdownArr }){
+  return { user, formDropdownArr }
 }
 
 function mapDispatchToProps( dispatch ){
-  return bindActionCreators({addTicket}, dispatch)
+  return bindActionCreators({addTicket, getChildArrByParent}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTicket)

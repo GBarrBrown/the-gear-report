@@ -7,3 +7,10 @@ export function addTicket(currentTicket) {
   };
 }
 
+export function loadFormDropdownArr(formDropdownArr) {
+  console.log('updateformChildArr:', formDropdownArr);
+  return {
+    type: 'UPDATE_FORM_DROPDOWN',
+    formDropdownArr
+  }
+}
