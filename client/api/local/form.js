@@ -1,11 +1,11 @@
 //api form.js
 import request from 'superagent'
 
-import {loadIslandDropdownArr, loadAreaDropdownArr, loadRegionDropdownArr, loadCragDropdownArr} from '../../actions/index'
+import {loadIslandDropdownArr, loadAreaDropdownArr, loadRegionDropdownArr, loadCragDropdownArr, showError} from '../../actions/index'
 
 export function getIslandByParent(parentId) {//get island
   return (dispatch) => {
-    request.get(`/api/locations/parent/${parentId}`)
+    request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
       dispatch(loadIslandDropdownArr(res.body))
     })
@@ -17,7 +17,7 @@ export function getIslandByParent(parentId) {//get island
 
 export function getRegionByParent(parentId) {// get region
   return (dispatch) => {
-    request.get(`/api/locations/parent/${parentId}`)
+    request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
       dispatch(loadRegionDropdownArr(res.body))
     })
@@ -29,7 +29,7 @@ export function getRegionByParent(parentId) {// get region
 
 export function getAreaByParent(parentId) {// get area
   return (dispatch) => {
-    request.get(`/api/locations/parent/${parentId}`)
+    request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
       dispatch(loadAreaDropdownArr(res.body))
     })
@@ -41,12 +41,25 @@ export function getAreaByParent(parentId) {// get area
 
 export function getCragByParent(parentId) {// get crag
   return (dispatch) => {
-    request.get(`/api/locations/parent/${parentId}`)
+    request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
       dispatch(loadCragDropdownArr(res.body))
     })
     .catch(err => {
       console.log('ERROR!', err);
+    })
+  }
+}
+
+export function addTicket(payload){
+  console.log('api:', payload)
+  return (dispatch) => {
+    request.post('/api/v1/tickets', payload)
+    .then(res => {
+      dispatch((res.body))//should dispatch get all tickets
+    })
+    .catch(err => {
+      dispatch(showError(err.message))
     })
   }
 }
