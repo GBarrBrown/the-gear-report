@@ -42,17 +42,18 @@ export class AddTicket extends Component {
 
   handleSumbit = (e) => {
     e.preventDefault()
-
+    // leslie changed this
+    const {user, title, description, severity, region, area, crag, wall, route} = this.state;
     let newTicket = {
-      user: this.state.user,
-      title: this.state.title,
-      description: this.state.description,
-      severity: this.state.severity,
-      region: this.state.region,
-      area: this.state.area,
-      crag: this.state.crag,
-      wall: this.state.wall,
-      route: this.state.route,
+      user,
+      title,
+      description,
+      severity,
+      region,
+      area,
+      crag,
+      wall,
+      route,
     }
     console.log(newTicket)
     // this.props.addTicket(newTicket)
@@ -164,15 +165,17 @@ export class AddTicket extends Component {
 
         </FormControl>
 
-        <div onClick={this.handleSubmit} >
+        {/* <div onClick={this.handleSubmit} > */}
+        <div>
           <Button  
+            onClick={this.handleSubmit}
             variant="contained" 
             size="small"
-            type={"submit"} >
+            type="submit" >
               Create ticket
           </Button>
+        {/* </div> */}
         </div>
-          
         </form>
       </div>
     )
