@@ -11,6 +11,14 @@ exports.up = function(knex, Promise) {
       t.string('parent_id')
       t.string('type')
       t.string('lat_long')
+      t.string('grade')
+      t.string('height')
+      t.string('style')
+      t.string('quality')
+      t.string('pitches')
+      t.string('quickdraws')
+      t.text('description')
+      t.text('approach')
   })
 };
 
