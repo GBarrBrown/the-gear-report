@@ -1,5 +1,9 @@
 import React from 'react'
 import FacebookLogin from 'react-facebook-login'
+import {connect} from 'react-redux'
+
+import {loginUser, loginError, requestLogin} from '../actions/auth'
+import { bindActionCreators } from 'redux';
 
 
 
@@ -12,6 +16,10 @@ class Login extends React.Component {
         picture: ""
       };
 
+      componentDidMount() {
+        this.props.dispatch(loginError(''))
+      }
+
       responseFacebook = (response) => {
         console.log(response);
         this.setState({
@@ -22,7 +30,7 @@ class Login extends React.Component {
         // now to send that info to our db and route to last address in history
       }
 
-      componentClicked = () => console.log("clicked"); //loading action here
+      componentClicked = () => this.props.requestLogin; //loading action here
 
       render() {
         let fbContent;
@@ -58,5 +66,15 @@ class Login extends React.Component {
       }
     }
 
-export default Login
+    const mapStateToProps = ({auth}) => {
+      return {
+        auth
+      }
+    }
+
+    const mapDisptachToProps = (dispatch) => {
+      return bindActionCreators({loginUser, loginError, requestLogin}, dispatch)
+    }
+    
+    export default connect(mapStateToProps, mapDisptachToProps)(Login)
 
