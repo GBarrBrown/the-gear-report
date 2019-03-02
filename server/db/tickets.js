@@ -29,6 +29,12 @@ function addTicket(user, title, description, severity, island, region, area, cra
   // })
 }
 
+function getAllTickets(testDb) {
+  const db = testDb || connection
+  return db('tickets')
+}
+
 module.exports = {
-  addTicket
+  addTicket,
+  getAllTickets
 }
