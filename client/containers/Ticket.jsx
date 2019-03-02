@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 
 class Ticket extends React.Component {
     constructor(props) {
@@ -15,4 +17,9 @@ class Ticket extends React.Component {
     }
 }
 
-export default Ticket
+
+function mapStateToProps(){
+    return{}
+}
+
+export default connect(mapStateToProps)(Ticket)
