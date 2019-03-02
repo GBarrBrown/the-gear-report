@@ -50,9 +50,17 @@
     align-items: center;
 }
 
+.header ul {
+    list-style-type:none;
+}
+
+.header li {
+    float:left;
+}
+
 .header-items {
     /* justify-content: center; */
-    /* height:30px; */
+    /* height:2em; */
     /* text-decoration: none; */
     border-radius:5px;
     width: 15vw;
