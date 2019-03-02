@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import {getCurrentTicketById} from '../api/local/tickets'
+
 
 class Ticket extends React.Component {
     constructor(props) {
@@ -12,7 +14,14 @@ class Ticket extends React.Component {
 
     render() {
         return (
-            <div>Ticket</div>
+            <div>
+                <h3>Ticket</h3>
+                <div>
+                    {/* {this.props.ticket.name} */}
+                </div>
+
+            
+            </div>
         )
     }
 }
@@ -22,4 +31,10 @@ function mapStateToProps(){
     return{}
 }
 
-export default connect(mapStateToProps)(Ticket)
+function mapDispatchToProps(dispatch){
+    return{
+        getCurrentTicketById: id => dispatch(getCurrentTicketById(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Ticket)
