@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import ActionStack from './ActionStack'
+import AddTicketButton from '../components/AddTicketButton'
 import MaterialTable from 'material-table'
 
 import {getAllTickets} from '../api/local/tickets'
@@ -17,8 +17,8 @@ export class AllTickets extends React.Component {
   render() {
     return (
       <div className='tickets-container'>
-      {this.props.allTickets.allTickets &&
-        <MaterialTable
+      {this.props.allTickets[0] &&
+        <MaterialTable className='tickets-table'
           columns={[
             { title: 'Title', field: 'title', filtering: false, },
             { title: 'Severity', field: 'severity', type: 'numeric', },
@@ -27,7 +27,7 @@ export class AllTickets extends React.Component {
             { title: 'Date Created', field: 'created_at', type: 'date', filtering: false,},
             { title: 'Last Updated', field: 'updated_at', type: 'numeric', filtering: false,},
           ]}
-          data={this.props.allTickets.allTickets}
+          data={this.props.allTickets}
           title="All Tickets For New Zealand"
           options={{
             filtering: true,
@@ -43,7 +43,8 @@ export class AllTickets extends React.Component {
             },
           ]}
         />
-        }
+      }
+      <a className='add-button' href="/tickets/add"> <AddTicketButton /> </a>
       </div>
     )
   }
