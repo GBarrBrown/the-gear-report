@@ -18,6 +18,12 @@ function addTicket(veg, user, testDb){
   })
 }
 
+function getAllTickets(testDb) {
+  const db = testDb || connection
+  return db('tickets')
+}
+
 module.exports = {
-  addTicket
+  addTicket,
+  getAllTickets
 }

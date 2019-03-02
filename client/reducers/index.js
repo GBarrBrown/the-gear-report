@@ -1,13 +1,15 @@
 import {combineReducers} from 'redux'
 
-import {tickets, dropdownArr} from './tickets'
+import {tickets, dropdownArr, allTickets} from './tickets'
 import { updateCurrentLocation, updateLocationsByParent } from './location'
+
+console.log('combineReducers');
 
 export default combineReducers({
   tickets,
   currentLocation: updateCurrentLocation,
   children: updateLocationsByParent,
-  dropdownArr
-
+  dropdownArr,
+  allTickets
 })
 

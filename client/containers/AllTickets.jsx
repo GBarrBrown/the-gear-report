@@ -1,33 +1,47 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import ActionStack from './ActionStack'
+import MaterialTable from 'material-table'
+
+import {getAllTickets} from '../api/local/tickets'
 
 export class AllTickets extends React.Component {
 
+  componentDidMount() {
+    console.log('componendDidMount');
+    this.props.getAllTickets()
+  }
 
   render() {
     return (
       <div className='tickets-container'>
-        <h1>Tickets</h1>
-        <div className='tickets-table'>
-          <div className='table-header'>
-            sortby header
-          </div>
-          <div>
-            map through info here
-          </div>
-
-        </div>
-        <div className='sidebar'>
-          <div className="keys-container">
-            <h4>import keys component here</h4>
-          </div>
-          <div className='action-bar'>
-            <ActionStack />
-          </div>
-        </div>
-       
+        <MaterialTable
+          columns={[
+            { title: 'Name', field: 'name' },
+            { title: 'Surname', field: 'surname' },
+            {
+              title: 'Birth Year',
+              field: 'birthYear',
+              type: 'numeric',
+              filtering: false,
+            },
+            {
+              title: 'Birth Place',
+              field: 'birthCity',
+              lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
+            },
+          ]}
+          data={[
+            { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
+            { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
+          ]}
+          title="Closing Filtering For BirthYear"
+          options={{
+            filtering: true,
+          }}
+        />
       </div>
     )
   }
@@ -39,4 +53,8 @@ function mapStateToProps({ allTickets }){
   }
 }
 
-export default connect(mapStateToProps)(AllTickets)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({getAllTickets}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllTickets)
