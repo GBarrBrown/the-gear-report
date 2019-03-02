@@ -36,7 +36,7 @@ function getAllTickets(testDb) {
 
 function getTicketById(ticketId, testDb) {
   const db = testDb || connection
-  return db('tickets').where('id', ticketId)
+  return db('tickets').where('id', ticketId).first()
 }
 
 module.exports = {

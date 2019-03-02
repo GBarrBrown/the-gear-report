@@ -32,8 +32,12 @@ router.get('/ticketId/:ticketId', (req, res) => {
   console.log('req.params:',req.params.ticketId)
   var ticketId = req.params.ticketId
   ticketDb.getTicketById(ticketId)
-  .then(res => {
-    console.log(res)
+  .then(ticket => {
+    console.log(ticket)
+    res.json(ticket)
+  })
+  .catch(err => {
+    console.log('ERROR!',err)
   })
 })
 
