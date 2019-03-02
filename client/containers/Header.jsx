@@ -17,8 +17,10 @@ class Header extends React.Component {
             Tickets
           </div>
         </a>
-        <a href="">
-          <div></div>
+        <a href="/faq">
+          <div className="header-items">
+            FAQ
+          </div>
         </a>
         <a href="/about">
           <div className="header-items">
