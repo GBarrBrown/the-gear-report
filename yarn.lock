@@ -4745,6 +4745,9 @@ jss@^9.8.7:
     warning "^3.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9c5991cf2572e23dd157d5ed5fb871307bfb3746
 keycode@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
@@ -4771,7 +4774,10 @@ jwt-decode@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-2.2.0.tgz#7d86bd56679f58ce6a84704a657dd392bba81a79"
   integrity sha1-fYa9VmefWM5qhHBKZX3TkruoGnk=
+<<<<<<< HEAD
 >>>>>>> 1b52be3d63cc98f503df7f86883f37c645f1654a
+=======
+>>>>>>> 9c5991cf2572e23dd157d5ed5fb871307bfb3746
 
 killable@^1.0.0:
   version "1.0.1"
@@ -6307,8 +6313,13 @@ prompts@^0.1.9:
     sisteransi "^0.1.1"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 prop-types@^15.5.6, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
 =======
+=======
+
+prop-types@^15.5.6, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+>>>>>>> 9c5991cf2572e23dd157d5ed5fb871307bfb3746
 prop-types@15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
@@ -6319,7 +6330,10 @@ prop-types@15.6.0:
     object-assign "^4.1.1"
 
 prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+<<<<<<< HEAD
 >>>>>>> 1b52be3d63cc98f503df7f86883f37c645f1654a
+=======
+>>>>>>> 9c5991cf2572e23dd157d5ed5fb871307bfb3746
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -6546,15 +6560,23 @@ react-event-listener@^0.6.2, react-event-listener@^0.6.4:
     warning "^4.0.1"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.2, react-is@^16.8.3:
 =======
+=======
+
+react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.2, react-is@^16.8.3:
+>>>>>>> 9c5991cf2572e23dd157d5ed5fb871307bfb3746
 react-facebook-login@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/react-facebook-login/-/react-facebook-login-4.1.1.tgz#005121236a6ac0dee02099976fb1a3265f9d633e"
   integrity sha512-COnHEHlYGTKipz4963safFAK9PaNTcCiXfPXMS/yxo8El+/AJL5ye8kMJf23lKSSGGPgqFQuInskIHVqGqTvSw==
 
 react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.2, react-is@^16.8.3:
+<<<<<<< HEAD
 >>>>>>> 1b52be3d63cc98f503df7f86883f37c645f1654a
+=======
+>>>>>>> 9c5991cf2572e23dd157d5ed5fb871307bfb3746
   version "16.8.3"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.3.tgz#4ad8b029c2a718fc0cfc746c8d4e1b7221e5387d"
   integrity sha512-Y4rC1ZJmsxxkkPuMLwvKvlL1Zfpbcu+Bf4ZigkHup3v9EfdYhAlWAaVyA19olXq2o2mGn0w+dFKvk3pVVlYcIA==
@@ -7775,18 +7797,28 @@ timers-browserify@^2.0.4:
     setimmediate "^1.0.4"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9c5991cf2572e23dd157d5ed5fb871307bfb3746
 tiny-invariant@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.0.3.tgz#91efaaa0269ccb6271f0296aeedb05fc3e067b7a"
   integrity sha512-ytQx8T4DL8PjlX53yYzcIC0WhIZbpR0p1qcYjw2pHu3w6UtgWwFJQ/02cnhOnBBhlFx/edUIfcagCaQSe3KMWg==
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> 9c5991cf2572e23dd157d5ed5fb871307bfb3746
 tmp@0.0.33:
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
   integrity sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==
   dependencies:
     os-tmpdir "~1.0.2"
+<<<<<<< HEAD
 >>>>>>> 1b52be3d63cc98f503df7f86883f37c645f1654a
+=======
+>>>>>>> 9c5991cf2572e23dd157d5ed5fb871307bfb3746
 
 tmpl@1.0.x:
   version "1.0.4"

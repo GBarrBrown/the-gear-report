@@ -1,12 +1,10 @@
 //server routes/tickets.js
 
 const express = require('express')
-<<<<<<< HEAD
+
 const db = require('../db/locations')
 const ticketDb = require('../db/tickets')
-=======
-const db = require('../db/tickets')
->>>>>>> 1b52be3d63cc98f503df7f86883f37c645f1654a
+
 const router = express.Router()
 
 router.use(express.json())

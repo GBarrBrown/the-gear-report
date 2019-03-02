@@ -12,7 +12,6 @@ export default combineReducers({
   children: updateLocationsByParent,
   dropdownArr,
   allTickets,
-  auth
-
+  auth,
 })
 

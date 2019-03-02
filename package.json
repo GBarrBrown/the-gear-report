@@ -33,11 +33,10 @@
     "jsonwebtoken": "^8.5.0",
     "jwt-decode": "^2.2.0",
     "knex": "^0.16.3",
-<<<<<<< HEAD
     "material-table": "^1.19.0",
-=======
     "libsodium-wrappers": "^0.7.4",
->>>>>>> 1b52be3d63cc98f503df7f86883f37c645f1654a
+    "material-table": "^1.19.0",
+    "libsodium-wrappers": "^0.7.4",
     "nodemon": "^1.18.10",
     "path": "^0.12.7",
     "pg": "^7.8.1",
