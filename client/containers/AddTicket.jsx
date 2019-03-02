@@ -20,7 +20,7 @@ export class AddTicket extends Component {
       crag: '',
       wall: '',
       route: '',
-      user: ''//TODO user should be from this.props
+      user: 2 //TODO user should be from this.props
     };
   }
 
