@@ -2,14 +2,13 @@ import React from 'react'
 import FacebookLogin from 'react-facebook-login'
 import {connect} from 'react-redux'
 
-import {loginUser, loginError, requestLogin} from '../actions/auth'
+import {loginUser, loginError, requestLogin} from '../actions/auth/login'
 import { bindActionCreators } from 'redux';
 
 
 
 class Login extends React.Component {
     state = {
-        isLoggedIn: false,
         userID: "",
         name: "",
         email: "",
@@ -17,25 +16,32 @@ class Login extends React.Component {
       };
 
       componentDidMount() {
-        this.props.dispatch(loginError(''))
+        this.props.loginError('Please login')
       }
 
       responseFacebook = (response) => {
         console.log(response);
+        if(response.name === undefined){
+          return this.props.loginError('Error')
+        }
+        
         this.setState({
           name: response.name,
           picture: response.picture.data.url,
-          isLoggedIn: true
+          email: response.email
         })
-        // now to send that info to our db and route to last address in history
+        let {name, picture, email} = this.state
+        this.props.loginUser({name, picture, email})
+  
       }
 
       componentClicked = () => this.props.requestLogin; //loading action here
 
       render() {
         let fbContent;
+        const { auth } = this.props
     
-        if (this.state.isLoggedIn) {
+        if (auth.isAuthenticated) {
           fbContent = (
             <div
               style={{
@@ -45,12 +51,13 @@ class Login extends React.Component {
                 padding: "20px"
               }}
             >
-              <img src={this.state.picture} alt={this.state.name} />
+              
               <h2>Welcome {this.state.name}</h2>
               
             </div>
           );
         } else {
+          {auth.errorMessage && <span className="">{auth.errorMessage}</span>}
           fbContent = (
             <FacebookLogin
               appId="249678739247240"
@@ -62,7 +69,10 @@ class Login extends React.Component {
           );
         }
     
-        return <div>{fbContent}</div>;
+        return (
+        
+        <div>{fbContent}</div>
+        );
       }
     }
 
@@ -72,9 +82,9 @@ class Login extends React.Component {
       }
     }
 
-    const mapDisptachToProps = (dispatch) => {
+    const mapDispatchToProps = (dispatch) => {
       return bindActionCreators({loginUser, loginError, requestLogin}, dispatch)
     }
     
-    export default connect(mapStateToProps, mapDisptachToProps)(Login)
+    export default connect(mapStateToProps, mapDispatchToProps)(Login)
 
