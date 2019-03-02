@@ -21,7 +21,7 @@ export class AllTickets extends React.Component {
           columns={[
             { title: 'Title', field: 'title', filtering: false, },
             { title: 'Severity', field: 'severity', type: 'numeric', },
-            { title: 'Sponsored', field: 'sponsored', type: 'boolean' },
+            { title: 'Sponsored', field: 'has_grant', type: 'boolean' },
             { title: 'Created By', field: 'createdBy'},
             { title: 'Date Created', field: 'created_at', type: 'date', filtering: false,},
             { title: 'Last Updated', field: 'updated_at', type: 'numeric', filtering: false,},
@@ -30,7 +30,26 @@ export class AllTickets extends React.Component {
           },
           ]}
           data={[
-            { title: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
+            { crag_name:
+              null,
+              created_at:
+              "2019-03-02 07:35:43",
+              description:
+              "20m past Arete Route on the left, rope is frayed and looks like it will fail soon",
+              has_grant:
+              'true',
+              id:
+              1,
+              img:
+              null,
+              severity:
+              4,
+              title:
+              "Worn cable at the Arete Route",
+              updated_at:
+              "2019-03-02 07:35:43",
+              user_id:
+              "1" },
             { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
           ]}
           title="All Tickets For New Zealand"
