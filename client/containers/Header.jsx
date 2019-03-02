@@ -1,18 +1,41 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
 
-        }
-    }
+  render() {
+    const { auth } = this.props
+    return (
+      <div className="header">
+        <div>
+          <a href="/">Home</a>
+        </div>
+        <div>
+          <a href="/tickets">Tickets</a>
+        </div>
+        <div>
+          <a href="/about">About</a>
+        </div>
+        {auth.isAuthenticated ? 
+        ( <div>
+            <h3>{auth.user.name}</h3>
+            <img src={auth.user.picture} alt="Profile pic"/>
+          </div>
+        ) : 
+        <h3>
+          {auth.errorMessage}
+        </h3>
+        
+      }
 
-    render() {
-        return (
-            <div className="header">Header</div>
-        )
-    }
+      </div>
+    )
+  }
 }
+const mapStateToProps = ({auth}) => {
+    return {
+      auth
+    }
+  }
 
-export default Header
+    export default connect(mapStateToProps)(Header)
