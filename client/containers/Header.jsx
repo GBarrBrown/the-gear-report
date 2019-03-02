@@ -6,17 +6,30 @@ class Header extends React.Component {
   render() {
     const { auth } = this.props
     return (
-      <div className="header">
-        <ul>
-          <li className="header-items">Home</li>
-          <li className="header-items">Tickets</li>
-          <li className="header-items">FAQ</li>
-          <li className="header-items">About</li>
-          <li className="header-items">Login</li>
-
-        </ul>
+      <div className="header-container">
+        <div className="header">
+          <ul>
+            <li className="header-items"><a href="/">Home</a></li>
+            <li className="header-items"><a href="/tickets">Tickets</a></li>
+            <li className="header-items"><a href="/faq">FAQ</a></li>
+            <li className="header-items"><a href="/about">About</a></li>
+          </ul>
+          {auth.isAuthenticated ? 
+            ( <div className="header-items-login">
+                <h3>{auth.user.name}</h3>
+                <img src={auth.user.picture} alt="Profile pic"/>
+              </div>
+            ) : 
+            (
+              <a href="/login">
+              <div className="header-items-login">
+                Login {auth.errorMessage}
+              </div>
+              </a>
+            )
+          }
+        </div>
       </div>
-      
 
 
 
@@ -32,7 +45,7 @@ const mapStateToProps = ({auth}) => {
     export default connect(mapStateToProps)(Header)
 
 
-          // <div className="header">
+      //     <div className="header">
       //   <a href="/">
       //     <div className="header-items">
       //       Home
