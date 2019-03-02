@@ -28,7 +28,8 @@ export function allTickets (state = initialState, action) {
   switch (action.type){
     case 'GET_TICKETS':
     console.log('allTickets reducer');
-      return action.tickets
+      return {...state, allTickets: action.tickets}
+      
 
       default:
         return state
