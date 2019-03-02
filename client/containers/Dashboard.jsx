@@ -17,7 +17,6 @@ class Dashboard extends React.Component {
 
     componentDidMount() {
         this.props.updateCurrentLocation(3)
-        
     }
 
     componentDidUpdate() {
@@ -36,8 +35,8 @@ class Dashboard extends React.Component {
     }
 }
 
-function mapStateToProps({ currentLocation }) {
-    return { currentLocation }
+function mapStateToProps({ currentLocation, auth }) {
+    return { currentLocation, auth }
 }
 
 function mapDispatchToProps(dispatch) {
