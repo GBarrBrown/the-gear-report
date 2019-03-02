@@ -17,7 +17,7 @@ export class AllTickets extends React.Component {
   render() {
     return (
       <div className='tickets-container'>
-      {this.props.allTickets.allTickets &&
+      {this.props.allTickets[0] &&
         <MaterialTable
           columns={[
             { title: 'Title', field: 'title', filtering: false, },
@@ -27,7 +27,7 @@ export class AllTickets extends React.Component {
             { title: 'Date Created', field: 'created_at', type: 'date', filtering: false,},
             { title: 'Last Updated', field: 'updated_at', type: 'numeric', filtering: false,},
           ]}
-          data={this.props.allTickets.allTickets}
+          data={this.props.allTickets}
           title="All Tickets For New Zealand"
           options={{
             filtering: true,
