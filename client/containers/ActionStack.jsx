@@ -11,9 +11,9 @@ export class ActionStack extends Component {
     return (
       <div className='action-stack'>
       
-        <a href="/tickets/add"> <AddTicketButton /> </a>
-        <a href="/tickets/:id/edit"> <EditTicketButton /> </a>  
-        <a href="/tickets/:id/resolve"> <ResolveTicketButton /> </a>
+        <a className='action-button' href="/tickets/add"> <AddTicketButton /> </a>
+        <a className='action-button' href="/tickets/:id/edit"> <EditTicketButton /> </a>  
+        <a className='action-button' href="/tickets/:id/resolve"> <ResolveTicketButton /> </a>
         
       </div>
     )
