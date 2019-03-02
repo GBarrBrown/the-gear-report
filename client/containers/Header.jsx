@@ -22,10 +22,9 @@ class Header extends React.Component {
             <img src={auth.user.picture} alt="Profile pic"/>
           </div>
         ) : 
-        <h3>
-          {auth.errorMessage}
-        </h3>
-        
+        (
+        <a href="/login">Login {auth.errorMessage}</a>
+        )
       }
 
       </div>
