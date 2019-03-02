@@ -7,23 +7,36 @@ class Header extends React.Component {
     const { auth } = this.props
     return (
       <div className="header">
-        <div>
-          <a href="/">Home</a>
-        </div>
-        <div>
-          <a href="/tickets">Tickets</a>
-        </div>
-        <div>
-          <a href="/about">About</a>
-        </div>
+        <a href="/">
+          <div className="header-items">
+            Home
+          </div>
+        </a>
+        <a href="/tickets">
+          <div className="header-items">
+            Tickets
+          </div>
+        </a>
+        <a href="">
+          <div></div>
+        </a>
+        <a href="/about">
+          <div className="header-items">
+            About
+          </div>
+        </a>
         {auth.isAuthenticated ? 
-        ( <div>
+        ( <div className="header-items">
             <h3>{auth.user.name}</h3>
             <img src={auth.user.picture} alt="Profile pic"/>
           </div>
         ) : 
         (
-        <a href="/login">Login {auth.errorMessage}</a>
+          <a href="/login">
+            <div className="header-items">
+              Login {auth.errorMessage}
+            </div>
+          </a>
         )
       }
 
