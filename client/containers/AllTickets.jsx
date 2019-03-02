@@ -19,25 +19,21 @@ export class AllTickets extends React.Component {
       <div className='tickets-container'>
         <MaterialTable
           columns={[
-            { title: 'Name', field: 'name' },
-            { title: 'Surname', field: 'surname' },
-            {
-              title: 'Birth Year',
-              field: 'birthYear',
-              type: 'numeric',
-              filtering: false,
-            },
-            {
-              title: 'Birth Place',
-              field: 'birthCity',
-              lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-            },
+            { title: 'Title', field: 'title', filtering: false, },
+            { title: 'Severity', field: 'severity', type: 'numeric', },
+            { title: 'Sponsored', field: 'sponsored', type: 'boolean' },
+            { title: 'Created By', field: 'createdBy'},
+            { title: 'Date Created', field: 'created_at', type: 'date', filtering: false,},
+            { title: 'Last Updated', field: 'updated_at', type: 'numeric', filtering: false,},
+            { title: 'Birth Year', field: 'birthYear', type: 'numeric', filtering: false, },
+            { title: 'Birth Place', field: 'birthCity', lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' }
+          },
           ]}
           data={[
-            { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
+            { title: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
             { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
           ]}
-          title="Closing Filtering For BirthYear"
+          title="All Tickets For New Zealand"
           options={{
             filtering: true,
           }}
