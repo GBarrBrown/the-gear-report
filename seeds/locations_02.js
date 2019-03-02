@@ -19,7 +19,7 @@ exports.seed = function(knex, Promise) {
                 {id: 57,  name: 'Kinloch', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Kinloch', tc_id: '12475591', parent_id: '55', type: 'crag', lat_long: ''},
                 {id: 58,  name: 'Middle Earth', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Middle Earth', tc_id: '12475303', parent_id: '55', type: 'crag', lat_long: ''},
                 {id: 59,  name: 'Kuratau', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Kuratau', tc_id: '12475327', parent_id: '55', type: 'crag', lat_long: ''},
-                {id: 60,  name: 'Karangahape Cliffs', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Karangahape Cliffs', tc_id: '12475351', parent_id: '55', type: 'crag', lat_long: ''},
+                {id: 60,  name: 'Karangahape Cqliffs', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Karangahape Cliffs', tc_id: '12475351', parent_id: '55', type: 'crag', lat_long: ''},
                 {id: 61,  name: 'Te Putu', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Te Putu', tc_id: '12475399', parent_id: '55', type: 'crag', lat_long: ''},
                 {id: 62,  name: 'Tihoi', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Tihoi', tc_id: '12475543', parent_id: '55', type: 'crag', lat_long: ''},
         

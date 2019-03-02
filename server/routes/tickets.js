@@ -1,7 +1,8 @@
 //server routes/tickets.js
 
 const express = require('express')
-const db = require('../db/tickets')
+const ticketDb = require('../db/tickets')
+
 const router = express.Router()
 
 router.use(express.json())
@@ -13,6 +14,17 @@ router.post('/', (req,res)=>{
   .then(result =>{
     console.log('result',result)
     // res.json(veg)
+  })
+})
+
+router.get('/all', (req, res) => {
+  console.log('routes tickets');
+  ticketDb.getAllTickets()
+  .then(tickets => {
+    res.json(tickets)
+  })
+  .catch(err => {
+    console.log(err)
   })
 })
 

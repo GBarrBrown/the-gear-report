@@ -25,11 +25,12 @@ export default function App() {
 					<Route path='/login' component={Login} />
 					<Route path='/register' component={Register} />
 					<Route path='/about' component={About} />
-					<Route exact path='/tickets' component={AllTickets} />
-					<Route exact path='/tickets/:ticketId' component={Ticket} />
+					
+					<Route exact path='/tickets/ticketId/:ticketId' component={Ticket} />
 					<Route exact path='/tickets/add' component={AddTicket} />
 					<Route exact path='/tickets/:id/resolve' component={ResolveTicket} />
 					<Route exact path='/tickets/:id/edit' component={EditTicket} />
+					<Route exact path='/tickets' component={AllTickets} />
 				</div>
 			</Router>
 			<Footer />
