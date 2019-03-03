@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        this.props.updateCurrentLocation(3)
+        this.props.updateCurrentLocation(2)
         
     }
 

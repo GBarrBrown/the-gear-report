@@ -10,7 +10,7 @@ import reducers from './reducers';
 
 // Sets initial state OMG so long as passed in as second arg of createStore
 const initialState = {
-  currentLocation: 22,
+  currentLocation: 1,
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

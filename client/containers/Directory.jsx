@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-
+import {getLocationById} from '../api/local/locations'
+import {getParentByCurrent} from '../api/local/locations'
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -38,7 +39,15 @@ class Directory extends React.Component {
 		selectedIndex: 1,
 	};
 	
+	componentDidMount() {
+		
+	}
 
+	componentWillReceiveProps() {
+		{this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(this.props.currentLocation)}
+		{this.props.loadLocationById.length > 0 && this.props.loadParentByCurrent.length < 1 && this.props.getParentByCurrent(this.props.currentLocation)}
+
+	}
 
   handleClick = () => {
     this.setState(state => ({ open: !state.open }));
@@ -60,25 +69,32 @@ class Directory extends React.Component {
     return (
         <div className='directory'>
 					{this.props.currentLocation && 
-					<h1>hi</h1>}
+					<List component="nav"
+					subheader={<ListSubheader component="div">Directory</ListSubheader>}
+					className={classes.root}>
+
+					</List>
+					}
       </div>
     );
   }
 }
 
-function mapStateToProps({ children, currentLocation }){
+function mapStateToProps({ children, currentLocation, loadLocationById, loadParentByCurrent}){
   return {
 		children,
-		currentLocation
+		currentLocation,
+		loadLocationById,
+		loadParentByCurrent
   }
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({getAllTickets}, dispatch)
-// }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({getLocationById, getParentByCurrent}, dispatch)
+}
 
 Directory.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(Directory));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Directory));

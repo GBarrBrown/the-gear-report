@@ -11,3 +11,17 @@ export function loadLocationsByParent(children) {
     children
   }
 }
+
+export function loadLocationById(locationObj) {
+  return {
+    type: 'GET_LOCATION',
+    locationObj
+  }
+}
+
+export function loadParentByCurrent(parentObj) {
+  return {
+    type: 'GET_PARENT',
+    parentObj
+  }
+}
