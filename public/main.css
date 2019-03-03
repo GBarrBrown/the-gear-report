@@ -162,9 +162,42 @@ body {
 }
 
 .topRecentTi {
+    display: grid;
     grid-column: 12 / 15;
     grid-row: 1 / 10;
     background-color: white;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(12, auto)
+}
+
+.topRecentTi1 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    height: 100px;
+}
+
+.topRecentTi2 {
+    grid-column: 1 / 2;
+    grid-row: 4 / 6;
+    height: 100px;
+}
+
+.topRecentTi3 {
+    grid-column: 1 / 2;
+    grid-row: 6 / 8;
+    height: 100px;
+}
+
+.topRecentTi4 {
+    grid-column: 1 / 2;
+    grid-row: 8 / 10;
+    height: 100px;
+}
+
+.topRecentTi5 {
+    grid-column: 1 / 2;
+    grid-row: 10 / 12;
+    height: 100px;
 }
 
 .topContribs {
