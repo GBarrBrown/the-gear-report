@@ -2,33 +2,41 @@
 
 const connection = require('./connection')
 
-function addTicket(user, title, description, severity, island, region, area, crag, wall, route, testDb){
+function addTicket(user, title, description, severity, location, testDb){
   const db = testDb || connection
-  
-  //TODO get definition on data that is saved 
-
   return db('tickets')
-  // .insert({
-  //   title: title,
-  //   description: description,
-  //   severity: severity,
-  
-  
-  // })
-  // .select('users.id').first().then(user => {
-  //   return db('garden')
-  //   .where('user_id', user.id)
-  //   .where('veg_id', veg.id).then((rows)=>{
-  //     if (rows.length===0) {
-  //       return db('garden').insert({veg_id: veg.id, user_id: user.id})
-  //     }
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //   })
-  // })
+  .insert({
+    user_id: user,
+    title: title,
+    description: description,
+    severity: severity
+  })
+  .then(newTicketId => {
+    location.map(id => {
+      console.log(typeof id)
+      if(typeof id === 'number')
+       return db('ticket_loc')
+       .insert({t_id: newTicketId[0], l_id: id})
+    })
+    return newTicketId
+  })
+  .catch(err => {
+    console.log(err)
+  }) 
+}
+
+function getAllTickets(testDb) {
+  const db = testDb || connection
+  return db('tickets')
+}
+
+function getTicketById(ticketId, testDb) {
+  const db = testDb || connection
+  return db('tickets').where('id', ticketId).first()
 }
 
 module.exports = {
-  addTicket
+  addTicket,
+  getAllTickets,
+  getTicketById
 }

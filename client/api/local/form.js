@@ -1,52 +1,65 @@
 //api form.js
 import request from 'superagent'
 
-import {loadIslandDropdownArr, loadAreaDropdownArr, loadRegionDropdownArr, loadCragDropdownArr, showError} from '../../actions/index'
+import {loadFirstDdArr, loadThirdDdArr, loadSecondDdArr, loadFourthDdArr, loadFifthDdArr} from '../../actions/tickets'
+import { showError } from '../../actions/index'
 
-export function getIslandByParent(parentId) {//get island
+export function getFirstByParent(parentId) {//get island
   return (dispatch) => {
     request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
-      dispatch(loadIslandDropdownArr(res.body))
+      dispatch(loadFirstDdArr(res.body))
     })
     .catch(err => {
-      console.log('ERROR!', err);
+      dispatch(showError(err.message))
     })
   }
 }
 
-export function getRegionByParent(parentId) {// get region
+export function getSecondByParent(parentId) {// get region
   return (dispatch) => {
     request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
-      dispatch(loadRegionDropdownArr(res.body))
+      dispatch(loadSecondDdArr(res.body))
     })
     .catch(err => {
-      console.log('ERROR!', err);
+      dispatch(showError(err.message))
     })
   }
 }
 
-export function getAreaByParent(parentId) {// get area
+export function getThirdByParent(parentId) {
   return (dispatch) => {
     request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
-      dispatch(loadAreaDropdownArr(res.body))
+      dispatch(loadThirdDdArr(res.body))
     })
     .catch(err => {
-      console.log('ERROR!', err);
+      dispatch(showError(err.message))
     })
   }
 }
 
-export function getCragByParent(parentId) {// get crag
+export function getFourthByParent(parentId) {
   return (dispatch) => {
     request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
-      dispatch(loadCragDropdownArr(res.body))
+      dispatch(loadFourthDdArr(res.body))
     })
     .catch(err => {
-      console.log('ERROR!', err);
+      dispatch(showError(err.message))
+    })
+  }
+}
+
+export function getFifthByParent(parentId) {
+  return (dispatch) => {
+    request.get(`/api/v1/locations/parent/${parentId}`)
+    .then(res => {
+      dispatch(loadFifthDdArr(res.body))
+    })
+    .catch(err => {
+      dispatch(showError(err.message))
     })
   }
 }
@@ -56,7 +69,8 @@ export function addTicket(payload){
   return (dispatch) => {
     request.post('/api/v1/tickets', payload)
     .then(res => {
-      dispatch((res.body))//should dispatch get all tickets
+      let ticketId = res.body[0]
+      document.location = `/tickets/ticketId/${ticketId}`
     })
     .catch(err => {
       dispatch(showError(err.message))
