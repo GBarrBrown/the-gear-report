@@ -57,7 +57,7 @@ class Directory extends React.Component {
 
   handleClick(id) {
     return function(e) {
-      location.href=`/${id}`
+      location.href=`/dashboard/${id}`
     }
   };
 
