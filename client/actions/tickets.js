@@ -41,3 +41,9 @@ export function loadFifthDdArr(fifthDropdown) {
     fifthDropdown
   }
 }
+export function loadCurrentTicket(ticket) {
+  return {
+    type: 'UPDATE_CURRENT_TICKET_OBJ',
+    ticket
+  }
+}
