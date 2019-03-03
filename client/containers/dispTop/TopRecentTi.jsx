@@ -1,4 +1,7 @@
 import React from 'react'
+import MediaCard from './Card'
+
+
 
 class TopRecentTi extends React.Component {
     constructor(props) {
@@ -10,7 +13,9 @@ class TopRecentTi extends React.Component {
 
     render() {
         return (
-            <div className="topRecentTi">TopRecentTi</div>
+            <div className="topRecentTi">TopRecentTi
+                <MediaCard title={'test'}/>
+            </div>
         )
     }
 }
