@@ -12,6 +12,13 @@ export function loadCurrentTicket(ticket) {
   }
 }
 
+export function loadTicketLocations(locations) {
+  return {
+    type: 'UPDATE_TICKET_LOCATIONS',
+    locations
+  }
+}
+
 // export function loadLocationsByParent(children) {
 //   return {
 //     type: 'GET_CHILDREN',
