@@ -178,3 +178,7 @@ body {
 .ticketComponent {
     background-color: rgb(211, 240,250)
 }
+
+.actionStack {
+    float: right;
+}
