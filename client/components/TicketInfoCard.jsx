@@ -26,8 +26,8 @@ class TicketInfoCard extends Component {
           {/* {typeof this.props.ticketLocations != 'undefined' && console.log()} */}
           {/* <Typography variant="h5"> */}
           <div>
-            <Typography variant="h2">
-              {this.props.test}
+            <Typography variant="h4">
+              Ticket Location Info
             </Typography>
             {this.props.ticketLocations.map((place, i) => {  
               var type = place.type.charAt(0).toUpperCase() + place.type.slice(1) // capitalize first letter of place type
@@ -67,7 +67,7 @@ class TicketInfoCard extends Component {
         <CardActions>
         {(typeof this.props.ticketLocations[0] === 'undefined'
         ? null 
-        :<Button size="small" onClick={() => location.href=`/dashboard/${this.props.currentLocation}`}>Go To '{(this.props.ticketLocations[this.props.ticketLocations.length-1].name)}'</Button>
+        :<Button size="small" onClick={() => location.href=`/${this.props.ticketLocations[this.props.ticketLocations.length-1].loc_id}`}>Go To '{(this.props.ticketLocations[this.props.ticketLocations.length-1].name)}'</Button>
         )}
 
         </CardActions>
@@ -76,11 +76,10 @@ class TicketInfoCard extends Component {
   }
 }
 
-function mapStateToProps({ticketLocations, currentLocation}){
+function mapStateToProps({ticketLocations}){
   return {
     test: 'hello', 
-    ticketLocations,
-    currentLocation
+    ticketLocations
   }
 }
 

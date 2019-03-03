@@ -54,6 +54,7 @@ class Ticket extends React.Component {
             <div className="actionStack">
               <ActionStack />
             </div>
+            <TicketInfoCard ticketLocations={this.props.ticketLocations}/>
           </div>) : <h2>No Ticket Found Matching That ID</h2>
         }
 
@@ -62,7 +63,7 @@ class Ticket extends React.Component {
           this.state.ticketId), this.props.getTicketLocationsById(this.state.ticketId)}
           }>Get Ticket Locations By Id
         </button> */}
-      <TicketInfoCard ticketLocations={this.props.ticketLocations}/>
+
       </div>
     )
   }
