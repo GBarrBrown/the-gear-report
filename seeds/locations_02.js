@@ -22,7 +22,7 @@ exports.seed = function(knex, Promise) {
                 {id: 60, depth: '5',  name: 'Karangahape Cliffs', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Karangahape Cliffs', tc_id: '12475351', parent_id: '55', type: 'crag', lat_long: ''},
                 {id: 61, depth: '5',  name: 'Te Putu', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Te Putu', tc_id: '12475399', parent_id: '55', type: 'crag', lat_long: ''},
                 {id: 62, depth: '5',  name: 'Tihoi', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Tihoi', tc_id: '12475543', parent_id: '55', type: 'crag', lat_long: ''},
-        
+
                 // Taupo East
                 {id: 63, depth: '5',  name: 'Bulli Point', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Bulli Point', tc_id: '12475255', parent_id: '54', type: 'crag', lat_long: ''},
                 {id: 64, depth: '5',  name: 'Te Toki Point', island_name: 'North', region_name: 'Taupo West', area_name: '', crag_name: 'Te Toki Point', tc_id: '12475279', parent_id: '54', type: 'crag', lat_long: ''},
