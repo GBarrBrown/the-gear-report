@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 
 import {TextField, MenuItem, Button, FormControl} from '@material-ui/core';
 
-import {islandRanges, severityRanges } from '../helper-functions/allTickets'
-import { addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent } from '../api/local/form'
+import {islandRanges, severityRanges } from '../helper-functions/addTickets'
+import { addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent, getFifthByParent } from '../api/local/form'
 
 export class AddTicket extends Component {
  state = {
@@ -30,6 +30,7 @@ export class AddTicket extends Component {
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
     let parentId = event.target.value
+    console.log(event.target.name,':', event.target.value)
     switch (event.target.name){
     case 'island':
       return this.props.getFirstByParent(parentId)
@@ -38,27 +39,29 @@ export class AddTicket extends Component {
     case 'secondDropdown':
       return this.props.getThirdByParent(parentId)
     case 'thirdDropdown':
-      return this.props.getfourthDropdownByParent(parentId)
+      return this.props.getFourthByParent(parentId)
     case 'fourthDropdown':
-      return this.props.getfifthDropdownByParent(parentId)
+      return this.props.getFifthByParent(parentId)
     case 'fifthDropdown':
     }
   };
 
   handleSumbit = (e) => {
     e.preventDefault()
-    const {user, title, description, severity, firstDropdown, secondDropdown, thirdDropdown, fourthDropdown, fifthDropdown, sixthDropdown} = this.state;
+    const {user, title, description, severity, firstDropdown, secondDropdown, thirdDropdown, fourthDropdown, fifthDropdown} = this.state;
     let newTicket = {
       user,
       title,
       description,
       severity,
-      location: [firstDropdown,
-      secondDropdown,
-      thirdDropdown,
-      fourthDropdown,
-      fifthDropdown,
-      sixthDropdown]
+      location: [
+        island,
+        firstDropdown,
+        secondDropdown,
+        thirdDropdown,
+        fourthDropdown,
+        fifthDropdown
+      ]
     }
     this.props.addTicket(newTicket)
   };
@@ -173,7 +176,7 @@ export class AddTicket extends Component {
             }}
             >
             {dropdownArr.fourthDropdown && dropdownArr.fourthDropdown.map(option => (
-                <MenuItem key={option.value} value={option.id}>
+                <MenuItem key={option.id} value={option.id}>
                   {option.name}
                 </MenuItem>
               ))}
@@ -203,7 +206,7 @@ function mapStateToProps({ user, dropdownArr }){
 }
 
 function mapDispatchToProps( dispatch ){
-  return bindActionCreators({addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent}, dispatch)
+  return bindActionCreators({addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent, getFifthByParent}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTicket)
