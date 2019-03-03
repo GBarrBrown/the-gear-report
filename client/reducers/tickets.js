@@ -10,7 +10,6 @@ const initialFormState = {
 export function currentTicket (state = initialState, action){
   switch (action.type){
     case 'UPDATE_CURRENT_TICKET_OBJ':
-    console.log('ticket reducer', action.ticket)
       return action.ticket
   }
   return state

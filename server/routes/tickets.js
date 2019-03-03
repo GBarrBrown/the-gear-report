@@ -29,11 +29,9 @@ router.get('/all', (req, res) => {
 })
 
 router.get('/ticketId/:ticketId', (req, res) => {
-  console.log('req.params:',req.params.ticketId)
   var ticketId = req.params.ticketId
   ticketDb.getTicketById(ticketId)
   .then(ticket => {
-    console.log(ticket)
     res.json(ticket)
   })
   .catch(err => {

@@ -16,11 +16,9 @@ export function getAllTickets() {
 }
 
 export function getCurrentTicketById(ticketId) {
-  console.log(`hello? Im looking for ticket:  ${ticketId}`)
   return (dispatch) => {
     request.get(`/api/v1/tickets/ticketId/${ticketId}`)
     .then(res => {
-      console.log('we got it back',res.body)
       dispatch(loadCurrentTicket(res.body))
     })
     .catch(err => {

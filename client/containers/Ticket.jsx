@@ -16,7 +16,6 @@ class Ticket extends React.Component {
 
     componentDidMount() {
         var ticketId = this.props.match.params.ticketId
-        // console.log(ticketId)
         this.setState({ticketId: ticketId})
         this.props.getCurrentTicketById(ticketId)
 
