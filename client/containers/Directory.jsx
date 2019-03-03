@@ -1,4 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+
+
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -27,11 +32,24 @@ const styles = theme => ({
   },
 });
 
-class NestedList extends React.Component {
+const testItem = [
+	{id: 2, title: 'test1'},
+	{id: 3, title: 'test2'},
+]
+
+
+
+class Directory extends React.Component {
   state = {
-		open: true,
-    selectedIndex: 1,
-  };
+		selectedOpen: true,
+		selectedIndex: 1,
+	};
+	
+	componentDidMount() {
+		testItem.map(item => {
+			this.state.item.id = false
+		})
+	}
 
   handleClick = () => {
     this.setState(state => ({ open: !state.open }));
@@ -40,6 +58,11 @@ class NestedList extends React.Component {
   handleListItemClick = (event, index) => {
 		this.setState({ selectedIndex: index });
 		this.setState(state => ({ open: !state.open }));
+	};
+	
+	handleSelectedListItemClick = (event, index) => {
+		this.setState({ selectedIndex: index });
+		this.setState(state => ({ selectedOpen: !state.selectedOpen }));
   };
 
   render() {
@@ -64,7 +87,7 @@ class NestedList extends React.Component {
               		<ListItemText inset secondary="North Island" />
             		</ListItem>
 
-								<Collapse in={this.state.open} timeout="auto" unmountOnExit>
+								<Collapse in={this.state.selectedOpen} timeout="auto" unmountOnExit>
 									<List component="div" disablePadding>
 										<ListItem button className={classes.nested}>
          							<ListItemText inset secondary="Northland" />
@@ -84,9 +107,57 @@ class NestedList extends React.Component {
 									</List >
 								</Collapse>
 								
-            		<ListItem button>
+            		<ListItem button
+													selected={this.state.selectedIndex === 2}
+													onClick={event => this.handleListItemClick(event, 2)}>
               		<ListItemText inset secondary="South  Island" />
             		</ListItem>
+
+								<Collapse in={this.state.open} timeout="auto" unmountOnExit>
+									<List component="div" disablePadding>
+										<ListItem button className={classes.nested}>
+         							<ListItemText inset secondary="Northland" />
+        						</ListItem>
+										<ListItem button className={classes.nested}>
+         							<ListItemText inset secondary="Auckland" />
+        						</ListItem>
+										<ListItem button className={classes.nested}>
+         							<ListItemText inset secondary="Waikato" />
+        						</ListItem>
+										<ListItem button className={classes.nested}>
+         							<ListItemText inset secondary="Taupo" />
+        						</ListItem>
+										<ListItem button className={classes.nested}>
+         							<ListItemText inset secondary="Wellington" />
+        						</ListItem>
+									</List >
+								</Collapse>
+
+								<ListItem button
+													selected={this.state.selectedIndex === 3}
+													onClick={event => this.handleListItemClick(event, 3)}>
+              		<ListItemText inset secondary="South  Island" />
+            		</ListItem>
+
+								<Collapse in={this.state.open} timeout="auto" unmountOnExit>
+									<List component="div" disablePadding>
+										<ListItem button className={classes.nested}>
+         							<ListItemText inset secondary="Northland" />
+        						</ListItem>
+										<ListItem button className={classes.nested}>
+         							<ListItemText inset secondary="Auckland" />
+        						</ListItem>
+										<ListItem button className={classes.nested}>
+         							<ListItemText inset secondary="Waikato" />
+        						</ListItem>
+										<ListItem button className={classes.nested}>
+         							<ListItemText inset secondary="Taupo" />
+        						</ListItem>
+										<ListItem button className={classes.nested}>
+         							<ListItemText inset secondary="Wellington" />
+        						</ListItem>
+									</List >
+								</Collapse>
 
 
 
@@ -109,8 +180,19 @@ class NestedList extends React.Component {
   }
 }
 
-NestedList.propTypes = {
+function mapStateToProps({ children, currentLocation }){
+  return {
+		children,
+		currentLocation
+  }
+}
+
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators({getAllTickets}, dispatch)
+// }
+
+Directory.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NestedList);
+export default connect(mapStateToProps)(withStyles(styles)(Directory));
