@@ -45,11 +45,7 @@ class Directory extends React.Component {
 		selectedIndex: 1,
 	};
 	
-	componentDidMount() {
-		testItem.map(item => {
-			this.state.item.id = false
-		})
-	}
+
 
   handleClick = () => {
     this.setState(state => ({ open: !state.open }));
@@ -109,7 +105,7 @@ class Directory extends React.Component {
 								
             		<ListItem button
 													selected={this.state.selectedIndex === 2}
-													onClick={event => this.handleListItemClick(event, 2)}>
+													onClick={}>
               		<ListItemText inset secondary="South  Island" />
             		</ListItem>
 
@@ -135,7 +131,7 @@ class Directory extends React.Component {
 
 								<ListItem button
 													selected={this.state.selectedIndex === 3}
-													onClick={event => this.handleListItemClick(event, 3)}>
+													onClick={}>
               		<ListItemText inset secondary="South  Island" />
             		</ListItem>
 
