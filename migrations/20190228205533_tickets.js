@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
       table.boolean('has_grant')
           .defaultTo(false)
       table.timestamps(true, true)
-      table.string('user_id')
+      table.integer('user_id')
   })
 };
 
