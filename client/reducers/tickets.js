@@ -1,9 +1,13 @@
 //reducer tickets.js
+
 const initialState = []
+
 const initialFormState = {
-  region: [],
-  area: [],
-  crag: [],
+  firstDropdown: [],
+  secondDropdown: [],
+  thirdDropdown: [],
+  fourthDropdown: [],
+  fifthDropdown: [],
 
 }
 
@@ -17,24 +21,25 @@ export function currentTicket (state = initialState, action){
 
 export function dropdownArr (state = initialFormState, action){
   switch (action.type){
-    case 'UPDATE_REGION_DROPDOWN':
-      return {...state, region: action.regionDropdownArr}
-    case 'UPDATE_AREA_DROPDOWN':
-      return {...state, area: action.areaDropdownArr}
-    case 'UPDATE_CRAG_DROPDOWN':
-      return {...state, crag: action.cragDropdownArr}
+    case 'UPDATE_FIRST_DROPDOWN':
+      return {...state, firstDropdown: action.firstDropdown}
+    case 'UPDATE_SECOND_DROPDOWN':
+      return {...state, secondDropdown: action.secondDropdown}
+    case 'UPDATE_THIRD_DROPDOWN':
+      return {...state, thirdDropdown: action.thirdDropdown}
+    case 'UPDATE_FOURTH_DROPDOWN':
+      return {...state, fourthDropdown: action.fourthDropdown}
+    case 'UPDATE_FIFTH_DROPDOWN':
+      return {...state, fifthDropdown: action.fifthDropdown}
   }
   return state
 }
 
 export function allTickets (state = initialState, action) {
-  
   switch (action.type){
     case 'GET_TICKETS':
     console.log('allTickets reducer');
       return action.tickets
-      
-
       default:
         return state
   }

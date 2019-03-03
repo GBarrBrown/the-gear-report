@@ -58,6 +58,8 @@ exports.seed = function(knex, Promise) {
                 {id: 101, depth: '6', name: 'The Angry Sea and the Sky', parent_id: '92', type: 'route', grade: '18', height: '20m', style: 'sport', quality: '2', pitches: '', quickdraws: '5'},
                 {id: 102, depth: '6', name: 'The Angel of Calcutta', parent_id: '92', type: 'route', grade: '17', height: '20m', style: 'sport', quality: '2', pitches: '', quickdraws: '6'},
                 {id: 103, depth: '6', name: '52nd Symphony', parent_id: '92', type: 'route', grade: '22', height: '20m', style: 'sport', quality: '2', pitches: '', quickdraws: '6'},
+
+                {id: 104, depth: '1', name: 'New Zealand', parent_id: ''}
         
       ]);
 };

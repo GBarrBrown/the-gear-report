@@ -1,6 +1,8 @@
 //server routes/tickets.js
 
 const express = require('express')
+
+const db = require('../db/locations')
 const ticketDb = require('../db/tickets')
 
 const router = express.Router()
@@ -8,23 +10,24 @@ const router = express.Router()
 router.use(express.json())
 
 router.post('/', (req,res)=>{
- console.log(req.body)
- const {user, title, description, severity, island, region, area, crag, wall, route} = req.body
-  db.addTicket(user, title, description, severity, island, region, area, crag, wall, route)
-  .then(result =>{
-    console.log('result',result)
-    // res.json(veg)
+ const {user, title, description, severity, location} = req.body
+ ticketDb.addTicket(user, title, description, severity, location)
+  .then((result) =>{
+    console.log('route', result)
+    res.json(result)
+  })
+  .catch(err => {
+    console.log('ERROR!',err)
   })
 })
 
 router.get('/all', (req, res) => {
-  console.log('routes tickets');
   ticketDb.getAllTickets()
   .then(tickets => {
     res.json(tickets)
   })
   .catch(err => {
-    console.log(err)
+    console.log('ERROR!',err)
   })
 })
 
