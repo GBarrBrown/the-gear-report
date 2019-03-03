@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import Header from './Header'
 import Dashboard from './Dashboard'
@@ -21,7 +21,7 @@ export default function App() {
 			<Router>	
 				<div className="body">
 					{/* <Route path='/' component={Header} /> */}
-					<Route exact path='/' component={Dashboard} />
+					<Route exact path='/' render={() => (<Redirect to="/104"/>)} />
 					<Route exact path='/:id' component={Dashboard} />
 					<Route path='/login' component={Login} />
 					<Route path='/register' component={Register} />
