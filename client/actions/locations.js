@@ -25,3 +25,10 @@ export function loadParentByCurrent(parentObj) {
     parentObj
   }
 }
+
+export function loadChildrenByParent(parentChildren) {
+  return {
+    type: 'GET_PCHILDREN',
+    parentChildren
+  }
+}

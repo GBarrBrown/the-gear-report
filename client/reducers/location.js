@@ -40,3 +40,13 @@ export function loadParentByCurrent(state = initialState, action) {
         return state
   }
 }
+
+export function loadChildrenByParent(state = initialState, action) {
+  switch (action.type) {
+    case 'GET_PCHILDREN':
+      return action.parentChildren
+
+      default:
+        return state
+  }
+}
