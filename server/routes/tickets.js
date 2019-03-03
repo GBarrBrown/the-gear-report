@@ -30,6 +30,16 @@ router.get('/all', (req, res) => {
   })
 })
 
+router.get('/ticketId/:ticketId', (req, res) => {
+  var ticketId = req.params.ticketId
+  ticketDb.getTicketById(ticketId)
+  .then(ticket => {
+    res.json(ticket)
+  })
+  .catch(err => {
+    console.log('ERROR!',err)
+  })
+})
 
 
 module.exports = router

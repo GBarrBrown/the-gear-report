@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import {loadAllTickets} from '../../actions/tickets'
+import {loadAllTickets, loadCurrentTicket} from '../../actions/tickets'
 
 export function getAllTickets() {
   console.log('local api pinged');
@@ -11,6 +11,18 @@ export function getAllTickets() {
     })
     .catch(err => {
       console.log('ERROR!', err);
+    })
+  }
+}
+
+export function getCurrentTicketById(ticketId) {
+  return (dispatch) => {
+    request.get(`/api/v1/tickets/ticketId/${ticketId}`)
+    .then(res => {
+      dispatch(loadCurrentTicket(res.body))
+    })
+    .catch(err => {
+      console.log('ERROR!', err)
     })
   }
 }
