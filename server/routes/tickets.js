@@ -1,6 +1,8 @@
 //server routes/tickets.js
 
 const express = require('express')
+
+const db = require('../db/locations')
 const ticketDb = require('../db/tickets')
 
 const router = express.Router()

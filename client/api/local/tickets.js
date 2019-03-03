@@ -3,7 +3,6 @@ import request from 'superagent'
 import {loadAllTickets, loadCurrentTicket} from '../../actions/tickets'
 
 export function getAllTickets() {
-  console.log('local api pinged');
   return (dispatch) => {
     request.get(`/api/v1/tickets/all`)
     .then(res => {

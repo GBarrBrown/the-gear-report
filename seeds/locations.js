@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('locations').insert([
-        {id: 1,  name: 'North', island_name: 'North', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: 'island', lat_long: '', depth: '2'},
-        {id: 2,  name: 'South', island_name: 'South', region_name: '', area_name: '', crag_name: '', tc_id: '', parent_id: '', type: 'island', lat_long: '', depth: '2'},
+        {id: 1,  name: 'North', parent_id: '104', island_name: 'North', region_name: '', area_name: '', crag_name: '', tc_id: '', type: 'island', lat_long: '', depth: '2'},
+        {id: 2,  name: 'South', parent_id: '104', island_name: 'South', region_name: '', area_name: '', crag_name: '', tc_id: '', type: 'island', lat_long: '', depth: '2'},
 
         // north island regions
         {id: 3,  name: 'Northland', island_name: 'North', region_name: 'Northland', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat_long: '', depth: '3'},

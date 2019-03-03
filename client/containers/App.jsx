@@ -22,6 +22,7 @@ export default function App() {
 				<div className="body">
 					{/* <Route path='/' component={Header} /> */}
 					<Route exact path='/' component={Dashboard} />
+					<Route exact path='/:id' component={Dashboard} />
 					<Route path='/login' component={Login} />
 					<Route path='/register' component={Register} />
 					<Route path='/about' component={About} />

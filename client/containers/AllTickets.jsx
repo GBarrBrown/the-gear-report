@@ -10,7 +10,6 @@ import {getAllTickets} from '../api/local/tickets'
 export class AllTickets extends React.Component {
 
   componentDidMount() {
-    console.log('componendDidMount');
     this.props.getAllTickets()
   }
 
