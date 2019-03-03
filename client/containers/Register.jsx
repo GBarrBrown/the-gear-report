@@ -6,24 +6,19 @@ import { loginError } from '../actions/auth/login'
 
 
 class Register extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      username: '',
-      first_name: '',
-      last_name: '',
-      password: '',
-      confirm_password: ''
-    }
-    this.updateDetails = this.updateDetails.bind(this)
-    this.submit = this.submit.bind(this)
-  } 
+  state = {
+    username: '',
+    first_name: '',
+    last_name: '',
+    password: '',
+    confirm_password: ''
+  }
   
- updateDetails(e) {
+ updateDetails = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  submit(e) {
+  submit = (e) => {
     e.preventDefault()
     e.target.reset()
     let {name, password, confirm_password, firstName, lastName} = this.state

@@ -11,7 +11,6 @@ function requestLogin () {
 }
 
 export function receiveLogin (user) {
-  console.log('receive login', user)
   return {
     type: 'LOGIN_SUCCESS',
     isFetching: false,
