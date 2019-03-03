@@ -48,7 +48,7 @@ export class AddTicket extends Component {
 
   handleSumbit = (e) => {
     e.preventDefault()
-    const {user, title, description, severity, firstDropdown, secondDropdown, thirdDropdown, fourthDropdown, fifthDropdown} = this.state;
+    const {user, title, description, severity, island, firstDropdown, secondDropdown, thirdDropdown, fourthDropdown, fifthDropdown} = this.state;
     let newTicket = {
       user,
       title,
@@ -74,6 +74,7 @@ export class AddTicket extends Component {
         <FormControl >
         
           <TextField 
+          required
           label="Title" 
           onChange={this.handleChange}
           inputProps={{
@@ -81,6 +82,7 @@ export class AddTicket extends Component {
           }}/>
         
           <TextField 
+          required
           label="Description" 
           onChange={this.handleChange}
           inputProps={{
@@ -88,6 +90,7 @@ export class AddTicket extends Component {
             }}/>
          
           <TextField
+            required
             select
             label="Severity"
             value={this.state.severity}
@@ -107,6 +110,7 @@ export class AddTicket extends Component {
           
           <TextField
             select
+            required
             label="Island"
             value={this.state.island}
             onChange={this.handleChange}
@@ -123,6 +127,7 @@ export class AddTicket extends Component {
         
           {this.state.island && <TextField
             select
+            required
             label="Region"
             value={this.state.firstDropdown}
             onChange={this.handleChange}
@@ -139,6 +144,7 @@ export class AddTicket extends Component {
           
           {this.state.firstDropdown && <TextField
             select
+            required
             value={this.state.secondDropdown}
             onChange={this.handleChange}
             inputProps={{
@@ -154,6 +160,7 @@ export class AddTicket extends Component {
           
           {this.state.secondDropdown && <TextField
             select
+            required
             value={this.state.thirdDropdown}
             onChange={this.handleChange}
             inputProps={{
@@ -186,7 +193,10 @@ export class AddTicket extends Component {
 
         
         <div>
-          {this.state.title && <Button  
+          {this.state.title && this.state.description && 
+          this.state.secondDropdown && 
+          this.state.severity &&
+          <Button  
             onClick={this.handleSubmit}
             variant="contained" 
             size="small"
