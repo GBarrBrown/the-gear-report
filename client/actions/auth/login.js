@@ -11,6 +11,7 @@ function requestLogin () {
 }
 
 export function receiveLogin (user) {
+  console.log('receive login', user)
   return {
     type: 'LOGIN_SUCCESS',
     isFetching: false,
@@ -28,8 +29,20 @@ export function loginError (message) {
   }
 }
 
-export function loginUser(creds){
+export function loginUser(email){
   return (dispatch) => {
-    dispatch(receiveLogin(creds)); 
+    dispatch(requestLogin())
+    return request.post(`/api/v1/login`, email)
+    .then(res => {
+      console.log(res.body)
+      const userInfo = saveUserToken(res.body.token)
+      // userInfo.name = creds.first_name
+      dispatch(receiveLogin(userInfo)); 
+      document.location = "/dashboard/1" 
+    })
+    .catch(err => {
+      console.log(err)
+      dispatch(loginError(err.response.body.message))
+    })
   }
 }
