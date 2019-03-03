@@ -28,12 +28,12 @@ class Ticket extends React.Component {
   }
   componentWillReceiveProps() {
     // Allows for 10 retrys to the local api for ticket data, otherwise will stop calling.
-    (this.state.apiRetrysRemaining > 0 ?
-      ((typeof this.props.ticketLocations[0] === 'undefined') && this.props.getTicketLocationsById(this.state.ticketId))
-      : null) 
+    (this.state.apiRetrysRemaining > 0
+      ?((typeof this.props.ticketLocations[0] === 'undefined') && this.props.getTicketLocationsById(this.state.ticketId))
+      : null
+    ) 
 
     this.setState({apiRetrysRemaining: this.state.apiRetrysRemaining-1})
-    console.log('compoentWillRecieveProps - Ticket.jsx')
   }
 
   render() {
@@ -49,20 +49,15 @@ class Ticket extends React.Component {
               <h3>Severity: {this.props.currentTicket.severity}</h3><br />
               <h3>Created: {this.props.currentTicket.created_at}</h3><br />
               <h3>Grant Status: {(this.props.currentTicket.has_grant) ? 'Funded' : 'Not Funded'}</h3>
-              {/* <h3></h3> need to display the location stack related to this ticket, eg: island-north,region-auck, region auckcity, area-xyz, crag-xyz, wall-2837, route-29387  */}
             </div>
             <div className="actionStack">
               <ActionStack />
             </div>
-            <TicketInfoCard ticketLocations={this.props.ticketLocations}/>
+            <div className="ticketInfoCard">
+              <TicketInfoCard ticketLocations={this.props.ticketLocations}/>
+            </div>
           </div>) : <h2>No Ticket Found Matching That ID</h2>
         }
-
-        {/* <button onClick={
-          () => {console.log('button clicked, looking for location by ticket id: ', 
-          this.state.ticketId), this.props.getTicketLocationsById(this.state.ticketId)}
-          }>Get Ticket Locations By Id
-        </button> */}
 
       </div>
     )
