@@ -4,6 +4,7 @@ import {loadLocationsByParent} from '../../actions/locations'
 import {loadLocationById} from '../../actions/locations'
 import {loadParentByCurrent} from '../../actions/locations'
 import {loadChildrenByParent} from '../../actions/locations'
+import {updateCurrentLocation} from '../../actions/locations'
 
 export function getLocationsByParent(parentId) {
   return (dispatch) => {
@@ -52,5 +53,11 @@ export function getChildrenByParent(id) {
     .catch(err => {
       console.log('ERROR!', err);
     })
+  }
+}
+
+export function sendNewLocation(id) {
+  return (dispatch) => {
+    dispatch(updateCurrentLocation(id))
   }
 }

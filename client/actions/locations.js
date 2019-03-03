@@ -1,4 +1,5 @@
 export function updateCurrentLocation(currentLocation) {
+  console.log('action hit');
   return {
     type: 'UPDATE_LOCATION',
     currentLocation

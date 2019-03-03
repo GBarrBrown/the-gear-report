@@ -6,6 +6,7 @@ import {getLocationById} from '../api/local/locations'
 import {getLocationsByParent} from '../api/local/locations'
 import {getParentByCurrent} from '../api/local/locations'
 import {getChildrenByParent} from '../api/local/locations'
+import {updateCurrentLocation} from '../actions/locations'
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -53,19 +54,17 @@ class Directory extends React.Component {
     {this.props.loadParentByCurrent.length > 0 && !this.props.loadChildrenByParent.length > 0 && this.props.getChildrenByParent(this.props.loadParentByCurrent[0].id)}
 	}
 
-  handleClick = () => {
-    this.setState(state => ({ open: !state.open }));
+  handleClick(id) {
+    return function(e) {
+      console.log(id);
+      
+    }
   };
 
   handleListItemClick = (event, index) => {
 		this.setState({ selectedIndex: index });
 		this.setState(state => ({ open: !state.open }));
 	};
-	
-	// handleSelectedListItemClick = (event, index) => {
-	// 	this.setState({ selectedIndex: index });
-	// 	this.setState(state => ({ selectedOpen: !state.selectedOpen }));
-  // };
 
   render() {
     const { classes } = this.props;
@@ -80,7 +79,10 @@ class Directory extends React.Component {
 					
 					
           <ListItem button>
-            <ListItemText inset primary={this.props.loadParentByCurrent[0].name} inset={true} />
+            <ListItemText inset primary={this.props.loadParentByCurrent[0].name} 
+                                inset={true} 
+                                value={this.props.loadParentByCurrent[0].id}
+                                onClick={this.handleClick(this.props.loadParentByCurrent[0].id)}/>
           </ListItem>
           
           
@@ -136,14 +138,15 @@ class Directory extends React.Component {
   }
 }
 
-function mapStateToProps({ children, currentLocation, loadLocationById, loadParentByCurrent, loadChildrenByParent}){
+function mapStateToProps({ updateCurrentLocation, children, currentLocation, loadLocationById, loadParentByCurrent, loadChildrenByParent}){
   return {
 		children,
 		currentLocation,
 		loadLocationById,
     loadParentByCurrent,
     loadChildrenByParent,
-    getLocationsByParent
+    getLocationsByParent,
+    updateCurrentLocation
   }
 }
 
