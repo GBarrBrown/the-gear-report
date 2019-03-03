@@ -181,6 +181,12 @@ body {
     float: right;
 }
 
+.action-stack {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .tickets-container{
   display: flex;
   height: 100%;
