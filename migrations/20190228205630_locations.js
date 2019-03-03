@@ -19,6 +19,7 @@ exports.up = function(knex, Promise) {
       t.string('quickdraws')
       t.text('description')
       t.text('approach')
+      t.string('depth')
   })
 };
 
