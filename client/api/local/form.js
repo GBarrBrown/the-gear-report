@@ -1,7 +1,8 @@
 //api form.js
 import request from 'superagent'
 
-import {loadFirstDdArr, loadThirdDdArr, loadSecondDdArr, loadFourthDdArr, showError} from '../../actions/index'
+import {loadFirstDdArr, loadThirdDdArr, loadSecondDdArr, loadFourthDdArr, loadFifthDdArr} from '../../actions/tickets'
+import { showError } from '../../actions/index'
 
 export function getFirstByParent(parentId) {//get island
   return (dispatch) => {
@@ -10,7 +11,7 @@ export function getFirstByParent(parentId) {//get island
       dispatch(loadFirstDdArr(res.body))
     })
     .catch(err => {
-      console.log('ERROR!', err);
+      dispatch(showError(err.message))
     })
   }
 }
@@ -22,7 +23,7 @@ export function getSecondByParent(parentId) {// get region
       dispatch(loadSecondDdArr(res.body))
     })
     .catch(err => {
-      console.log('ERROR!', err);
+      dispatch(showError(err.message))
     })
   }
 }
@@ -34,7 +35,7 @@ export function getThirdByParent(parentId) {
       dispatch(loadThirdDdArr(res.body))
     })
     .catch(err => {
-      console.log('ERROR!', err);
+      dispatch(showError(err.message))
     })
   }
 }
@@ -46,7 +47,19 @@ export function getFourthByParent(parentId) {
       dispatch(loadFourthDdArr(res.body))
     })
     .catch(err => {
-      console.log('ERROR!', err);
+      dispatch(showError(err.message))
+    })
+  }
+}
+
+export function getFifthByParent(parentId) {
+  return (dispatch) => {
+    request.get(`/api/v1/locations/parent/${parentId}`)
+    .then(res => {
+      dispatch(loadFifthDdArr(res.body))
+    })
+    .catch(err => {
+      dispatch(showError(err.message))
     })
   }
 }

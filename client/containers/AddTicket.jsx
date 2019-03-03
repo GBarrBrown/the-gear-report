@@ -8,21 +8,20 @@ import {islandRanges, severityRanges } from '../helper-functions/allTickets'
 import { addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent } from '../api/local/form'
 
 export class AddTicket extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      title: '',
-      description: '',
-      severity: '',
-      firstDropdown: '',
-      secondDropdown: '',
-      thirdDropdown: '',
-      fourthDropdown: '',
-      fifthDropdown: '',
-      route: '',
-      user: 2 //TODO user should be from this.props
-    };
-  }
+ state = {
+    title: '',
+    description: '',
+    severity: '',
+    island: '',
+    firstDropdown: '',
+    secondDropdown: '',
+    thirdDropdown: '',
+    fourthDropdown: '',
+    fifthDropdown: '',
+    route: '',
+    user: 2 //TODO user should be from this.props
+  };
+  
 
   onSelect = type => {
     console.log('selected:', type)
@@ -32,14 +31,17 @@ export class AddTicket extends Component {
     this.setState({ [event.target.name]: event.target.value });
     let parentId = event.target.value
     switch (event.target.name){
-      case 'firstDropdown':
-        return this.props.getSecondByParent(parentId)
-      case 'secondDropdown':
-        return this.props.getThirdByParent(parentId)
-      case 'thirdDropdown':
-        return this.props.getfourthDropdownByParent(parentId)
-      case 'fourthDropdown':
-        return this.props.getfourthDropdownByParent(parentId)
+    case 'island':
+      return this.props.getFirstByParent(parentId)
+    case 'firstDropdown':
+      return this.props.getSecondByParent(parentId)
+    case 'secondDropdown':
+      return this.props.getThirdByParent(parentId)
+    case 'thirdDropdown':
+      return this.props.getfourthDropdownByParent(parentId)
+    case 'fourthDropdown':
+      return this.props.getfifthDropdownByParent(parentId)
+    case 'fifthDropdown':
     }
   };
 
@@ -58,7 +60,6 @@ export class AddTicket extends Component {
       fifthDropdown,
       sixthDropdown]
     }
-    console.log(newTicket)
     this.props.addTicket(newTicket)
   };
 
@@ -104,22 +105,37 @@ export class AddTicket extends Component {
           <TextField
             select
             label="Island"
+            value={this.state.island}
+            onChange={this.handleChange}
+            inputProps={{
+              name: 'island'
+            }}
+            >
+            {islandRanges.map(option => (
+                <MenuItem key={option.id} value={option.id}>
+                  {option.name}
+                </MenuItem>
+              ))}
+          </TextField>
+        
+          {this.state.island && <TextField
+            select
+            label="Region"
             value={this.state.firstDropdown}
             onChange={this.handleChange}
             inputProps={{
               name: 'firstDropdown'
             }}
             >
-            {islandRanges.map(option => (
-                <MenuItem key={option.value} value={option.value}>
+            {dropdownArr.firstDropdown && dropdownArr.firstDropdown.map(option => (
+                <MenuItem key={option.id} value={option.id}>
                   {option.name}
                 </MenuItem>
               ))}
-          </TextField>
-        
+          </TextField>}
+          
           {this.state.firstDropdown && <TextField
             select
-            label="Region"
             value={this.state.secondDropdown}
             onChange={this.handleChange}
             inputProps={{
@@ -127,7 +143,7 @@ export class AddTicket extends Component {
             }}
             >
             {dropdownArr.secondDropdown && dropdownArr.secondDropdown.map(option => (
-                <MenuItem key={option.id} value={option}>
+                <MenuItem key={option.id} value={option.id}>
                   {option.name}
                 </MenuItem>
               ))}
@@ -135,7 +151,6 @@ export class AddTicket extends Component {
           
           {this.state.secondDropdown && <TextField
             select
-            label={dropdownArr.thirdDropdown.type}
             value={this.state.thirdDropdown}
             onChange={this.handleChange}
             inputProps={{
@@ -143,18 +158,14 @@ export class AddTicket extends Component {
             }}
             >
             {dropdownArr.thirdDropdown && dropdownArr.thirdDropdown.map(option => (
-              
-                <MenuItem key={option.id} value={option.id }>
-                  {option.name}
-                </MenuItem>
-             
-                
+              <MenuItem key={option.id} value={option.id }>
+                {option.name}
+              </MenuItem>
               ))}
           </TextField>}
           
           {this.state.thirdDropdown && <TextField
             select
-            label={dropdownArr.fourthDropdown.type}
             value={this.state.fourthDropdown}
             onChange={this.handleChange}
             inputProps={{
@@ -162,7 +173,7 @@ export class AddTicket extends Component {
             }}
             >
             {dropdownArr.fourthDropdown && dropdownArr.fourthDropdown.map(option => (
-                <MenuItem key={option.value} value={option.value}>
+                <MenuItem key={option.value} value={option.id}>
                   {option.name}
                 </MenuItem>
               ))}

@@ -2,7 +2,7 @@
 
 const connection = require('./connection')
 
-function addTicket(user, title, description, severity, island, region, area, crag, wall, route, testDb){
+function addTicket(user, title, description, severity, location, testDb){
   const db = testDb || connection
   
   //TODO get definition on data that is saved 
