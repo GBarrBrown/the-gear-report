@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import ActionStack from './ActionStack'
 
-import {getCurrentTicketById} from '../api/local/tickets'
+import {getCurrentTicketById, getTicketLocationsById} from '../api/local/tickets'
 
 
 class Ticket extends React.Component {
@@ -13,6 +13,8 @@ class Ticket extends React.Component {
 
         }
     }
+
+
 
     componentDidMount() {
         var ticketId = this.props.match.params.ticketId
@@ -33,12 +35,18 @@ class Ticket extends React.Component {
                             <h3>Severity: {this.props.currentTicket.severity}</h3><br />
                             <h3>Created: {this.props.currentTicket.created_at}</h3><br />
                             <h3>Grant Status: {(this.props.currentTicket.has_grant) ? 'Funded' : 'Not Funded'}</h3>
+                            {/* <h3></h3> need to display the location stack related to this ticket, eg: island-north,region-auck, region auckcity, area-xyz, crag-xyz, wall-2837, route-29387  */}
                         </div>
                         <div className="actionStack">
                             <ActionStack />
                         </div>
                     </div>) : <h2>No Ticket Found Matching That ID</h2>}
 
+                    <button onClick={
+                        () => {console.log('button clicked, looking for location by ticket id: ', 
+                        this.state.ticketId), this.props.getTicketLocationsById(this.state.ticketId)}
+                        }>Get Ticket Locations By Id
+                    </button>
             
             </div>
         )
@@ -52,7 +60,8 @@ function mapStateToProps({currentTicket}){
 
 function mapDispatchToProps(dispatch){
     return{
-        getCurrentTicketById: id => dispatch(getCurrentTicketById(id))
+        getCurrentTicketById: id => dispatch(getCurrentTicketById(id)),
+        getTicketLocationsById: id => dispatch(getTicketLocationsById(id))
     }
 }
 

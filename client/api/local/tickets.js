@@ -26,3 +26,13 @@ export function getCurrentTicketById(ticketId) {
     })
   }
 }
+
+export function getTicketLocationsById(ticketId) {
+  console.log('hit api fn')
+  return (dispatch) => {
+    request.get(`api/v1/tickets/locations-by-id/${ticketId}`)
+    .then(res => {
+      console.log('api response:', res.body)
+    })
+  }
+}
