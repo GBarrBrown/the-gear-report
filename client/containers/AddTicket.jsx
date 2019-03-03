@@ -18,7 +18,6 @@ export class AddTicket extends Component {
     thirdDropdown: '',
     fourthDropdown: '',
     fifthDropdown: '',
-    route: '',
     user: 2 //TODO user should be from this.props
   };
   

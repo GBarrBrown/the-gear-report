@@ -69,7 +69,8 @@ export function addTicket(payload){
   return (dispatch) => {
     request.post('/api/v1/tickets', payload)
     .then(res => {
-      dispatch((res.body))//should dispatch get all tickets
+      let ticketId = res.body[0]
+      document.location = `/tickets/ticketId/${ticketId}`
     })
     .catch(err => {
       dispatch(showError(err.message))
