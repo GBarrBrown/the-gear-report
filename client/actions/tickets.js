@@ -54,10 +54,3 @@ export function loadTicketLocations(locations) {
     locations
   }
 }
-
-// export function loadLocationsByParent(children) {
-//   return {
-//     type: 'GET_CHILDREN',
-//     children
-//   }
-// }
