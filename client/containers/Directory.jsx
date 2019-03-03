@@ -46,6 +46,7 @@ class Directory extends React.Component {
   componentDidMount() {
     {this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(this.props.currentLocation)}
     {this.props.currentLocation && this.props.getLocationsByParent(this.props.currentLocation)}
+
   }
 	
 	componentWillReceiveProps() {
@@ -56,8 +57,7 @@ class Directory extends React.Component {
 
   handleClick(id) {
     return function(e) {
-      console.log(id);
-      
+      location.href=`/${id}`
     }
   };
 
@@ -77,25 +77,25 @@ class Directory extends React.Component {
             className={classes.root}>
 
 					
-					
+
           <ListItem button>
             <ListItemText inset primary={this.props.loadParentByCurrent[0].name} 
                                 inset={true} 
                                 value={this.props.loadParentByCurrent[0].id}
-                                onClick={this.handleClick(this.props.loadParentByCurrent[0].id)}/>
+                                onClick={this.handleClick(this.props.loadParentByCurrent[0].id)}
+                                />
           </ListItem>
+
           
-          
-          {console.log(this.props.loadChildrenByParent)}
+      
 
           {this.props.loadChildrenByParent.map((child, i) => {
-              console.log(child.id)
-              console.log(this.props.currentLocation)
             if (child.id != this.props.currentLocation) {
               return (
               <ListItem button
 												selected={this.state.selectedIndex === 2}
-                        key={i}>
+                        key={i}
+                        onClick={this.handleClick(child.id)}>
               	<ListItemText inset secondary={child.name} />
             	</ListItem> 
               )
@@ -114,7 +114,8 @@ class Directory extends React.Component {
                 <Collapse in={this.state.open} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
                   {this.props.children.map((child, i) => {
-                    return (<ListItem button className={classes.nested}>
+                    return (<ListItem button className={classes.nested}
+                      onClick={this.handleClick(child.id)}>
                       <ListItemText inset secondary={child.name} />
                     </ListItem>
                     )
