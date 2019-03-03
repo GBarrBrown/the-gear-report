@@ -1,11 +1,11 @@
 
 export const islandRanges = [
   {
-    value: 1,
+    id: 1,
     name: 'North Island'
   },
   {
-    value: 2,
+    id: 2,
     name: 'South Island'
   }
 ];
