@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import TicketInfoCard from '../components/TicketInfoCard'
+
 import ActionStack from './ActionStack'
 
 import {getCurrentTicketById, getTicketLocationsById} from '../api/local/tickets'
@@ -17,12 +19,21 @@ class Ticket extends React.Component {
 
   componentDidMount() {
       var ticketId = this.props.match.params.ticketId
-      this.setState({ticketId: ticketId})
+      this.setState({ticketId: ticketId})       //adds ticketId to local state
       this.props.getCurrentTicketById(ticketId)
+
+      var apiRetrysRemaining = 10;
+      this.setState({apiRetrysRemaining: apiRetrysRemaining})     //adds apiRetrys to local state
 
   }
   componentWillReceiveProps() {
-    console.log((typeof this.props.ticketLocations[0] === 'undefined') && this.props.getTicketLocationsById(this.state.ticketId))
+    // Allows for 10 retrys to the local api for ticket data, otherwise will stop calling.
+    (this.state.apiRetrysRemaining > 0 ?
+      ((typeof this.props.ticketLocations[0] === 'undefined') && this.props.getTicketLocationsById(this.state.ticketId))
+      : null) 
+
+    this.setState({apiRetrysRemaining: this.state.apiRetrysRemaining-1})
+    console.log('compoentWillRecieveProps - Ticket.jsx')
   }
 
   render() {
@@ -51,7 +62,7 @@ class Ticket extends React.Component {
           this.state.ticketId), this.props.getTicketLocationsById(this.state.ticketId)}
           }>Get Ticket Locations By Id
         </button> */}
-
+      <TicketInfoCard ticketLocations={this.props.ticketLocations}/>
       </div>
     )
   }
