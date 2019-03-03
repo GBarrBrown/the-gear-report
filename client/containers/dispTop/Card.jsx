@@ -19,12 +19,22 @@ const styles = {
     },
   };
 
+  function eventHandler(id) {
+    location.href=`/tickets/ticketId/${id}`
+  }
+
   
   function MediaCard(props) {
     const { classes } = props;
+
+    var text = props.description
+    var count = 65
+
+    var cutDescription = text.slice(0, count) + (text.length > count ? "..." : "");
     
     return (
-        <div className="topRecentTi">
+        <div className="topRecentTi"
+        >
       <Card className={classes.card}>
         <CardActionArea>
           <CardMedia
@@ -37,12 +47,17 @@ const styles = {
               {props.title}
             </Typography>
             <Typography component="p">
-              {props.description}
+              {cutDescription}
             </Typography>
+            <br />
+            <Typography>
+              Crag: {props.crag}
+            </Typography>
+              
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" onClick={event => { eventHandler(props.id) }}>
             View Ticket
           </Button>
           <Button size="small" color="primary">

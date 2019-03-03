@@ -14,7 +14,7 @@ class TopRecentTi extends React.Component {
     render() {
         return (
             <div className="topRecentTi">TopRecentTi
-                <MediaCard title={'test'} description={'Lets just test this out shall we?'} id={4} />
+                <MediaCard title={'test'} description={'Lets just test thsadsb dfsjahd bfjs hdffdh sjfhsd gfjkhsdg fjshd fkjhs dfkjhsd gfkjhs gdfjkhgsdfkjhsgdfkjhsdjfhsjkhdgfksjhdgfksjhdfbskjhdfbkjshdbis out shall we?'} id={1} />
             </div>
         )
     }
