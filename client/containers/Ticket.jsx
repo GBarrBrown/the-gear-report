@@ -25,18 +25,21 @@ class Ticket extends React.Component {
     render() {
         return (
             <div className="ticketComponent">
-                <h3>Ticket</h3>
-                <div>
-                    <h2>{this.props.currentTicket.title}</h2><br />
-                    <h3>Description:</h3>
-                    <p>{this.props.currentTicket.description}</p><br />
-                    <h3>Severity: {this.props.currentTicket.severity}</h3><br />
-                    <h3>Created: {this.props.currentTicket.created_at}</h3><br />
-                    <h3>Grant Status: {(this.props.currentTicket.has_grant) ? 'Funded' : 'Not Funded'}</h3>
-                </div>
-            <div className="actionStack">
-                <ActionStack />
-            </div>
+                {this.props.currentTicket ? (
+                    <div>
+                        <div>
+                            <h2>{this.props.currentTicket.title}</h2><br />
+                            <h3>Description:</h3>
+                            <p>{this.props.currentTicket.description}</p><br />
+                            <h3>Severity: {this.props.currentTicket.severity}</h3><br />
+                            <h3>Created: {this.props.currentTicket.created_at}</h3><br />
+                            <h3>Grant Status: {(this.props.currentTicket.has_grant) ? 'Funded' : 'Not Funded'}</h3>
+                        </div>
+                        <div className="actionStack">
+                            <ActionStack />
+                        </div>
+                    </div>) : <h2>No Ticket Found Matching That ID</h2>}
+
             
             </div>
         )
