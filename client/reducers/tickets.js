@@ -24,13 +24,10 @@ export function dropdownArr (state = initialFormState, action){
 }
 
 export function allTickets (state = initialState, action) {
-  
   switch (action.type){
     case 'GET_TICKETS':
     console.log('allTickets reducer');
       return action.tickets
-      
-
       default:
         return state
   }

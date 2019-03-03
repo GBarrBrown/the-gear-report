@@ -7,28 +7,28 @@ export function addTicket(currentTicket) {
   };
 }
 
-export function loadIslandDropdownArr(islandDropdownArr) {
+export function loadFirstDdArr(islandDropdownArr) {
   return {
     type: 'UPDATE_ISLAND_DROPDOWN',
     islandDropdownArr
   }
 }
 
-export function loadRegionDropdownArr(regionDropdownArr) {
+export function loadSecondDdArr(regionDropdownArr) {
   return {
     type: 'UPDATE_REGION_DROPDOWN',
     regionDropdownArr
   }
 }
 
-export function loadAreaDropdownArr(areaDropdownArr) {
+export function loadThirdDdArr(areaDropdownArr) {
   return {
     type: 'UPDATE_AREA_DROPDOWN',
     areaDropdownArr
   }
 }
 
-export function loadCragDropdownArr(cragDropdownArr) {
+export function loadFourthDdArr(cragDropdownArr) {
   return {
     type: 'UPDATE_CRAG_DROPDOWN',
     cragDropdownArr

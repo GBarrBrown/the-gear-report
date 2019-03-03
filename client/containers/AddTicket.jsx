@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import {TextField, MenuItem, Button, FormControl} from '@material-ui/core';
 
 import {islandRanges, severityRanges } from '../helper-functions/allTickets'
-import { addTicket, getIslandByParent, getRegionByParent, getAreaByParent, getCragByParent } from '../api/local/form'
+import { addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent } from '../api/local/form'
 
 export class AddTicket extends Component {
   constructor(props){
@@ -14,11 +14,11 @@ export class AddTicket extends Component {
       title: '',
       description: '',
       severity: '',
-      island: '',
-      region: '',
-      area: '',
-      crag: '',
-      wall: '',
+      firstDropdown: '',
+      secondDropdown: '',
+      thirdDropdown: '',
+      fourthDropdown: '',
+      fifthDropdown: '',
       route: '',
       user: 2 //TODO user should be from this.props
     };
@@ -32,31 +32,31 @@ export class AddTicket extends Component {
     this.setState({ [event.target.name]: event.target.value });
     let parentId = event.target.value
     switch (event.target.name){
-      case 'island':
-        return this.props.getRegionByParent(parentId)
-      case 'region':
-        return this.props.getAreaByParent(parentId)
-      case 'area':
-        return this.props.getCragByParent(parentId)
-      case 'crag':
-        return this.props.getCragByParent(parentId)
+      case 'firstDropdown':
+        return this.props.getSecondByParent(parentId)
+      case 'secondDropdown':
+        return this.props.getThirdByParent(parentId)
+      case 'thirdDropdown':
+        return this.props.getfourthDropdownByParent(parentId)
+      case 'fourthDropdown':
+        return this.props.getfourthDropdownByParent(parentId)
     }
   };
 
   handleSumbit = (e) => {
     e.preventDefault()
-    const {user, title, description, severity, island, region, area, crag, wall, route} = this.state;
+    const {user, title, description, severity, firstDropdown, secondDropdown, thirdDropdown, fourthDropdown, fifthDropdown, sixthDropdown} = this.state;
     let newTicket = {
       user,
       title,
       description,
       severity,
-      island,
-      region,
-      area,
-      crag,
-      wall,
-      route,
+      location: [firstDropdown,
+      secondDropdown,
+      thirdDropdown,
+      fourthDropdown,
+      fifthDropdown,
+      sixthDropdown]
     }
     console.log(newTicket)
     this.props.addTicket(newTicket)
@@ -104,10 +104,10 @@ export class AddTicket extends Component {
           <TextField
             select
             label="Island"
-            value={this.state.island}
+            value={this.state.firstDropdown}
             onChange={this.handleChange}
             inputProps={{
-              name: 'island'
+              name: 'firstDropdown'
             }}
             >
             {islandRanges.map(option => (
@@ -117,32 +117,32 @@ export class AddTicket extends Component {
               ))}
           </TextField>
         
-          {this.state.island && <TextField
+          {this.state.firstDropdown && <TextField
             select
             label="Region"
-            value={this.state.region}
+            value={this.state.secondDropdown}
             onChange={this.handleChange}
             inputProps={{
-              name: 'region'
+              name: 'secondDropdown'
             }}
             >
-            {dropdownArr.region && dropdownArr.region.map(option => (
-                <MenuItem key={option.id} value={option.id}>
+            {dropdownArr.secondDropdown && dropdownArr.secondDropdown.map(option => (
+                <MenuItem key={option.id} value={option}>
                   {option.name}
                 </MenuItem>
               ))}
           </TextField>}
           
-          {this.state.region && <TextField
+          {this.state.secondDropdown && <TextField
             select
-            label={dropdownArr.area.type}
-            value={this.state.area}
+            label={dropdownArr.thirdDropdown.type}
+            value={this.state.thirdDropdown}
             onChange={this.handleChange}
             inputProps={{
-              name: 'area'
+              name: 'thirdDropdown'
             }}
             >
-            {dropdownArr.area && dropdownArr.area.map(option => (
+            {dropdownArr.thirdDropdown && dropdownArr.thirdDropdown.map(option => (
               
                 <MenuItem key={option.id} value={option.id }>
                   {option.name}
@@ -152,16 +152,16 @@ export class AddTicket extends Component {
               ))}
           </TextField>}
           
-          {this.state.area && <TextField
+          {this.state.thirdDropdown && <TextField
             select
-            label="Crag"
-            value={this.state.crag}
+            label={dropdownArr.fourthDropdown.type}
+            value={this.state.fourthDropdown}
             onChange={this.handleChange}
             inputProps={{
-              name: 'crag'
+              name: 'fourthDropdown'
             }}
             >
-            {dropdownArr.crag && dropdownArr.crag.map(option => (
+            {dropdownArr.fourthDropdown && dropdownArr.fourthDropdown.map(option => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.name}
                 </MenuItem>
@@ -172,13 +172,13 @@ export class AddTicket extends Component {
 
         
         <div>
-          <Button  
+          {this.state.title && <Button  
             onClick={this.handleSubmit}
             variant="contained" 
             size="small"
             type="submit" >
               Create ticket
-          </Button>
+          </Button>}
         
         </div>
         </form>
@@ -192,7 +192,7 @@ function mapStateToProps({ user, dropdownArr }){
 }
 
 function mapDispatchToProps( dispatch ){
-  return bindActionCreators({addTicket, getIslandByParent, getRegionByParent, getAreaByParent, getCragByParent}, dispatch)
+  return bindActionCreators({addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTicket)

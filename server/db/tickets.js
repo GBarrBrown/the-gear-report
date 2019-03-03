@@ -7,11 +7,20 @@ function addTicket(user, title, description, severity, island, region, area, cra
   
   //TODO get definition on data that is saved 
 
-  return db('tickets')
-  // .insert({
-  //   title: title,
-  //   description: description,
-  //   severity: severity,
+  // return db('tickets')
+  // // .insert({
+  // //   title: title,
+  // //   description: description,
+  // //   severity: severity,
+  
+  // then(newticketId
+  // join_table
+  //   locations.map(object
+       
+  //     insert({t_id: newTickedId, l_id: object})
+  //   )
+  // )
+  // .insert()
   
   
   // })

@@ -1,13 +1,13 @@
 //api form.js
 import request from 'superagent'
 
-import {loadIslandDropdownArr, loadAreaDropdownArr, loadRegionDropdownArr, loadCragDropdownArr, showError} from '../../actions/index'
+import {loadFirstDdArr, loadThirdDdArr, loadSecondDdArr, loadFourthDdArr, showError} from '../../actions/index'
 
-export function getIslandByParent(parentId) {//get island
+export function getFirstByParent(parentId) {//get island
   return (dispatch) => {
     request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
-      dispatch(loadIslandDropdownArr(res.body))
+      dispatch(loadFirstDdArr(res.body))
     })
     .catch(err => {
       console.log('ERROR!', err);
@@ -15,11 +15,11 @@ export function getIslandByParent(parentId) {//get island
   }
 }
 
-export function getRegionByParent(parentId) {// get region
+export function getSecondByParent(parentId) {// get region
   return (dispatch) => {
     request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
-      dispatch(loadRegionDropdownArr(res.body))
+      dispatch(loadSecondDdArr(res.body))
     })
     .catch(err => {
       console.log('ERROR!', err);
@@ -27,11 +27,11 @@ export function getRegionByParent(parentId) {// get region
   }
 }
 
-export function getAreaByParent(parentId) {// get area
+export function getThirdByParent(parentId) {
   return (dispatch) => {
     request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
-      dispatch(loadAreaDropdownArr(res.body))
+      dispatch(loadThirdDdArr(res.body))
     })
     .catch(err => {
       console.log('ERROR!', err);
@@ -39,11 +39,11 @@ export function getAreaByParent(parentId) {// get area
   }
 }
 
-export function getCragByParent(parentId) {// get crag
+export function getFourthByParent(parentId) {
   return (dispatch) => {
     request.get(`/api/v1/locations/parent/${parentId}`)
     .then(res => {
-      dispatch(loadCragDropdownArr(res.body))
+      dispatch(loadFourthDdArr(res.body))
     })
     .catch(err => {
       console.log('ERROR!', err);
