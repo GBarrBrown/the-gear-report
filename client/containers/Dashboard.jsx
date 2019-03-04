@@ -36,8 +36,8 @@ class Dashboard extends React.Component {
     }
 }
 
-function mapStateToProps({ currentLocation }) {
-    return { currentLocation }
+function mapStateToProps({ currentLocation, auth }) {
+    return { currentLocation, auth }
 }
 
 function mapDispatchToProps(dispatch) {

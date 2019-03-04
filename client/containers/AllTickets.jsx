@@ -36,7 +36,6 @@ export class AllTickets extends React.Component {
               icon: 'more_horiz',
               tooltip: 'More Info',
               onClick: (event, rowData) => {
-                console.log(rowData);
                 location.href=`/tickets/ticketId/${rowData.id}`
               },
             },

@@ -51,13 +51,14 @@ class Directory extends React.Component {
 	
 	componentWillReceiveProps() {
 		{this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(this.props.currentLocation)}
-		{this.props.loadLocationById.length > 0 && this.props.loadParentByCurrent.length < 1 && this.props.getParentByCurrent(this.props.loadLocationById[0].parent_id)}
+		{this.props.loadLocationById.length > 0 && this.props.loadLocationById[0].parent_id && this.props.loadParentByCurrent.length < 1 && this.props.getParentByCurrent(this.props.loadLocationById[0].parent_id)}
     {this.props.loadParentByCurrent.length > 0 && !this.props.loadChildrenByParent.length > 0 && this.props.getChildrenByParent(this.props.loadParentByCurrent[0].id)}
 	}
 
-  handleClick(id) {
+  handleClick = (id) => {
     return function(e) {
-      location.href=`/${id}`
+      location.href=`/dashboard/${id}`
+      // this.props.location.push(`/dashboard/${id}`)
     }
   };
 

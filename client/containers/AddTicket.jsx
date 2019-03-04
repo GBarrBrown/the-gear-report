@@ -12,6 +12,7 @@ export class AddTicket extends Component {
     title: '',
     description: '',
     severity: '',
+    nz: 104,
     island: '',
     firstDropdown: '',
     secondDropdown: '',
@@ -23,13 +24,11 @@ export class AddTicket extends Component {
   
 
   onSelect = type => {
-    console.log('selected:', type)
   }
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
     let parentId = event.target.value
-    console.log(event.target.name,':', event.target.value)
     switch (event.target.name){
     case 'island':
       return this.props.getFirstByParent(parentId)
@@ -47,13 +46,14 @@ export class AddTicket extends Component {
 
   handleSumbit = (e) => {
     e.preventDefault()
-    const {user, title, description, severity, island, firstDropdown, secondDropdown, thirdDropdown, fourthDropdown, fifthDropdown} = this.state;
+    const {user, title, description, severity, nz, island, firstDropdown, secondDropdown, thirdDropdown, fourthDropdown, fifthDropdown} = this.state;
     let newTicket = {
       user,
       title,
       description,
       severity,
       location: [
+        nz,
         island,
         firstDropdown,
         secondDropdown,

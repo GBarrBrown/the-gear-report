@@ -5,6 +5,8 @@ exports.up = (knex, Promise) => {
     table.string('name')
     table.string('email')
     table.string('profile_url')
+    table.boolean('admin').defaultTo(false)
+    table.string('hash')
   })
 }
 

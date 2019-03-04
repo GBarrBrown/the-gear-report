@@ -8,11 +8,10 @@ exports.up = function(knex, Promise) {
       table.integer('severity')
           .notNullable();
       table.string('img')
-      table.string('crag_name')
       table.boolean('has_grant')
           .defaultTo(false)
       table.timestamps(true, true)
-      table.string('user_id')
+      table.integer('user_id')
   })
 };
 

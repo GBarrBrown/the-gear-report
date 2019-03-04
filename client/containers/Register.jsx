@@ -6,27 +6,21 @@ import { loginError } from '../actions/auth/login'
 
 
 class Register extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      username: '',
-      first_name: '',
-      last_name: '',
-      password: '',
-      confirm_password: ''
-    }
-    this.updateDetails = this.updateDetails.bind(this)
-    this.submit = this.submit.bind(this)
-  } 
+  state = {
+    name: '',
+    email: '',
+    password: '',
+    confirm_password: ''
+  }
   
- updateDetails(e) {
+ updateDetails = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  submit(e) {
+  submit = (e) => {
     e.preventDefault()
     e.target.reset()
-    let {name, password, confirm_password, firstName, lastName} = this.state
+    let {name, password, confirm_password} = this.state
     if (confirm_password != password) return this.props.dispatch(loginError("Passwords don't match"))
     this.props.dispatch(registerUser(this.state))
   }
@@ -40,15 +34,12 @@ class Register extends Component {
           <hr />
           {auth.errorMessage && <span className="">{auth.errorMessage}</span>}
           <label className="">Username
-            <input required className="" placeholder="User Name" type="text" name="username" onChange={this.updateDetails}/>
+            <input required className="" placeholder="User Name" type="text" name="name" onChange={this.updateDetails}/>
           </label>
 
           <div className="">
-            <label className="">First Name
-              <input required className="" placeholder="First Name" type="text" name="first_name" onChange={this.updateDetails}/>
-            </label>
-            <label className="">Last Name
-              <input className="" placeholder="Last Name" type="text" name="last_name" onChange={this.updateDetails}/>
+            <label className="">Email
+              <input required className="" placeholder="Email" type="text" name="email" onChange={this.updateDetails}/>
             </label>
           </div>
           <br />
