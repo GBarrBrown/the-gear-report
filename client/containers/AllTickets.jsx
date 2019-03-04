@@ -1,25 +1,48 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import AddTicketButton from '../components/AddTicketButton'
+import MaterialTable from 'material-table'
+
+import {getAllTickets} from '../api/local/tickets'
 
 export class AllTickets extends React.Component {
 
+  componentDidMount() {
+    this.props.getAllTickets()
+  }
 
   render() {
     return (
       <div className='tickets-container'>
-        <h1>Tickets</h1>
-        <div className='tickets-table'>
-          <div className='table-header'>
-            sortby header
-          </div>
-          <div>
-            map through info here
-          </div>
-
-        </div>
-        <div className="keys-container">
-          <h4>import keys component here</h4>
-        </div>
+      {this.props.allTickets[0] &&
+        <MaterialTable className='tickets-table'
+          columns={[
+            { title: 'Title', field: 'title', filtering: false, },
+            { title: 'Severity', field: 'severity', type: 'numeric', },
+            { title: 'Sponsored', field: 'has_grant', type: 'boolean' },
+            { title: 'Created By', field: 'createdBy'},
+            { title: 'Date Created', field: 'created_at', type: 'date', filtering: false,},
+            { title: 'Last Updated', field: 'updated_at', type: 'numeric', filtering: false,},
+          ]}
+          data={this.props.allTickets}
+          title="All Tickets For New Zealand"
+          options={{
+            filtering: true,
+          }}
+          actions={[
+            {
+              icon: 'more_horiz',
+              tooltip: 'More Info',
+              onClick: (event, rowData) => {
+                location.href=`/tickets/ticketId/${rowData.id}`
+              },
+            },
+          ]}
+        />
+      }
+      <a className='add-button' href="/tickets/add"> <AddTicketButton /> </a>
       </div>
     )
   }
@@ -31,4 +54,8 @@ function mapStateToProps({ allTickets }){
   }
 }
 
-export default connect(mapStateToProps)(AllTickets)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({getAllTickets}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllTickets)

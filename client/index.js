@@ -8,11 +8,16 @@ import thunkMiddleware from 'redux-thunk'
 import App from './containers/App'
 import reducers from './reducers';
 
+// Sets initial state OMG so long as passed in as second arg of createStore
+const initialState = {
+  currentLocation: 1,
+}
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(reducers, composeEnhancers(
+const store = createStore(reducers, initialState, composeEnhancers(
   applyMiddleware(thunkMiddleware)
 ))
+
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
