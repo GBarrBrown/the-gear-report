@@ -15,14 +15,14 @@ class Ticket extends React.Component {
     }
   }
 
-
-
   componentDidMount() {
       var ticketId = this.props.match.params.ticketId
       this.setState({ticketId: ticketId})       //adds ticketId to local state
+      console.log(ticketId)
       this.props.getCurrentTicketById(ticketId)
 
-      var apiRetrysRemaining = 20;
+      // increase apiRetrysRemaining stops inifinite loops when looking for tickets that dont exist
+      var apiRetrysRemaining = 10;
       this.setState({apiRetrysRemaining: apiRetrysRemaining});     //adds apiRetrys to local state
 
   }
@@ -33,45 +33,50 @@ class Ticket extends React.Component {
       ? ((typeof this.props.ticketLocations[0] === 'undefined') && this.props.getTicketLocationsById(this.state.ticketId))
       : null
     );
-
-    (typeof this.props.ticketCreator.name === 'undefined'
-      ? ((typeof this.props.currentTicket.user_id !== 'undefined') && this.props.getTicketCreator(this.props.currentTicket.user_id))
-      : null
-    );
-
-
-    this.setState({apiRetrysRemaining: this.state.apiRetrysRemaining-1})
-
+    
+    // gets the ticketCreator if there not already done & if a user_id on currentTicket is supplied
+    // ((typeof this.props.ticketCreator.name === 'undefined') && (typeof this.props.currentTicket !== 'null')
+    //   ? ((typeof this.props.currentTicket.user_id !== 'undefined') && this.props.getTicketCreator(this.props.currentTicket.user_id))
+    //   : null
+    // );
+    
+    (this.state.apiRetrysRemaining > 0 && this.setState({apiRetrysRemaining: this.state.apiRetrysRemaining-1}));
   }
 
   render() {
+    console.log(this.props.currentTicket)
+    // console.log(typeof this.props.currentTicket.id)
     return (
       <div className="ticketComponent">
 
-        {this.props.currentTicket ? (
-          <div>
+        {(this.props.currentTicket 
+          ? (
             <div>
-              <h2>{this.props.currentTicket.title}</h2><br />
-              <h3>Description:</h3>
-              <p>{this.props.currentTicket.description}</p><br />
-              <h3>Severity: {this.props.currentTicket.severity}</h3><br />
-              <h3>Created: {this.props.currentTicket.created_at}</h3><br />
-              <h3>Grant Status: {(this.props.currentTicket.has_grant) ? 'Funded' : 'Not Funded'}</h3>
+              <div>
+                <h2>{this.props.currentTicket.title}</h2><br />
+                <h3>Description:</h3>
+                <p>{this.props.currentTicket.description}</p><br />
+                <h3>Severity: {this.props.currentTicket.severity}</h3><br />
+                <h3>Created: {this.props.currentTicket.created_at}</h3><br />
+                <h3>Grant Status: {(this.props.currentTicket.has_grant) ? 'Funded' : 'Not Funded'}</h3><br />
+                <h3>Logged by: {this.props.ticketCreator.name}</h3>
+              </div>
+              <div className="actionStack">
+                <ActionStack />
+              </div>
+              <div className="ticketInfoCard">
+                <TicketInfoCard ticketLocations={this.props.ticketLocations}/>
+              </div>
             </div>
-            <div className="actionStack">
-              <ActionStack />
-            </div>
-            <div className="ticketInfoCard">
-              <TicketInfoCard ticketLocations={this.props.ticketLocations}/>
-            </div>
-          </div>) : <h2>No Ticket Found Matching That ID</h2>
+          )
+          : <h2>No Ticket Found Matching That ID</h2>
+          )
         }
-      <button onClick={() => {console.log('button clicked - getTicketCreator'), this.props.getTicketCreator(this.props.currentTicket.user_id)}}>Click Me To Get Ticket Creator</button>
+
       </div>
     )
   }
 }
-
 
 function mapStateToProps({currentTicket, ticketLocations, ticketCreator}){
   return{currentTicket, ticketLocations, ticketCreator}

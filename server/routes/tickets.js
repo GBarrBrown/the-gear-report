@@ -32,9 +32,12 @@ router.get('/all', (req, res) => {
 })
 
 router.get('/ticketId/:ticketId', (req, res) => {
+  console.log('routes', req.params.ticketId)
   var ticketId = req.params.ticketId
+  console.log(ticketId)
   ticketDb.getTicketById(ticketId)
   .then(ticket => {
+    console.log(ticket)
     res.json(ticket)
   })
   .catch(err => {
