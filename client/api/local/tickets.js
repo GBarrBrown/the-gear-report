@@ -38,3 +38,7 @@ export function getTicketLocationsById(ticketId) {
     })
   }
 }
+
+export function getTicketCreator(ticketId) {
+  console.log('hitting getTicketCreator in api/local/tickets with id:', ticketId)
+}
