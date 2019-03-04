@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import {loadAllTickets, loadCurrentTicket} from '../../actions/tickets'
+import {loadAllTickets, loadCurrentTicket, loadTicketsByLocation} from '../../actions/tickets'
 
 export function getAllTickets() {
   return (dispatch) => {
@@ -25,3 +25,25 @@ export function getCurrentTicketById(ticketId) {
     })
   }
 }
+
+export function getTicketsByLocation(locationId) {
+  return (dispatch) => {
+    request.get(`/api/v1/tickets/locationId/${locationId}`)
+    .then(res => {
+    let result = res.body.map(a => a.ticket_id);
+    request.post(`/api/v1/tickets/ticketIds`)
+            .send(result)
+            .then(res => {
+            var tickets = JSON.parse(res.text)
+            dispatch(loadTicketsByLocation(tickets))
+            })
+            .catch(err => {
+              console.log('ERROR!', err)
+            })
+    })
+    .catch(err => {
+      console.log('ERROR!', err)
+    })
+  }
+}
+

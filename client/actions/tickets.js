@@ -47,3 +47,10 @@ export function loadCurrentTicket(ticket) {
     ticket
   }
 }
+
+export function loadTicketsByLocation(tickets) {
+  return {
+    type: 'UPDATE_TICKETS_BY_LOC',
+    tickets
+  }
+}

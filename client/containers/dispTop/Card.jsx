@@ -58,7 +58,7 @@ const styles = {
           </CardContent>
           </div>
         </CardActionArea>
-        {/* <CardActions>
+        {/*4<CardActions>
           <Button size="small" color="primary" onClick={event => { eventHandler(props.id) }}>
             View Ticket
           </Button>

@@ -1,7 +1,6 @@
 const initialState = []
 
 export function updateCurrentLocation(state = initialState, action) {
-  console.log('reducer hit')
     switch (action.type){
         case 'UPDATE_LOCATION':
           return action.currentLocation
