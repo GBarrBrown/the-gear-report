@@ -44,7 +44,7 @@ class TicketInfoCard extends Component {
         <CardActions>
           {(typeof this.props.ticketLocations[0] === 'undefined'
           ? null 
-          : <Button size="small" onClick={() => location.href=`/${this.props.ticketLocations[this.props.ticketLocations.length-1].loc_id}`}>Go To '{(this.props.ticketLocations[this.props.ticketLocations.length-1].name)}'</Button>
+          : <Button size="small" onClick={() => location.href=`/dashboard/${this.props.ticketLocations[this.props.ticketLocations.length-1].loc_id}`}>Go To '{(this.props.ticketLocations[this.props.ticketLocations.length-1].name)}'</Button>
           )}
         </CardActions>
 
