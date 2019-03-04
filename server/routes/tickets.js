@@ -45,7 +45,6 @@ router.get('/ticketId/:ticketId', (req, res) => {
   })
 })
 
-<<<<<<< HEAD
 router.get('/locationId/:locationId', (req, res) => {
   var locationId = req.params.locationId
   ticket_locDb.getTicketsByLoc(locationId)
@@ -71,7 +70,6 @@ router.post('/ticketIds', (req,res) => {
   })
 })  
 
-=======
 router.get('/locationsById/:ticketId', (req, res) => {
   var ticketId = req.params.ticketId
   ticketDb.getTicketLocationsById(ticketId)
@@ -83,7 +81,6 @@ router.get('/locationsById/:ticketId', (req, res) => {
   })
 
 })
->>>>>>> 92faabec3c34587499c65cde535e2ab6005b6439
 
 
 module.exports = router

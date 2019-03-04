@@ -1,10 +1,7 @@
 import request from 'superagent'
 
-<<<<<<< HEAD
-import {loadAllTickets, loadCurrentTicket, loadTicketsByLocation} from '../../actions/tickets'
-=======
-import {loadAllTickets, loadCurrentTicket, loadTicketLocations} from '../../actions/tickets'
->>>>>>> 92faabec3c34587499c65cde535e2ab6005b6439
+import {loadAllTickets, loadCurrentTicket, loadTicketLocations, loadTicketsByLocation} from '../../actions/tickets'
+
 
 export function getAllTickets() {
   return (dispatch) => {
@@ -30,7 +27,6 @@ export function getCurrentTicketById(ticketId) {
   }
 }
 
-<<<<<<< HEAD
 export function getTicketsByLocation(locationId) {
   return (dispatch) => {
     request.get(`/api/v1/tickets/locationId/${locationId}`)
@@ -45,22 +41,20 @@ export function getTicketsByLocation(locationId) {
             .catch(err => {
               console.log('ERROR!', err)
             })
-=======
+          }
+    )}
+  }
+
 export function getTicketLocationsById(ticketId) {
   console.log('hit api fn with ticketId:', ticketId)
   return (dispatch) => {
     request.get(`/api/v1/tickets/locationsById/${ticketId}`)
     .then(res => {
       dispatch(loadTicketLocations(res.body))
->>>>>>> 92faabec3c34587499c65cde535e2ab6005b6439
     })
     .catch(err => {
       console.log('ERROR!', err)
     })
   }
-<<<<<<< HEAD
 }
 
-=======
-}
->>>>>>> 92faabec3c34587499c65cde535e2ab6005b6439
