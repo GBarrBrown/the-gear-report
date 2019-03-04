@@ -44,14 +44,14 @@ class Directory extends React.Component {
   };
   
   componentDidMount() {
-    {this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(this.props.currentLocation)}
+    {this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(Number(this.props.currentLocation))}
     {this.props.currentLocation && this.props.getLocationsByParent(this.props.currentLocation)}
 
   }
 	
 	componentWillReceiveProps() {
-		{this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(this.props.currentLocation)}
-		{this.props.loadLocationById.length > 0 && this.props.loadLocationById[0].parent_id && this.props.loadParentByCurrent.length < 1 && this.props.getParentByCurrent(this.props.loadLocationById[0].parent_id)}
+		{this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(Number(this.props.currentLocation))}
+		{this.props.loadLocationById.length > 0 && this.props.loadParentByCurrent.length < 1 && this.props.getParentByCurrent(this.props.loadLocationById[0].parent_id)}
     {this.props.loadParentByCurrent.length > 0 && !this.props.loadChildrenByParent.length > 0 && this.props.getChildrenByParent(this.props.loadParentByCurrent[0].id)}
 	}
 

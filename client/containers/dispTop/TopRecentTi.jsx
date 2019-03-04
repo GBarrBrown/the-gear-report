@@ -17,7 +17,8 @@ class TopRecentTi extends React.Component {
     }
 
     componentWillReceiveProps() {
-        if (this.props.currentLocation && this.props.ticketsByLocation.length < 1) {
+        if (typeof this.props.currentLocation === 'string' && this.props.loadLocationById && this.props.ticketsByLocation.length < 1) {
+            console.log('hit')
             this.props.getTicketsByLocation(this.props.currentLocation)
         }
     }
@@ -42,10 +43,11 @@ class TopRecentTi extends React.Component {
     }
 }
 
-function mapStateToProps ({ticketsByLocation, currentLocation}) {
+function mapStateToProps ({ticketsByLocation, currentLocation, loadLocationById}) {
     return {
         ticketsByLocation,
-        currentLocation
+        currentLocation,
+        loadLocationById
     }
 }   
 
