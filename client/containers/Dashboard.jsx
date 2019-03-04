@@ -30,15 +30,15 @@ class Dashboard extends React.Component {
         console.log(type);
         switch(type) {
           case 'crag':
-            return <Info />
+            return <Info props={this.props}/>
           case 'wall':
-            return <Info />
+            return <Info props={this.props}/>
           case 'route':
-            return <Info />
+            return <Info props={this.props}/>
           case 'cliff':
-            return <Info />
+            return <Info props={this.props}/>
           default:
-            return <Globe />
+            return <Globe props={this.props}/>
         }
       }
 
@@ -48,18 +48,20 @@ class Dashboard extends React.Component {
         return (
             <div className="dashboard-container">
               <Directory />
-              <div className="dashboard">Dashboard</div>
+              <div className="dashboard"></div>
               <TopDisp />
               <div className='globe'>
-              {this.props.loadLocationById.length > 0 && this.renderCondition(this.props.loadLocationById[0].type)} 
+              {this.props.loadLocationById.length > 0 && 
+                this.props.loadParentByCurrent.length > 0 && 
+                this.renderCondition(this.props.loadLocationById[0].type)} 
               </div>
             </div>
         )
     }
 }
 
-function mapStateToProps({ currentLocation, auth, loadLocationById }) {
-    return { currentLocation, auth, loadLocationById }
+function mapStateToProps({ currentLocation, auth, loadLocationById, loadParentByCurrent }) {
+    return { currentLocation, auth, loadLocationById, loadParentByCurrent }
 }
 
 function mapDispatchToProps(dispatch) {
