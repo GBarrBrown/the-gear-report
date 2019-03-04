@@ -11,7 +11,7 @@ const initialFormState = {
 
 }
 
-export function currentTicket (state = initialState, action){
+export function currentTicket (state = {}, action){
   switch (action.type){
     case 'UPDATE_CURRENT_TICKET_OBJ':
       return action.ticket
