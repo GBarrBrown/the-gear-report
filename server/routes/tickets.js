@@ -54,10 +54,10 @@ router.get('/locationsById/:ticketId', (req, res) => {
 
 })
 
-router.get('/creatorById/:ticketId', (req, res) => {
-  var ticketId = req.params.ticketId
-  console.log('hitting getTicketCreator in server/routes/tickets with id:', ticketId)
-  ticketDb.getTicketCreator(ticketId)
+router.get('/creatorById/:creatorId', (req, res) => {
+  var creatorId = req.params.creatorId
+  console.log('hitting getTicketCreator in server/routes/tickets with id:', creatorId)
+  ticketDb.getTicketCreator(creatorId)
   .then(ticketCreator => {
     console.log('ticket creator: ', ticketCreator)
     res.json(ticketCreator)

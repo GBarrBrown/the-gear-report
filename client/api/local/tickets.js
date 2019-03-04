@@ -39,10 +39,10 @@ export function getTicketLocationsById(ticketId) {
   }
 }
 
-export function getTicketCreator(ticketId) {
-  console.log('hitting getTicketCreator in api/local/tickets with id:', ticketId)
+export function getTicketCreator(creatorId) {
+  console.log('hitting getTicketCreator in api/local/tickets with id:', creatorId)
   return(dispatch) => {
-    request.get(`/api/v1/tickets/creatorById/${ticketId}`)
+    request.get(`/api/v1/tickets/creatorById/${creatorId}`)
     .then(res => {
       // dispatch(loadTicketCreator(res.body))
       console.log('response: ',res.body)
