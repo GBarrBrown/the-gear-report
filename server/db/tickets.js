@@ -44,9 +44,18 @@ function getTicketLocationsById(ticketId, testDb) {
 
 }
 
+// getTicketCreator By Ticket Id... could be moved into a users db file, though this seems more relavent
+// to ticket related functions
+function getTicketCreator(creatorId, testDb) {
+  const db = testDb || connection
+  return db('users')
+  .where('id', creatorId).select().first()
+}
+
 module.exports = {
   addTicket,
   getAllTickets,
   getTicketById,
-  getTicketLocationsById
+  getTicketLocationsById,
+  getTicketCreator
 }
