@@ -1,86 +1,119 @@
-import React from 'react'
+
+import React, { Component } from 'react'
+import {BrowserRouter as Router, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import {AppBar, Toolbar, Typography, Button, Menu, MenuItem, IconButton} from '@material-ui/core';
 
-class Header extends React.Component {
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+};
 
-  render() {
-    const { auth } = this.props
+export class Header extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      auth: true,
+      anchorEl: null,
+    };
+  }
+
+  handleChange = event => {
+    this.setState({ auth: event.target.checked });
+  };
+
+  handleMenu = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+  
+  render(){
+    const { classes } = this.props;
+    const { auth, anchorEl } = this.state;
+    const open = Boolean(anchorEl);
     return (
-      <div className="header-container">
-        <div className="header">
-          <ul>
-            <li className="header-items"><a href="/">Home</a></li>
-            <li className="header-items"><a href="/tickets">Tickets</a></li>
-            <li className="header-items"><a href="/faq">FAQ</a></li>
-            <li className="header-items"><a href="/about">About</a></li>
-            <li className="header-items"><a href="/register">Register</a></li>
-
-          </ul>
-          {auth.isAuthenticated ? 
-            ( <div className="header-items-login">
-                <h3>{auth.user.name}</h3>
-                <img src={auth.user.picture} alt="Profile pic"/>
-              </div>
-            ) : 
-            (
-              <a href="/login">
-              <div className="header-items-login">
-                {auth.errorMessage}
-              </div>
-              </a>
-            )
-          }
+      <div className='header-container header'>
+        <div className={classes.root}>
+        <Router>
+          <AppBar position="static">
+            <Toolbar>
+              <Button component={Link} to='/' color="inherit">Home</Button>
+              
+              <Button 
+                  color="default"
+                  aria-owns={open ? 'menu-appbar' : undefined}
+                  // aria-haspopup="true"
+                  onClick={this.handleMenu}
+                >
+                Tickets
+              </Button>
+              
+              <Menu
+                      id="menu-appbar"
+                      anchorEl={anchorEl}
+                      anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      open={open}
+                      onClose={this.handleClose}
+                      className={classes.grow}
+                    >
+                      <a href="/tickets"><MenuItem onClick={this.handleClose}>View tickets</MenuItem></a>
+                      <a href="/tickets/add"><MenuItem onClick={this.handleClose}>Add ticket</MenuItem></a>
+                    </Menu>
+              <Button component={Link} to='/about'  color="inherit">About</Button>
+              <Button  component={Link} to='/login' color="inherit" >Login</Button>
+              {/* {auth.isAuthenticated ? 
+                ( <div className="header-items-login">
+                    <h3>{auth.user.name}</h3>
+                    <img src={auth.user.picture} alt="Profile pic"/>
+                  </div>
+                ) : 
+                (
+                  <a href="/login">
+                  <div className="header-items-login">
+                    Login {auth.errorMessage}
+                  </div>
+                  </a>
+                ) */}
+              
+            </Toolbar>
+          </AppBar>
+        </Router>
+          
         </div>
+        
       </div>
+      
 
 
 
     )
   }
 }
-const mapStateToProps = ({auth}) => {
-    return {
-      auth
-    }
-  }
 
-    export default connect(mapStateToProps)(Header)
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
-
-      //     <div className="header">
-      //   <a href="/">
-      //     <div className="header-items">
-      //       Home
-      //     </div>
-      //   </a>
-      //   <a href="/tickets">
-      //     <div className="header-items">
-      //       Tickets
-      //     </div>
-      //   </a>
-      //   <a href="/faq">
-      //     <div className="header-items">
-      //       FAQ
-      //     </div>
-      //   </a>
-      //   <a href="/about">
-      //     <div className="header-items">
-      //       About
-      //     </div>
-      //   </a>
-      //   {auth.isAuthenticated ? 
-      //   ( <div className="header-items-login">
-      //       <h3>{auth.user.name}</h3>
-      //       <img src={auth.user.picture} alt="Profile pic"/>
-      //     </div>
-      //   ) : 
-      //   (
-      //     <a href="/login">
-      //       <div className="header-items-login">
-      //         Login {auth.errorMessage}
-      //       </div>
-      //     </a>
-      //   )
-      // }
-
-      // </div>
+export default withStyles(styles)(Header)
