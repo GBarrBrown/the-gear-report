@@ -17,7 +17,6 @@ class Login extends React.Component {
     }
 
     responseFacebook = (response) => {
-      console.log(response);
       if(response.name === undefined){
         return this.props.loginError('Error')
       }

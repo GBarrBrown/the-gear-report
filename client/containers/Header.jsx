@@ -13,6 +13,8 @@ class Header extends React.Component {
             <li className="header-items"><a href="/tickets">Tickets</a></li>
             <li className="header-items"><a href="/faq">FAQ</a></li>
             <li className="header-items"><a href="/about">About</a></li>
+            <li className="header-items"><a href="/register">Register</a></li>
+
           </ul>
           {auth.isAuthenticated ? 
             ( <div className="header-items-login">

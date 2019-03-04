@@ -2,11 +2,11 @@ const {generatePasswordHash} = require('../auth/hash')
 
 const connection = require('./connection')
 
-function createUser (username, email, password, testDb) {
+function createUser (name, email, password, testDb) {
   const db = testDb || connection
   return generatePasswordHash(password)
     .then(hash => {
-      return db('users').insert({username, email, hash})
+      return db('users').insert({name, email, hash})
     })
 }
 

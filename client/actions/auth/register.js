@@ -8,10 +8,10 @@ export function registerUser(creds){
     return request.post(`/api/v1/register`, creds)
     .then(res => {
       const userInfo = saveUserToken(res.body.token);
-      userInfo.name = creds.first_name
+      userInfo.name = creds.name
       userInfo.isAuthenticated = true
       dispatch(receiveLogin(userInfo)); 
-      // document.location = "/dashboard/1"
+      document.location = "/dashboard/1"
     })
     .catch(err => {
       dispatch(loginError(err.response.body.message))

@@ -34,15 +34,12 @@ class Register extends Component {
           <hr />
           {auth.errorMessage && <span className="">{auth.errorMessage}</span>}
           <label className="">Username
-            <input required className="" placeholder="User Name" type="text" name="username" onChange={this.updateDetails}/>
+            <input required className="" placeholder="User Name" type="text" name="name" onChange={this.updateDetails}/>
           </label>
 
           <div className="">
-            <label className="">First Name
-              <input required className="" placeholder="First Name" type="text" name="first_name" onChange={this.updateDetails}/>
-            </label>
-            <label className="">Last Name
-              <input className="" placeholder="Last Name" type="text" name="last_name" onChange={this.updateDetails}/>
+            <label className="">Email
+              <input required className="" placeholder="Email" type="text" name="email" onChange={this.updateDetails}/>
             </label>
           </div>
           <br />
