@@ -7,7 +7,7 @@ import MediaCard from './Card'
 import {getTicketsByLocation} from '../../api/local/tickets'
 
 
-
+var count = 0
 class TopRecentTi extends React.Component {
     constructor(props) {
         super(props)
@@ -17,13 +17,19 @@ class TopRecentTi extends React.Component {
     }
 
     componentWillReceiveProps() {
-        if (this.props.currentLocation && this.props.ticketsByLocation.length < 1) {
+        
+        if (typeof this.props.currentLocation === 'string' && this.props.loadLocationById && count < 10 && this.props.ticketsByLocation.length < 1) {
+            
+            count += 1
+            console.log(count);
             this.props.getTicketsByLocation(this.props.currentLocation)
         }
     }
 
+    
+
     render() {
-     
+        
         return (
             <div className="topRecentTi">
             {this.props.ticketsByLocation.length > 0 &&
@@ -42,10 +48,11 @@ class TopRecentTi extends React.Component {
     }
 }
 
-function mapStateToProps ({ticketsByLocation, currentLocation}) {
+function mapStateToProps ({ticketsByLocation, currentLocation, loadLocationById}) {
     return {
         ticketsByLocation,
-        currentLocation
+        currentLocation,
+        loadLocationById
     }
 }   
 
