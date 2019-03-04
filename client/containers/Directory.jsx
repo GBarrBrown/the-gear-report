@@ -31,10 +31,14 @@ const styles = theme => ({
     height: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
+    
   },
   nested: {
     paddingLeft: theme.spacing.unit * 4,
   },
+  header: {
+    
+  }
 });
 
 class Directory extends React.Component {
@@ -74,7 +78,7 @@ class Directory extends React.Component {
         <div className='directory'>
         {this.props.loadChildrenByParent.length > 0 && 
           <List component="nav"
-            subheader={<ListSubheader component="div">Directory</ListSubheader>}
+            subheader={<ListSubheader className = {classes.header} component="div">Directory</ListSubheader>}
             className={classes.root}>
 
 					
