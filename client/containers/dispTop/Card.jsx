@@ -31,8 +31,10 @@ const styles = {
 
     var text = props.description
     var count = 32
-
     var cutDescription = text.slice(0, count) + (text.length > count ? "..." : "");
+    var title = props.title
+    var titleCount = 22
+    var cutTitle = title.slice(0, titleCount) + (title.length > titleCount ? "..." : "");
     
     return (
         <div className={props.classKey}
@@ -45,7 +47,7 @@ const styles = {
               Crag
             </Typography>
             <Typography gutterBottom variant="h5" component="h2">
-              {props.title}
+              {cutTitle}
             </Typography>
             <Typography component="p">
               {cutDescription}
