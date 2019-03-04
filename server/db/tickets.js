@@ -74,6 +74,7 @@ function getTicketLocationsById(ticketId, testDb) {
   return db('ticket_loc')
   .where('ticket_id', ticketId)
   .join('locations', 'locations.id', 'loc_id')
+  .orderBy('depth')
   .select()
 
 }
