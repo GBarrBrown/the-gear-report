@@ -58,7 +58,7 @@ class Ticket extends React.Component {
             </div>
           </div>) : <h2>No Ticket Found Matching That ID</h2>
         }
-
+      <button onClick={() => {console.log('get user button clicked')}}>Click Me To Get User Who Created Ticket</button>
       </div>
     )
   }
