@@ -28,15 +28,16 @@ export function loginError (message) {
   }
 }
 
-export function loginUser(email){
+export function loginUser(creds){
   return (dispatch) => {
     dispatch(requestLogin())
-    return request.post(`/api/v1/login`, email)
+    return request.post(`/api/v1/login`, creds)
     .then(res => {
       const userInfo = saveUserToken(res.body.token)
-      // userInfo.name = creds.first_name
+      userInfo.name = creds.name
+      userInfo.picture = creds.picture
       dispatch(receiveLogin(userInfo)); 
-      // document.location = "/dashboard/1" 
+      document.location = "/dashboard/1" 
     })
     .catch(err => {
       console.log(err)

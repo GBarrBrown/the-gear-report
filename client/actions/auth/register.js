@@ -9,7 +9,8 @@ export function registerUser(creds){
     .then(res => {
       const userInfo = saveUserToken(res.body.token);
       userInfo.name = creds.name
-      userInfo.isAuthenticated = true
+      userInfo.picture = creds.picture
+      
       dispatch(receiveLogin(userInfo)); 
       document.location = "/dashboard/1"
     })

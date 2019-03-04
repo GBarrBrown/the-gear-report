@@ -26,7 +26,7 @@ class Login extends React.Component {
         email: response.email
       })
       let {email, picture} = this.state
-      this.props.loginUser({email, picture})
+      this.props.loginUser({name, email, picture})
 
     }
 
