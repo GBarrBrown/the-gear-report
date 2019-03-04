@@ -33,7 +33,6 @@ export function loginUser(email){
     dispatch(requestLogin())
     return request.post(`/api/v1/login`, email)
     .then(res => {
-      console.log(res.body)
       const userInfo = saveUserToken(res.body.token)
       // userInfo.name = creds.first_name
       dispatch(receiveLogin(userInfo)); 

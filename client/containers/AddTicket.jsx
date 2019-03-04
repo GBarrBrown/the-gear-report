@@ -29,7 +29,6 @@ export class AddTicket extends Component {
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
     let parentId = event.target.value
-    console.log(event.target.name,':', event.target.value)
     switch (event.target.name){
     case 'island':
       return this.props.getFirstByParent(parentId)

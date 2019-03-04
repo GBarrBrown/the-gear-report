@@ -65,7 +65,6 @@ export function getFifthByParent(parentId) {
 }
 
 export function addTicket(payload){
-  console.log('api:', payload)
   return (dispatch) => {
     request.post('/api/v1/tickets', payload)
     .then(res => {

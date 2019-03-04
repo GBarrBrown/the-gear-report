@@ -11,7 +11,6 @@ function issue (req, res) {
       if (!user) {
         res.status(403).json({message: 'User does not exist'})
       } else {
-        console.log('process', process.env.GEAR_ENV)
         const token = createToken(user, process.env.GEAR_ENV)
         res.json({
           message: 'Authentication successful',

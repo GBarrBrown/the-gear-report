@@ -2,7 +2,6 @@
 
 const express = require('express')
 
-const db = require('../db/locations')
 const ticketDb = require('../db/tickets')
 
 const router = express.Router()
@@ -13,7 +12,6 @@ router.post('/', (req,res)=>{
  const {user, title, description, severity, location} = req.body
  ticketDb.addTicket(user, title, description, severity, location)
   .then((result) =>{
-    console.log('route', result)
     res.json(result)
   })
   .catch(err => {

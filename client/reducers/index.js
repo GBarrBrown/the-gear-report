@@ -4,8 +4,6 @@ import {currentTicket, dropdownArr, allTickets, ticketLocations} from './tickets
 import { updateCurrentLocation, updateLocationsByParent, loadLocationById, loadParentByCurrent, loadChildrenByParent } from './location'
 import auth from './auth'
 
-console.log('combineReducers');
-
 export default combineReducers({
   currentTicket,
   currentLocation: updateCurrentLocation,
