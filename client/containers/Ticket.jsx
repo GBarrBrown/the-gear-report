@@ -22,18 +22,26 @@ class Ticket extends React.Component {
       this.setState({ticketId: ticketId})       //adds ticketId to local state
       this.props.getCurrentTicketById(ticketId)
 
-      var apiRetrysRemaining = 10;
-      this.setState({apiRetrysRemaining: apiRetrysRemaining})     //adds apiRetrys to local state
+      var apiRetrysRemaining = 20;
+      this.setState({apiRetrysRemaining: apiRetrysRemaining});     //adds apiRetrys to local state
 
   }
+
   componentWillReceiveProps() {
     // Allows for 10 retrys to the local api for ticket data, otherwise will stop calling.
     (this.state.apiRetrysRemaining > 0
-      ?((typeof this.props.ticketLocations[0] === 'undefined') && this.props.getTicketLocationsById(this.state.ticketId))
+      ? ((typeof this.props.ticketLocations[0] === 'undefined') && this.props.getTicketLocationsById(this.state.ticketId))
       : null
-    ) 
+    );
+
+    (typeof this.props.ticketCreator.name === 'undefined'
+      ? ((typeof this.props.currentTicket.user_id !== 'undefined') && this.props.getTicketCreator(this.props.currentTicket.user_id))
+      : null
+    );
+
 
     this.setState({apiRetrysRemaining: this.state.apiRetrysRemaining-1})
+
   }
 
   render() {
