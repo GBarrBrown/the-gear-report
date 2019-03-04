@@ -48,9 +48,18 @@ export function loadCurrentTicket(ticket) {
   }
 }
 
+<<<<<<< HEAD
 export function loadTicketsByLocation(tickets) {
   return {
     type: 'UPDATE_TICKETS_BY_LOC',
     tickets
   }
 }
+=======
+export function loadTicketLocations(locations) {
+  return {
+    type: 'UPDATE_TICKET_LOCATIONS',
+    locations
+  }
+}
+>>>>>>> 92faabec3c34587499c65cde535e2ab6005b6439
