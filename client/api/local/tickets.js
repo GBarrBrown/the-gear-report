@@ -46,7 +46,6 @@ export function getTicketsByLocation(locationId) {
   }
 
 export function getTicketLocationsById(ticketId) {
-  console.log('hit api fn with ticketId:', ticketId)
   return (dispatch) => {
     request.get(`/api/v1/tickets/locationsById/${ticketId}`)
     .then(res => {

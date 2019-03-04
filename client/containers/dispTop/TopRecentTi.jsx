@@ -18,7 +18,6 @@ class TopRecentTi extends React.Component {
 
     componentWillReceiveProps() {
         if (this.props.currentLocation && this.props.ticketsByLocation.length < 1) {
-            console.log('hey');
             this.props.getTicketsByLocation(this.props.currentLocation)
         }
     }
