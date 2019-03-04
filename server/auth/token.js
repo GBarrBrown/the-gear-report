@@ -1,39 +1,43 @@
 // server/auth/token.js
 const jwt = require('jsonwebtoken')
 
-const {getUserByEmail} = require('../db/users')
+const {getUserByEmail, createUser, getUserById} = require('../db/users')
 const verifyJwt = require('express-jwt')
-const {comparePasswordToHash} = require('./hash')
 
 function issue (req, res) {
   getUserByEmail(req.body.email)
     .then(user => {
       if (!user) {
-        res.status(403).json({message: 'Please register first!'})
-      } else {
-        comparePasswordToHash(req.body.password, user.hash)
-        .then((match) => {
-          if (!match) {
-            res.status(400).json({message: 'Password is incorrect'})
-          } else {
-            const token = createToken(user, process.env.GARDEN_ENV)
+        createUser(req.body).then( newUserId => {
+          getUserById(newUserId[0])
+          .then( user => {
+            const token = createToken(user, req.body.picture, process.env.GEAR_ENV)
             res.json({
               message: 'Welcome back!',
               token
             })
-          }
+          })
         })
-        .catch(err => {
-          res.status(500).json({message: err.message})
+      } else {
+        const token = createToken(user, req.body.picture, process.env.GEAR_ENV)
+        res.json({
+          message: 'Welcome back!',
+          token
         })
       }
     })
+    .catch(err => {
+      res.status(500).json({message: err.message})
+    })
 }
+    
 
-function createToken (user, secret) {
+function createToken (user, picture, secret) {
   const payload = {
-    user_id: user.user_id,
-    username: user.username
+    user_id: user.id,
+    email: user.email,
+    name: user.name,
+    picture: picture
   }
 
   const options = {

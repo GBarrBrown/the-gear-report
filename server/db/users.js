@@ -1,13 +1,12 @@
-const {generatePasswordHash} = require('../auth/hash')
 
 const connection = require('./connection')
 
-function createUser (name, email, password, testDb) {
+function createUser (userInfo, testDb) {
   const db = testDb || connection
-  return generatePasswordHash(password)
-    .then(hash => {
-      return db('users').insert({name, email, hash})
-    })
+  const {name, email} = userInfo
+ 
+  return db('users').insert({name, email })
+    
 }
 
 function userExists (email, testDb) {
@@ -24,8 +23,16 @@ function getUserByEmail (email, testDb) {
     .first()
 }
 
+function getUserById (id, testDb) {
+  const db = testDb || connection
+  return db('users')
+    .where('id', id)
+    .first()
+}
+
 module.exports = {
   createUser,
   userExists,
-  getUserByEmail
+  getUserByEmail,
+  getUserById
 }
