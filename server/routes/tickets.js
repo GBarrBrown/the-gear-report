@@ -2,7 +2,6 @@
 
 const express = require('express')
 
-const db = require('../db/locations')
 const ticketDb = require('../db/tickets')
 const ticket_locDb = require('../db/ticket_loc')
 
