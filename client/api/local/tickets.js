@@ -19,7 +19,11 @@ export function getCurrentTicketById(ticketId) {
   return (dispatch) => {
     request.get(`/api/v1/tickets/ticketId/${ticketId}`)
     .then(res => {
-      dispatch(loadCurrentTicket(res.body))
+      // if its successful and returns an obj dispatch the obj, else dispatch null
+      (typeof res.body[0] == 'object'
+        ? dispatch(loadCurrentTicket(res.body))
+        : dispatch(loadCurrentTicket(null))
+      )
     })
     .catch(err => {
       console.log('ERROR!', err)
