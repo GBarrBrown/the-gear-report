@@ -6,6 +6,9 @@
   "repository": "https://github.com/rebeccajackson/todo-list.git",
   "author": "Rebecca Jackson <zimbecs@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "11.6.0",
+  }
   "scripts": {
     "dev": "nodemon server --watch & webpack --watch",
     "server": "node server",
