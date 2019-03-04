@@ -27,7 +27,6 @@ class Dashboard extends React.Component {
     }
 
     renderCondition(type) {
-        console.log(type);
         switch(type) {
           case 'crag':
             return <Info props={this.props}/>

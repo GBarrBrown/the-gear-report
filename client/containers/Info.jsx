@@ -1,40 +1,79 @@
 import React from 'react'
+import Typography from '@material-ui/core/Typography';
 
-function Globe (props) {
-
-
-
-  console.log('props', props)
+function Info (props) {
   var item = props.props.loadLocationById[0]
   var parent = props.props.loadParentByCurrent[0]
+
+  var string = item.type
+  var capitalised = '' 
+  item.type ? capitalised = string.charAt(0).toUpperCase() + string.substr(1) : ''
+  
+  
+  
   return (
     <React.Fragment>
-      {props && 
+      {props &&
       <React.Fragment>
         <br/>
-        <h1>{item.name}</h1>
         <br/>
+        <br/>
+        <Typography>
+        <h1>{item.name}</h1>
+        </Typography>
+        <br/>
+        <br/>
+        <Typography>
         <h3>{parent.type}: {parent.name}</h3>
-        <h3>Type: {item.type}</h3> 
+        </Typography>
+        <Typography>
+        <h3>Type: {capitalised}</h3> 
+        </Typography>
         <br/>
         {item.description &&
-        <h3>Description</h3>}
+        <Typography>
+        <h3>Description</h3>
+        </Typography>}
+        <Typography>
         <p>{item.description}</p>
+        </Typography>
         
         {item.approach &&
         <React.Fragment>
         <br />
+        <Typography>
         <h3>Approach</h3>
+        </Typography>
         </React.Fragment>}
         <p>{item.approach}</p>
         {/* Wall Specific */}
+
+
           
         {/* Route Specific   */}
         <br/>
         {item.quality &&
-        <h3>Stars: {item.quality}</h3>}
+        <Typography>
+        <h3>Stars: {item.quality}</h3>
+        </Typography>}
         {item.grade &&
-        <h3>Grade: {item.grade}</h3>}
+        <Typography>
+        <h3>Grade: {item.grade}</h3>
+        </Typography>}
+        {item.height &&
+        <Typography>
+          <h3>Height: {item.height}</h3>
+        </Typography>}
+        <br/>
+        {item.style &&
+        <Typography>
+          <h3>Style: {item.style}</h3>
+        </Typography>}
+        {item.quickdraws &&
+        <Typography>
+          <h3>Bolts: {item.quickdraws} quickdraws and a 60m rope</h3>
+        </Typography>}
+
 
       </React.Fragment>
       }
@@ -45,4 +84,4 @@ function Globe (props) {
     
 }
 
-export default Globe
+export default Info
