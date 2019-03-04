@@ -54,5 +54,18 @@ router.get('/locationsById/:ticketId', (req, res) => {
 
 })
 
+router.get('/creatorById/:ticketId', (req, res) => {
+  var ticketId = req.params.ticketId
+  console.log('hitting getTicketCreator in server/routes/tickets with id:', ticketId)
+  ticketDb.getTicketCreator(ticketId)
+  .then(ticketCreator => {
+    console.log('ticket creator: ', ticketCreator)
+    res.json(ticketCreator)
+  })
+  .catch(err => {
+    console.log('ERROR!', err)
+  })
+})
+
 
 module.exports = router
