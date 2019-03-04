@@ -200,3 +200,8 @@ body {
   align-self: flex-end;
   margin: 1em;
 }
+
+.typographyPlaceType {
+    /* display: inline; */
+    color: red;
+}

@@ -44,3 +44,12 @@ export function allTickets (state = initialState, action) {
         return state
   }
 }
+
+export function ticketLocations (state = [], action) {
+  switch (action.type){
+    case 'UPDATE_TICKET_LOCATIONS':
+      return action.locations
+    default:
+      return state
+  }
+}
