@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import {loadAllTickets, loadCurrentTicket, loadTicketLocations} from '../../actions/tickets'
+import {loadAllTickets, loadCurrentTicket, loadTicketLocations, loadTicketCreator} from '../../actions/tickets'
 
 export function getAllTickets() {
   return (dispatch) => {
@@ -44,8 +44,8 @@ export function getTicketCreator(creatorId) {
   return(dispatch) => {
     request.get(`/api/v1/tickets/creatorById/${creatorId}`)
     .then(res => {
-      // dispatch(loadTicketCreator(res.body))
       console.log('response: ',res.body)
+      dispatch(loadTicketCreator(res.body))
     })
     .catch(err => {
       console.log('ERROR!', err)
