@@ -37,7 +37,7 @@ export function loginUser(email){
       const userInfo = saveUserToken(res.body.token)
       // userInfo.name = creds.first_name
       dispatch(receiveLogin(userInfo)); 
-      document.location = "/dashboard/1" 
+      // document.location = "/dashboard/1" 
     })
     .catch(err => {
       console.log(err)

@@ -7,9 +7,8 @@ import { loginError } from '../actions/auth/login'
 
 class Register extends Component {
   state = {
-    username: '',
-    first_name: '',
-    last_name: '',
+    name: '',
+    email: '',
     password: '',
     confirm_password: ''
   }
@@ -21,7 +20,7 @@ class Register extends Component {
   submit = (e) => {
     e.preventDefault()
     e.target.reset()
-    let {name, password, confirm_password, firstName, lastName} = this.state
+    let {name, password, confirm_password} = this.state
     if (confirm_password != password) return this.props.dispatch(loginError("Passwords don't match"))
     this.props.dispatch(registerUser(this.state))
   }
