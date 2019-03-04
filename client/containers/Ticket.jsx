@@ -65,8 +65,8 @@ class Ticket extends React.Component {
 }
 
 
-function mapStateToProps({currentTicket, ticketLocations}){
-  return{currentTicket, ticketLocations}
+function mapStateToProps({currentTicket, ticketLocations, ticketCreator}){
+  return{currentTicket, ticketLocations, ticketCreator}
 }
 
 function mapDispatchToProps(dispatch){
