@@ -25,7 +25,7 @@ class Header extends React.Component {
             (
               <a href="/login">
               <div className="header-items-login">
-                Login {auth.errorMessage}
+                {auth.errorMessage}
               </div>
               </a>
             )
