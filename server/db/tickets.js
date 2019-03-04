@@ -37,6 +37,11 @@ function getTicketById(ticketId, testDb) {
   return db('tickets').where('id', ticketId).first()
 }
 
+function getTicketsByIds(ticketArr, testDb) {
+  const db = testDb || connection
+  return db('tickets').whereIn('id', ticketArr).orderBy('created_at', 'desc')
+}
+
 function getTicketLocationsById(ticketId, testDb) {
   const db = testDb || connection 
   return db('ticket_loc')
@@ -50,5 +55,6 @@ module.exports = {
   addTicket,
   getAllTickets,
   getTicketById,
+  getTicketsByIds,
   getTicketLocationsById
 }

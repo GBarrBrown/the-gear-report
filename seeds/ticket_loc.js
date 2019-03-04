@@ -20,6 +20,9 @@ exports.seed = function(knex, Promise) {
         {id: 13, ticket_id: 3, loc_id: 12},
         {id: 14, ticket_id: 3, loc_id: 91},
         {id: 15, ticket_id: 3, loc_id: 97},
+        {id: 16, ticket_id: 1, loc_id: 104},
+        {id: 17, ticket_id: 2, loc_id: 104},
+        {id: 18, ticket_id: 3, loc_id: 104},
       ]);
     });
 };

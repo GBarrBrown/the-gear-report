@@ -48,6 +48,12 @@ export function loadCurrentTicket(ticket) {
   }
 }
 
+export function loadTicketsByLocation(tickets) {
+  return {
+    type: 'UPDATE_TICKETS_BY_LOC',
+    tickets
+  }
+}
 export function loadTicketLocations(locations) {
   return {
     type: 'UPDATE_TICKET_LOCATIONS',

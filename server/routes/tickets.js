@@ -4,6 +4,7 @@ const express = require('express')
 
 const db = require('../db/locations')
 const ticketDb = require('../db/tickets')
+const ticket_locDb = require('../db/ticket_loc')
 
 const router = express.Router()
 
@@ -13,7 +14,6 @@ router.post('/', (req,res)=>{
  const {user, title, description, severity, location} = req.body
  ticketDb.addTicket(user, title, description, severity, location)
   .then((result) =>{
-    console.log('route', result)
     res.json(result)
   })
   .catch(err => {
@@ -41,6 +41,27 @@ router.get('/ticketId/:ticketId', (req, res) => {
     console.log('ERROR!',err)
   })
 })
+
+router.get('/locationId/:locationId', (req, res) => {
+  var locationId = req.params.locationId
+  ticket_locDb.getTicketsByLoc(locationId)
+  .then(tickets => {
+    res.json(tickets)
+  })
+  .catch(err => {
+    console.log('ERROR!',err)
+  })
+})
+
+router.post('/ticketIds', (req,res) => {
+  ticketDb.getTicketsByIds(req.body)
+  .then(tickets => {
+    res.json(tickets)
+  })
+  .catch(err => {
+    console.log('ERROR!',err)
+  })
+})  
 
 router.get('/locationsById/:ticketId', (req, res) => {
   var ticketId = req.params.ticketId

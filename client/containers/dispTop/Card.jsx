@@ -19,8 +19,10 @@ const styles = {
     },
   };
 
-  function eventHandler(id) {
-    location.href=`/tickets/ticketId/${id}`
+  function eventHandler(viewId) { 
+    viewId ?
+    location.href=`/tickets/ticketId/${viewId}`
+    : location.href=`/tickets/`
   }
 
   
@@ -28,42 +30,44 @@ const styles = {
     const { classes } = props;
 
     var text = props.description
-    var count = 65
-
+    var count = 32
     var cutDescription = text.slice(0, count) + (text.length > count ? "..." : "");
+    var title = props.title
+    var titleCount = 22
+    var cutTitle = title.slice(0, titleCount) + (title.length > titleCount ? "..." : "");
     
     return (
-        <div className="topRecentTi"
+        <div className={props.classKey}
         >
       <Card className={classes.card}>
         <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image="/static/images/cards/contemplative-reptile.jpg"
-            title="Contemplative Reptile"
-          />
+          <div onClick={event => { eventHandler(props.id) }}>
           <CardContent>
+              <Typography className={classes.title} color="textSecondary" gutterBottom>
+              Crag
+            </Typography>
             <Typography gutterBottom variant="h5" component="h2">
-              {props.title}
+              {cutTitle}
             </Typography>
             <Typography component="p">
               {cutDescription}
             </Typography>
             <br />
-            <Typography>
-              Crag: {props.crag}
+            <Typography className={classes.pos} color="textSecondary">
+              UserName
             </Typography>
-              
+
           </CardContent>
+          </div>
         </CardActionArea>
-        <CardActions>
+        {/*4<CardActions>
           <Button size="small" color="primary" onClick={event => { eventHandler(props.id) }}>
             View Ticket
           </Button>
-          <Button size="small" color="primary">
-            Learn More
+          <Button size="small" color="primary" onClick={event => { eventHandler() }}>
+            View All Tickets
           </Button>
-        </CardActions>
+        </CardActions> */}
       </Card>
       </div>
     );

@@ -22,7 +22,6 @@ export function getLocationById(id) {
   return (dispatch) => {
     request.get(`/api/v1/locations/${id}`)
     .then(res => {
-      console.log('ping')
       dispatch(loadLocationById(res.body))
     })
     .catch(err => {
@@ -35,7 +34,6 @@ export function getParentByCurrent(id) {
   return (dispatch) => {
     request.get(`/api/v1/locations/${id}`)
     .then(res => {
-      console.log('ping')
       dispatch(loadParentByCurrent(res.body))
     })
     .catch(err => {
