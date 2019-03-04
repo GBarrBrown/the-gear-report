@@ -5,7 +5,7 @@ import TicketInfoCard from '../components/TicketInfoCard'
 
 import ActionStack from './ActionStack'
 
-import {getCurrentTicketById, getTicketLocationsById} from '../api/local/tickets'
+import {getCurrentTicketById, getTicketLocationsById, getTicketCreator} from '../api/local/tickets'
 
 
 class Ticket extends React.Component {
@@ -58,7 +58,7 @@ class Ticket extends React.Component {
             </div>
           </div>) : <h2>No Ticket Found Matching That ID</h2>
         }
-      <button onClick={() => {console.log('get user button clicked')}}>Click Me To Get User Who Created Ticket</button>
+      <button onClick={() => {console.log('button clicked - getTicketCreator'), this.props.getTicketCreator(this.state.ticketId)}}>Click Me To Get Ticket Creator</button>
       </div>
     )
   }
@@ -72,7 +72,8 @@ function mapStateToProps({currentTicket, ticketLocations}){
 function mapDispatchToProps(dispatch){
   return{
     getCurrentTicketById: id => dispatch(getCurrentTicketById(id)),
-    getTicketLocationsById: id => dispatch(getTicketLocationsById(id))
+    getTicketLocationsById: id => dispatch(getTicketLocationsById(id)),
+    getTicketCreator: id => dispatch(getTicketCreator(id))
   }
 }
 
