@@ -21,7 +21,7 @@ export function getCurrentTicketById(ticketId) {
     .then(res => {
       // if its successful and returns an obj dispatch the obj, else dispatch null
       (typeof res.body[0] == 'object'
-        ? dispatch(loadCurrentTicket(res.body))
+        ? dispatch(loadCurrentTicket(res.body[0]))
         : dispatch(loadCurrentTicket(null))
       )
     })
