@@ -56,7 +56,7 @@ class Ticket extends React.Component {
                 <h3>Severity: {this.props.currentTicket.severity}</h3><br />
                 <h3>Created: {this.props.currentTicket.created_at}</h3><br />
                 <h3>Grant Status: {(this.props.currentTicket.has_grant) ? 'Funded' : 'Not Funded'}</h3><br />
-                <h3>Logged by: {this.props.ticketCreator.name}</h3>
+                <h3>Logged by: {this.props.currentTicket.name}</h3>
               </div>
               <div className="actionStack">
                 <ActionStack />
