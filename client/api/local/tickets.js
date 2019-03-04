@@ -62,11 +62,9 @@ export function getTicketLocationsById(ticketId) {
 }
 
 export function getTicketCreator(creatorId) {
-  console.log('hitting getTicketCreator in api/local/tickets with id:', creatorId)
   return(dispatch) => {
     request.get(`/api/v1/tickets/creatorById/${creatorId}`)
     .then(res => {
-      console.log('response: ',res.body)
       dispatch(loadTicketCreator(res.body))
     })
     .catch(err => {

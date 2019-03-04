@@ -32,19 +32,7 @@ function getAllTickets(testDb) {
   return db('tickets')
 }
 
-// function getTicketById(ticketId, testDb) {
-//   console.log(ticketId)
-//   const db = testDb || connection
-//   return db('tickets').where('id', ticketId).select().first()
-//   .then(ticket => {
-//     console.log(ticket)
-//     return db('users').where('users.id', ticket.user_id).select()
-//   })
-
-// }
-
 function getTicketById(ticketId, testDb) {
-  console.log('DB hit!!!')
   const db = testDb || connection
   return db('tickets')
   .join('users', 'users.id', 'tickets.user_id')
@@ -61,7 +49,6 @@ function getTicketById(ticketId, testDb) {
     'users.admin',
     'users.profile_url'
   )
-
 }
 
 function getTicketsByIds(ticketArr, testDb) {
