@@ -11,7 +11,7 @@ const initialFormState = {
 
 }
 
-export function currentTicket (state = initialState, action){
+export function currentTicket (state = null, action){
   switch (action.type){
     case 'UPDATE_CURRENT_TICKET_OBJ':
       return action.ticket
@@ -57,6 +57,15 @@ export function ticketLocations (state = [], action) {
   switch (action.type){
     case 'UPDATE_TICKET_LOCATIONS':
       return action.locations
+    default:
+      return state
+  }
+}
+
+export function ticketCreator (state = {}, action) {
+  switch (action.type){
+    case 'UPDATE_TICKET_CREATOR':
+      return action.creator
     default:
       return state
   }

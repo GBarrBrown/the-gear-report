@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import {loadAllTickets, loadCurrentTicket, loadTicketLocations, loadTicketsByLocation} from '../../actions/tickets'
+import {loadAllTickets, loadCurrentTicket, loadTicketLocations, loadTicketCreator, loadTicketsByLocation} from '../../actions/tickets'
 
 
 export function getAllTickets() {
@@ -19,7 +19,11 @@ export function getCurrentTicketById(ticketId) {
   return (dispatch) => {
     request.get(`/api/v1/tickets/ticketId/${ticketId}`)
     .then(res => {
-      dispatch(loadCurrentTicket(res.body))
+      // if its successful and returns an obj dispatch the obj, else dispatch null
+      (typeof res.body[0] == 'object'
+        ? dispatch(loadCurrentTicket(res.body[0]))
+        : dispatch(loadCurrentTicket(null))
+      )
     })
     .catch(err => {
       console.log('ERROR!', err)
@@ -57,3 +61,16 @@ export function getTicketLocationsById(ticketId) {
   }
 }
 
+export function getTicketCreator(creatorId) {
+  console.log('hitting getTicketCreator in api/local/tickets with id:', creatorId)
+  return(dispatch) => {
+    request.get(`/api/v1/tickets/creatorById/${creatorId}`)
+    .then(res => {
+      console.log('response: ',res.body)
+      dispatch(loadTicketCreator(res.body))
+    })
+    .catch(err => {
+      console.log('ERROR!', err)
+    })
+  }
+}

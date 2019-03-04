@@ -60,3 +60,10 @@ export function loadTicketLocations(locations) {
     locations
   }
 }
+
+export function loadTicketCreator(creator) {
+  return {
+    type: 'UPDATE_TICKET_CREATOR',
+    creator
+  }
+}

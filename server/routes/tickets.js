@@ -31,9 +31,12 @@ router.get('/all', (req, res) => {
 })
 
 router.get('/ticketId/:ticketId', (req, res) => {
+  console.log('routes', req.params.ticketId)
   var ticketId = req.params.ticketId
+  console.log(ticketId)
   ticketDb.getTicketById(ticketId)
   .then(ticket => {
+    console.log(ticket)
     res.json(ticket)
   })
   .catch(err => {
@@ -72,6 +75,19 @@ router.get('/locationsById/:ticketId', (req, res) => {
   console.log('ERROR!', err)
   })
 
+})
+
+router.get('/creatorById/:creatorId', (req, res) => {
+  var creatorId = req.params.creatorId
+  console.log('hitting getTicketCreator in server/routes/tickets with id:', creatorId)
+  ticketDb.getTicketCreator(creatorId)
+  .then(ticketCreator => {
+    console.log('ticket creator: ', ticketCreator)
+    res.json(ticketCreator)
+  })
+  .catch(err => {
+    console.log('ERROR!', err)
+  })
 })
 
 
