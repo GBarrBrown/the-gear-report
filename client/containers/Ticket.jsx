@@ -18,7 +18,6 @@ class Ticket extends React.Component {
   componentDidMount() {
       var ticketId = this.props.match.params.ticketId
       this.setState({ticketId: ticketId})       //adds ticketId to local state
-      console.log(ticketId)
       this.props.getCurrentTicketById(ticketId)
 
       // increase apiRetrysRemaining stops inifinite loops when looking for tickets that dont exist
@@ -44,8 +43,6 @@ class Ticket extends React.Component {
   }
 
   render() {
-    console.log(this.props.currentTicket)
-    // console.log(typeof this.props.currentTicket.id)
     return (
       <div className="ticketComponent">
 
