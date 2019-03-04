@@ -58,7 +58,7 @@ class Ticket extends React.Component {
             </div>
           </div>) : <h2>No Ticket Found Matching That ID</h2>
         }
-      <button onClick={() => {console.log('button clicked - getTicketCreator'), this.props.getTicketCreator(this.state.ticketId)}}>Click Me To Get Ticket Creator</button>
+      <button onClick={() => {console.log('button clicked - getTicketCreator'), this.props.getTicketCreator(this.props.currentTicket.user_id)}}>Click Me To Get Ticket Creator</button>
       </div>
     )
   }
