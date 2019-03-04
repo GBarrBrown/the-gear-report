@@ -53,3 +53,12 @@ export function ticketLocations (state = [], action) {
       return state
   }
 }
+
+export function ticketCreator (state = {}, action) {
+  switch (action.type){
+    case 'UPDATE_TICKET_CREATOR':
+      return action.creator
+    default:
+      return state
+  }
+}
