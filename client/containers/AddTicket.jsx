@@ -12,6 +12,7 @@ export class AddTicket extends Component {
     title: '',
     description: '',
     severity: '',
+    nz: 104,
     island: '',
     firstDropdown: '',
     secondDropdown: '',
@@ -46,13 +47,14 @@ export class AddTicket extends Component {
 
   handleSumbit = (e) => {
     e.preventDefault()
-    const {user, title, description, severity, island, firstDropdown, secondDropdown, thirdDropdown, fourthDropdown, fifthDropdown} = this.state;
+    const {user, title, description, severity, nz, island, firstDropdown, secondDropdown, thirdDropdown, fourthDropdown, fifthDropdown} = this.state;
     let newTicket = {
       user,
       title,
       description,
       severity,
       location: [
+        nz,
         island,
         firstDropdown,
         secondDropdown,
