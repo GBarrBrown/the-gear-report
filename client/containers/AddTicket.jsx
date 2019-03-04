@@ -2,62 +2,94 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
-import Input from '@material-ui/core/Input';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
+import {TextField, MenuItem, Button, FormControl} from '@material-ui/core';
 
-import {addTicket} from '../fire/tickets'
-
-const ranges = [
-  {
-    value: '1'
-  },
-  {
-    value: '2'
-  },
-  {
-    value: '3'
-  },
-  {
-    value: '4'
-  },
-  {
-    value: '5'
-  },
-];
+import {islandRanges, severityRanges } from '../helper-functions/addTickets'
+import { addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent, getFifthByParent } from '../api/local/form'
 
 export class AddTicket extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      title: '',
-      description: '',
-      severity: '',
-      user: ''//TODO user should be from this.props
-    };
+ state = {
+    title: '',
+    description: '',
+    severity: '',
+    nz: 104,
+    island: '',
+    firstDropdown: '',
+    secondDropdown: '',
+    thirdDropdown: '',
+    fourthDropdown: '',
+    fifthDropdown: '',
+    user: 2 //TODO user should be from this.props
+  };
+  
+
+  onSelect = type => {
   }
 
- 
-
   handleChange = event => {
-    console.log(event.target.value)
     this.setState({ [event.target.name]: event.target.value });
+    let parentId = event.target.value
+    switch (event.target.name){
+    case 'island':
+      return this.props.getFirstByParent(parentId)
+    case 'firstDropdown':
+      return this.props.getSecondByParent(parentId)
+    case 'secondDropdown':
+      return this.props.getThirdByParent(parentId)
+    case 'thirdDropdown':
+      return this.props.getFourthByParent(parentId)
+    case 'fourthDropdown':
+      return this.props.getFifthByParent(parentId)
+    case 'fifthDropdown':
+    }
   };
 
-  handleSumbit = () => {
-    let payload = {title: this.state.title}
-    this.props.addTicket(payload)
+  handleSumbit = (e) => {
+    e.preventDefault()
+    const {user, title, description, severity, nz, island, firstDropdown, secondDropdown, thirdDropdown, fourthDropdown, fifthDropdown} = this.state;
+    let newTicket = {
+      user,
+      title,
+      description,
+      severity,
+      location: [
+        nz,
+        island,
+        firstDropdown,
+        secondDropdown,
+        thirdDropdown,
+        fourthDropdown,
+        fifthDropdown
+      ]
+    }
+    this.props.addTicket(newTicket)
   };
 
   render() {
+    const { dropdownArr } = this.props
     return (
-      <div className='add-ticket-container'>
-        <form onSubmit={this.handleSubmit}>
-          
-          <Input placeholder="Title" onChange={this.handleChange}/>
-
-          <br/>
+      <div className='content add-ticket-container'>
+      <form onSubmit={this.handleSumbit}>
+        <FormControl >
+        
+          <TextField 
+          required
+          label="Title" 
+          onChange={this.handleChange}
+          inputProps={{
+            name: 'title'
+          }}/>
+        
+          <TextField 
+          required
+          label="Description" 
+          onChange={this.handleChange}
+          inputProps={{
+              name: 'description'
+            }}/>
+         
           <TextField
+            required
             select
             label="Severity"
             value={this.state.severity}
@@ -66,26 +98,124 @@ export class AddTicket extends Component {
               name: 'severity'
             }}
             >
-            {ranges.map(option => (
+            {severityRanges.map(option => (
                 <MenuItem key={option.value} value={option.value}>
-                  {option.value}
+                  {option.name}
                 </MenuItem>
               ))}
           </TextField>
-            
-        </form>
+          
+          <br/>
+          
+          <TextField
+            select
+            required
+            label="Island"
+            value={this.state.island}
+            onChange={this.handleChange}
+            inputProps={{
+              name: 'island'
+            }}
+            >
+            {islandRanges.map(option => (
+                <MenuItem key={option.id} value={option.id}>
+                  {option.name}
+                </MenuItem>
+              ))}
+          </TextField>
         
+          {this.state.island && <TextField
+            select
+            required
+            label="Region"
+            value={this.state.firstDropdown}
+            onChange={this.handleChange}
+            inputProps={{
+              name: 'firstDropdown'
+            }}
+            >
+            {dropdownArr.firstDropdown && dropdownArr.firstDropdown.map(option => (
+                <MenuItem key={option.id} value={option.id}>
+                  {option.name}
+                </MenuItem>
+              ))}
+          </TextField>}
+          
+          {this.state.firstDropdown && <TextField
+            select
+            required
+            value={this.state.secondDropdown}
+            onChange={this.handleChange}
+            inputProps={{
+              name: 'secondDropdown'
+            }}
+            >
+            {dropdownArr.secondDropdown && dropdownArr.secondDropdown.map(option => (
+                <MenuItem key={option.id} value={option.id}>
+                  {option.name}
+                </MenuItem>
+              ))}
+          </TextField>}
+          
+          {this.state.secondDropdown && <TextField
+            select
+            required
+            value={this.state.thirdDropdown}
+            onChange={this.handleChange}
+            inputProps={{
+              name: 'thirdDropdown'
+            }}
+            >
+            {dropdownArr.thirdDropdown && dropdownArr.thirdDropdown.map(option => (
+              <MenuItem key={option.id} value={option.id }>
+                {option.name}
+              </MenuItem>
+              ))}
+          </TextField>}
+          
+          {this.state.thirdDropdown && <TextField
+            select
+            value={this.state.fourthDropdown}
+            onChange={this.handleChange}
+            inputProps={{
+              name: 'fourthDropdown'
+            }}
+            >
+            {dropdownArr.fourthDropdown && dropdownArr.fourthDropdown.map(option => (
+                <MenuItem key={option.id} value={option.id}>
+                  {option.name}
+                </MenuItem>
+              ))}
+          </TextField>}
+
+        </FormControl>
+
+        
+        <div>
+          {this.state.title && this.state.description && 
+          this.state.secondDropdown && 
+          this.state.severity &&
+          <Button  
+            onClick={this.handleSubmit}
+            variant="contained" 
+            size="small"
+            type="submit" >
+              Create ticket
+          </Button>}
+        
+        </div>
+        </form>
       </div>
     )
   }
 }
 
-function mapStateToProps({ user }){
-  return { user }
+function mapStateToProps({ user, dropdownArr }){
+  return { user, dropdownArr }
 }
 
 function mapDispatchToProps( dispatch ){
-  return bindActionCreators({addTicket}, dispatch)
+  return bindActionCreators({addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent, getFifthByParent}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTicket)

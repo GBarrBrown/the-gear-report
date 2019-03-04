@@ -6,3 +6,10 @@ export function addTicket(currentTicket) {
     currentTicket
   };
 }
+
+export const showError = (errorMessage) => {
+  return {
+    type: 'SHOW_ERROR',
+    errorMessage: errorMessage
+  }
+}

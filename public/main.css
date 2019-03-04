@@ -1,9 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
   }
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
 
 #app {
     display: grid;
@@ -21,23 +30,74 @@
     grid-row: 1 / 2;
     grid-template-columns: 1fr;
     grid-template-rows: auto, auto, auto;
-    background-color: red;
 }
 
-.header {
+.header-container {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    background-color: red;
-    height: 15vh;
+    height: 8vh;
     position: sticky;
     top: 0;
 }
 
+.header {
+    height: 100%;
+    display: flex;
+    flex:start;
+    justify-content: space-between;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-weight: bold;
+    font-size: 5vh;
+    background-color: rgb(148,169,178);
+    align-items: center;
+}
+
+.header ul {
+    list-style-type: none;
+    list-style: none;
+    height: 100%;
+    text-align: center;
+    padding:0;
+    margin:0;
+    overflow: hidden;
+}
+
+.header li {
+    float: left;
+    line-height: 150%;
+}
+
+.header a {
+    display: block;
+    text-decoration: none;
+    color: #353839;
+}
+
+.header a.active {
+    display: block;
+    text-decoration: none;
+    color: #353839;
+}
+
+.header-items {
+    width: 15vw;
+    text-align: center;
+    height: 100%;
+    background-color: rgb(148,169,178);
+    color: #353839;
+}
+
+.header-items:hover {
+    color: #272b2e;
+}
+
 .footer {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-    background-color: green;
-    height: 20vh;
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  background-color: #3f51b5;
+  height: 15vh;
 }
 
 .body {
@@ -46,7 +106,6 @@
     grid-row: 2 / 3;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    background-color: blue;
     height: auto;
 }
 
@@ -56,7 +115,6 @@
     grid-row: 1 / 2;
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: repeat(14, 1fr);
-    background-color: blue;
     height: auto;
 }
 
@@ -72,7 +130,6 @@
     grid-column: 1 / 4;
     grid-row: 1 / 10;
     height: 75vh;
-    background-color: pink;
 
     /* Potential to make position sticky to keep at top */
 }
@@ -102,9 +159,42 @@
 }
 
 .topRecentTi {
+    display: grid;
     grid-column: 12 / 15;
-    grid-row: 1 / 10;
+    grid-row: 1 / 11;
     background-color: white;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(12, auto)
+}
+
+.topRecentTi0 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    max-height: 145px;
+}
+
+.topRecentTi1 {
+    grid-column: 1 / 2;
+    grid-row: 4 / 6;
+    max-height: 145px;
+}
+
+.topRecentTi2 {
+    grid-column: 1 / 2;
+    grid-row: 6 / 8;
+    max-height: 145px;
+}
+
+.topRecentTi3 {
+    grid-column: 1 / 2;
+    grid-row: 8 / 10;
+    max-height: 145px;
+}
+
+.topRecentTi4 {
+    grid-column: 1 / 2;
+    grid-row: 10 / 12;
+    max-height: 145px;
 }
 
 .topContribs {
@@ -113,3 +203,35 @@
     background-color: white;
 }
 
+.ticketComponent {
+    background-color: rgb(211, 240,250)
+}
+
+.actionStack {
+    float: right;
+}
+
+.action-stack {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tickets-container{
+  display: flex;
+  height: 100%;
+}
+
+.action-button{
+  margin: 0.5em;
+}
+
+.add-button{
+  align-self: flex-end;
+  margin: 1em;
+}
+
+.typographyPlaceType {
+    /* display: inline; */
+    color: red;
+}
