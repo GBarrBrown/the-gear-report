@@ -91,7 +91,6 @@ body {
 
 .header-items:hover {
     color: #272b2e;
-    background-color: #E8E8E8;
 }
 
 .footer {
@@ -116,7 +115,6 @@ body {
     grid-row: 1 / 2;
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: repeat(14, 1fr);
-    background-color: blue;
     height: auto;
 }
 
@@ -132,7 +130,6 @@ body {
     grid-column: 1 / 4;
     grid-row: 1 / 10;
     height: 75vh;
-    background-color: pink;
 
     /* Potential to make position sticky to keep at top */
 }
@@ -170,31 +167,31 @@ body {
     grid-template-rows: repeat(12, auto)
 }
 
-.topRecentTi1 {
+.topRecentTi0 {
     grid-column: 1 / 2;
     grid-row: 2 / 4;
     max-height: 145px;
 }
 
-.topRecentTi2 {
+.topRecentTi1 {
     grid-column: 1 / 2;
     grid-row: 4 / 6;
     max-height: 145px;
 }
 
-.topRecentTi3 {
+.topRecentTi2 {
     grid-column: 1 / 2;
     grid-row: 6 / 8;
     max-height: 145px;
 }
 
-.topRecentTi4 {
+.topRecentTi3 {
     grid-column: 1 / 2;
     grid-row: 8 / 10;
     max-height: 145px;
 }
 
-.topRecentTi5 {
+.topRecentTi4 {
     grid-column: 1 / 2;
     grid-row: 10 / 12;
     max-height: 145px;
