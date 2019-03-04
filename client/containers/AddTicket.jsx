@@ -24,7 +24,6 @@ export class AddTicket extends Component {
   
 
   onSelect = type => {
-    console.log('selected:', type)
   }
 
   handleChange = event => {

@@ -3,6 +3,7 @@
 const express = require('express')
 
 const ticketDb = require('../db/tickets')
+const ticket_locDb = require('../db/ticket_loc')
 
 const router = express.Router()
 
@@ -39,6 +40,27 @@ router.get('/ticketId/:ticketId', (req, res) => {
     console.log('ERROR!',err)
   })
 })
+
+router.get('/locationId/:locationId', (req, res) => {
+  var locationId = req.params.locationId
+  ticket_locDb.getTicketsByLoc(locationId)
+  .then(tickets => {
+    res.json(tickets)
+  })
+  .catch(err => {
+    console.log('ERROR!',err)
+  })
+})
+
+router.post('/ticketIds', (req,res) => {
+  ticketDb.getTicketsByIds(req.body)
+  .then(tickets => {
+    res.json(tickets)
+  })
+  .catch(err => {
+    console.log('ERROR!',err)
+  })
+})  
 
 router.get('/locationsById/:ticketId', (req, res) => {
   var ticketId = req.params.ticketId

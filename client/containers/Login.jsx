@@ -7,28 +7,27 @@ import { bindActionCreators } from 'redux';
 
 class Login extends React.Component {
   state = {
-      name: "",
-      email: "",
-      picture: ""
-    };
+    name: "",
+    email: "",
+    picture: ""
+  };
 
-    componentDidMount() {
-      this.props.loginError('Please login')
+  componentDidMount() {
+    this.props.loginError('Please login')
+  }
+
+  responseFacebook = (response) => {
+    if(response.name === undefined){
+      return this.props.loginError('Error')
     }
-
-    responseFacebook = (response) => {
-      if(response.name === undefined){
-        return this.props.loginError('Error')
-      }
-      
-      this.setState({
-        picture: response.picture.data.url,
-        email: response.email
-      })
-      let {email, picture} = this.state
-      this.props.loginUser({name, email, picture})
-
-    }
+    
+    this.setState({
+      picture: response.picture.data.url,
+      email: response.email
+    })
+    let {email, picture} = this.state
+    this.props.loginUser({name, email, picture})
+  }
 
     componentClicked = () => this.props.requestLogin; //loading action here
 
