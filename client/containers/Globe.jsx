@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { connect } from 'react-redux'
 
+import {getMarkersByType} from '../api/local/locations'
+import { bindActionCreators } from '../../../../Library/Caches/typescript/3.3/node_modules/redux';
+
 const mapStyles = {
   width: '50px',
   height: '40px'
@@ -14,6 +17,7 @@ export class Globe extends Component {
     super(props)
     this.mapZoom = ''
     this.updateZoom = this.updateZoom.bind(this)
+    this.markerClick = this.markerClick.bind(this)
   }
 
 
@@ -35,7 +39,9 @@ export class Globe extends Component {
         return this.mapZoom = 10
     }
   }
-
+  
+  componentWillUpdate() {
+  }
 
 
   render() {
@@ -77,14 +83,19 @@ export class Globe extends Component {
   }
 }
 
-function mapStateToProps({loadLocationById, children}) {
+function mapStateToProps({loadLocationById, children, loadParentByCurrent}) {
   return {
   loadLocationById,
-  children
+  children,
+  loadParentByCurrent
   }
 }
 
-export default connect(mapStateToProps)(GoogleApiWrapper({
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({getMarkersByType}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GoogleApiWrapper({
   apiKey: 'AIzaSyCRxmSZK32nQHfg32jz1btIxI9gvZpFsLU'
 })(Globe));
 
