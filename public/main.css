@@ -140,7 +140,6 @@ body {
     grid-column: 4 / 12;
     grid-row: 1 / 7;
     padding: 5%;
-    z-index: -1;
 }
 
 .topResolvedTi {
