@@ -1,6 +1,6 @@
 import React from 'react'
 
-class TopResolvedTi extends React.Component {
+class ResolvedTickets extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -10,9 +10,9 @@ class TopResolvedTi extends React.Component {
 
     render() {
         return (
-            <div className="topResolvedTi">TopResolvedTi</div>
+            <div className="resolvedTickets">ResolvedTickets</div>
         )
     }
 }
 
-export default TopResolvedTi
+export default ResolvedTickets

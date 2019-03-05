@@ -2,7 +2,7 @@ import React from 'react'
 
 import TopRecentTi from './TopRecentTi'
 import TopContribs from './TopContribs'
-import TopResolved from './TopResolvedTi'
+import TopResolved from './ResolvedTickets'
 
 export function Dashboard () {
 
