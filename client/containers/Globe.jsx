@@ -46,7 +46,7 @@ export class Globe extends Component {
 
 
   render() {
-    console.log(this.props.loadLocationById);
+    console.log('lat', this.props.loadLocationById[0].lat, 'long', this.props.loadLocationById[0].lat,);
     return (
       <div className='globeContainer'>
         {this.props.loadLocationById.length > 0 &&
