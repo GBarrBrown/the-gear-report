@@ -93,6 +93,13 @@ export class Header extends Component {
     )
   }
 }
+const mapStateToProps = ({auth, children, loadLocationById}) => {
+    return {
+      auth,
+      children,
+      loadLocationById
+    }
+  }
 
 function mapStateToProps({isLoggedIn}){
   return {isLoggedIn}

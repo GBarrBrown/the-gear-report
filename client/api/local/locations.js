@@ -59,3 +59,21 @@ export function sendNewLocation(id) {
     dispatch(updateCurrentLocation(id))
   }
 }
+
+export function getMarkersByType(type, id, ) {
+  if (type == 'country') {
+  return (dispatch) => {
+    request.get(`/api/v1/locations/type/${type}`)
+    .then(res => {
+      dispatch(loadMarkers(res.body))
+    })
+    .catch(err => {
+      console.log('ERROR!', err);
+    })
+    }
+
+
+
+
+  }
+}

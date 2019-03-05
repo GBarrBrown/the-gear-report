@@ -177,7 +177,7 @@ body {
   display: grid;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: auto 3fr;
   grid-template-rows: repeat(3, 1fr);
   height: auto;
 }
@@ -194,14 +194,26 @@ body {
   grid-row: 1 / 5;
   height: 100%;
   position: sticky;
+  max-width: 360px !important;
   /* Potential to make position sticky to keep at top */
 }
 
 .globe {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
-  padding: 5%;
-  margin: 10px;
+}
+
+.globeContainer {
+  height: 450px;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.globeContainer div:first-child {
+  position: relative !important;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 .topRecentTi {
@@ -275,8 +287,14 @@ body {
 }
 
 .tickets-container{
-  display: flex;
+  display: grid;
+  /* justify-items: center; */
+  grid-template-columns: 10%, 80%, 10%;
   height: 100%;
+}
+
+.tickets-container div:first-child {
+  grid-column: 2 / 3;
 }
 
 .action-button{
@@ -286,6 +304,13 @@ body {
 .add-button{
   align-self: flex-end;
   margin: 1em;
+}
+
+.add-button-allTickets {
+  width: 56px !important;
+  grid-column: 3 / 4;
+  justify-self: flex-end;
+  position: relative;
 }
 
 .ticketFlexContainer {
