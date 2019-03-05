@@ -30,31 +30,32 @@ const styles = {
     const { classes } = props;
 
     var text = props.description
-    var count = 32
+    var severity = props.severity
+    var count = 37
     var cutDescription = text.slice(0, count) + (text.length > count ? "..." : "");
     var title = props.title
     var titleCount = 22
     var cutTitle = title.slice(0, titleCount) + (title.length > titleCount ? "..." : "");
     
     return (
-        <div className={props.classKey}
-        >
+        <div className={`${props.classKey} mediacard-width`}>
       <Card className={classes.card}>
         <CardActionArea>
           <div onClick={event => { eventHandler(props.id) }}>
           <CardContent>
-              <Typography className={classes.title} color="textSecondary" gutterBottom>
+              <Typography variant="overline"className={classes.title} color="textSecondary" gutterBottom>
               Crag
             </Typography>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h6" component="h2">
               {cutTitle}
             </Typography>
-            <Typography component="p">
-              {cutDescription}
+            <Typography component="subtitle1">
+              Description: 
+              <br/>{cutDescription}
             </Typography>
             <br />
-            <Typography className={classes.pos} color="textSecondary">
-              UserName
+            <Typography className={classes.pos}variant="subtitle2" color="textSecondary">
+              Severity: {severity}
             </Typography>
 
           </CardContent>
