@@ -8,6 +8,7 @@ import Info from './Info'
 
 import {updateCurrentLocation} from  '../actions/locations'
 import {getLocationsByParent} from '../api/local/locations'
+import {getTopContributors} from '../api/local/tickets'
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -53,6 +54,7 @@ class Dashboard extends React.Component {
                 this.renderCondition(this.props.loadLocationById[0].type)} 
               </div>
               <TopDisp />
+              <button onClick={() => {console.log('get top contributors button clicked'), this.props.getTopContributors()}}>GET TOP CONTRIBUTORS</button>
             </div>
         )
     }
@@ -65,7 +67,8 @@ function mapStateToProps({ currentLocation, auth, loadLocationById, loadParentBy
 function mapDispatchToProps(dispatch) {
     return { 
         getLocationsByParent: parentId => dispatch(getLocationsByParent(parentId)),
-        updateCurrentLocation: id => dispatch(updateCurrentLocation(id))
+        updateCurrentLocation: id => dispatch(updateCurrentLocation(id)),
+        getTopContributors: () => dispatch(getTopContributors())
     }
 }
 
