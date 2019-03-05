@@ -181,17 +181,10 @@ body {
 }
 
 .dashboard {
-<<<<<<< HEAD
-  display: grid;
-  grid-column: 4 / 12;
-  grid-row: 1 / 15;
-  /* height: 80vh; */
-=======
     display: grid;
     grid-column: 4 / 12;
     grid-row: 1 / 15;
     /* height: 80vh; */
->>>>>>> 9081e5eff1e9e4ae72b48bbd602746bc692cb4c7
 }
 
 .directory {
@@ -203,29 +196,6 @@ body {
 }
 
 .globe {
-<<<<<<< HEAD
-  grid-column: 4 / 12;
-  grid-row: 1 / 7;
-  background-color: brown;
-}
-
-.topResolvedTi {
-  grid-column: 4 / 8;
-  grid-row: 7 / 11;
-  background-color: white;
-}
-
-.topNewRoutes {
-  grid-column: 8 / 12;
-  grid-row: 11 / 15;
-  background-color: white;
-}
-
-.topRoutes {
-  grid-column: 4 / 8;
-  grid-row: 11 / 15;
-  background-color: white;
-=======
     grid-column: 4 / 12;
     grid-row: 1 / 7;
     padding: 5%;
@@ -250,7 +220,6 @@ body {
     grid-row: 11 / 15;
     background-color: white;
     padding-left: 5%;
->>>>>>> 9081e5eff1e9e4ae72b48bbd602746bc692cb4c7
 }
 
 .topRecentTi {
@@ -263,47 +232,6 @@ body {
 }
 
 .topRecentTi0 {
-<<<<<<< HEAD
-  grid-column: 1 / 2;
-  grid-row: 2 / 4;
-  max-height: 145px;
-}
-
-.topRecentTi1 {
-  grid-column: 1 / 2;
-  grid-row: 4 / 6;
-  max-height: 145px;
-}
-
-.topRecentTi2 {
-  grid-column: 1 / 2;
-  grid-row: 6 / 8;
-  max-height: 145px;
-}
-
-.topRecentTi3 {
-  grid-column: 1 / 2;
-  grid-row: 8 / 10;
-  max-height: 145px;
-}
-
-.topRecentTi4 {
-  grid-column: 1 / 2;
-  grid-row: 10 / 12;
-  max-height: 145px;
-}
-
-.topContribs {
-  grid-column: 8 / 12;
-  grid-row: 7 / 11;
-  background-color: white;
-}
-
-
-.typographyPlaceType {
-  /* display: inline; */
-  color: red;
-=======
     grid-column: 1 / 2;
     grid-row: 2 / 4;
     max-height: 92px;
@@ -338,7 +266,6 @@ body {
     grid-row: 7 / 11;
     background-color: white;
     padding-right: 5%;
->>>>>>> 9081e5eff1e9e4ae72b48bbd602746bc692cb4c7
 }
 
 .ticketComponent {
