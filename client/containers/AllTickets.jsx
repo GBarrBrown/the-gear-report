@@ -23,6 +23,7 @@ export class AllTickets extends React.Component {
             { title: 'Title', field: 'title', filtering: false, },
             { title: 'Severity', field: 'severity', type: 'numeric', },
             { title: 'Sponsored', field: 'has_grant', type: 'boolean' },
+            { title: 'Resolved', field: 'resolved', type: 'boolean' },
             { title: 'Created By', field: 'createdBy'},
             { title: 'Date Created', field: 'created_at', type: 'date', filtering: false,},
             { title: 'Last Updated', field: 'updated_at', type: 'numeric', filtering: false,},
