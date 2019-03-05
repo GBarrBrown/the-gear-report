@@ -9,15 +9,15 @@ exports.seed = function(knex, Promise) {
         {id: 2,  name: 'South', parent_id: '104', island_name: 'South', region_name: '', area_name: '', crag_name: '', tc_id: '', type: 'island', lat: '', long: '', depth: '2'},
 
         // north island regions
-        {id: 3,  name: 'Northland', island_name: 'North', region_name: 'Northland', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: '', long: '', depth: '3'},
-        {id: 4,  name: 'Auckland', island_name: 'North', region_name: 'Auckland', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: '', long: '', depth: '3'},
-        {id: 5,  name: 'Coromandel Peninsula', island_name: 'North', region_name: 'Coromandel Peninsula', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: -36.927863, long: 175.624601, depth: '3'},
-        {id: 6,  name: 'Waikato', island_name: 'North', region_name: 'Waikato', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: '', long: '', depth: '3'},
-        {id: 7,  name: 'Bay Of Plenty', island_name: 'North', region_name: 'Bay Of Plenty', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: '', long: '', depth: '3'},
-        {id: 8,  name: 'Lake Taupo', island_name: 'North', region_name: 'Lake Taupo', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: '', long: '', depth: '3'},
-        {id: 9,  name: 'Tongariro National Park', island_name: 'North', region_name: 'Tongariro National Park', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: '', long: '', depth: '3'},
-        {id: 10,  name: 'Taranaki', island_name: 'North', region_name: 'Taranaki', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: '', long: '', depth: '3'},
-        {id: 11,  name: 'Wellington', island_name: 'North', region_name: 'Wellington', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: '', long: '', depth: '3'}, 
+        {id: 3,  name: 'Northland', island_name: 'North', region_name: 'Northland', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: 35.378764, long: 173.886515, depth: '3'},
+        {id: 4,  name: 'Auckland', island_name: 'North', region_name: 'Auckland', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: -36.854879, long: 174.756941, depth: '3'},
+        {id: 5,  name: 'Coromandel Peninsula', island_name: 'North', region_name: 'Coromandel Peninsula', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: -36.832302, long: 175.583376, depth: '3'},
+        {id: 6,  name: 'Waikato', island_name: 'North', region_name: 'Waikato', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: -37.580256, long: 175.159297, depth: '3'},
+        {id: 7,  name: 'Bay Of Plenty', island_name: 'North', region_name: 'Bay Of Plenty', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: -38.341210, long: 177.240525, depth: '3'},
+        {id: 8,  name: 'Lake Taupo', island_name: 'North', region_name: 'Lake Taupo', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: -38.777244, long: 175.913973, depth: '3'},
+        {id: 9,  name: 'Tongariro National Park', island_name: 'North', region_name: 'Tongariro National Park', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: -39.127961, long: 175.651724, depth: '3'},
+        {id: 10,  name: 'Taranaki', island_name: 'North', region_name: 'Taranaki', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: -39.260428, long: 174.363805, depth: '3'},
+        {id: 11,  name: 'Wellington', island_name: 'North', region_name: 'Wellington', area_name: '', crag_name: '', tc_id: '', parent_id: '1', type: 'region', lat: -41.270910, long: 174.850551, depth: '3'}, 
 
         // northland crags
         {id: 12,  name: 'Ti Point', island_name: 'North', region_name: 'Northland', area_name: '', crag_name: 'Ti Point', tc_id: '11874913', parent_id: '3', type: 'crag', lat: '', long: '', description: 'Ti Point offers a great day trip destination for climbers, providing good a mix of quality sport/trad climbing on coastal basalt. The sea cliffs here are generally solid but be aware that there are some loose blocks about.', approach: 'Ti Point is located about 90 km north of the Auckland CBD, near Leigh.', depth: '4'},
