@@ -38,12 +38,17 @@ export class Globe extends Component {
           lat: -36.927863,
           lng: 175.624601
           }}>
-          <Marker
-              title={'The marker`s title will appear as a tooltip.'}
-              id = {1}
-              name={'SOMA'}
-              position={{lat: -37.066696, lng: 175.557862}} 
-              onClick={this.markerClick}/>
+          {this.props.children &&
+          this.props.children.map(child => {
+            console.log('yay');
+            return <Marker
+            title={child.name}
+            id = {child.id}
+            name={child.name}
+            position={{lat: child.lat, lng: child.long}} 
+            onClick={this.markerClick}/>
+          })
+            }
           </Map>
 
       }
