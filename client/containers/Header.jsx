@@ -69,7 +69,7 @@ export class Header extends Component {
           onClose={this.handleClose}
         >
           <a className='menu-ticket-link' href="/tickets"><MenuItem onClick={this.handleClose}>View tickets</MenuItem></a>
-          <a className='menu-ticket-link' href="/tickets/add"><MenuItem onClick={this.handleClose}>Add ticket</MenuItem></a>
+          {isLoggedIn.user && <a className='menu-ticket-link' href="/tickets/add"><MenuItem onClick={this.handleClose}>Add ticket</MenuItem></a>}
         </Menu>
         <a href="https://kwf.co.nz/">
           <Button color="inherit">
@@ -93,6 +93,13 @@ export class Header extends Component {
     )
   }
 }
+const mapStateToProps = ({auth, children, loadLocationById}) => {
+    return {
+      auth,
+      children,
+      loadLocationById
+    }
+  }
 
 function mapStateToProps({isLoggedIn}){
   return {isLoggedIn}

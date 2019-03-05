@@ -15,6 +15,21 @@ export function getAllTickets() {
   }
 }
 
+export function resolveTicket(ticketId) {
+  return (dispatch) => {
+    request.get(`/api/v1/tickets/resolve/${ticketId}`)
+    .then(res => {
+      (res.body == 1
+        ? document.location = `/tickets/ticketId/${ticketId}`
+        : dispatch(loadCurrentTicket(null))
+      )
+    })
+    .catch(err => {
+      console.log('ERROR!', err);
+    })
+  }
+}
+
 export function getCurrentTicketById(ticketId) {
   return (dispatch) => {
     request.get(`/api/v1/tickets/ticketId/${ticketId}`)
