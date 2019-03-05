@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import TicketInfoCard from '../components/TicketInfoCard'
+import Typography from '@material-ui/core/Typography';
 
+import TicketInfoCard from '../components/TicketInfoCard'
 import ActionStack from './ActionStack'
 
 import {getCurrentTicketById, getTicketLocationsById, getTicketCreator} from '../api/local/tickets'
@@ -23,7 +24,6 @@ class Ticket extends React.Component {
       // increase apiRetrysRemaining stops inifinite loops when looking for tickets that dont exist
       var apiRetrysRemaining = 10;
       this.setState({apiRetrysRemaining: apiRetrysRemaining});     //adds apiRetrys to local state
-
   }
 
   componentWillReceiveProps() {
@@ -32,12 +32,6 @@ class Ticket extends React.Component {
       ? ((typeof this.props.ticketLocations[0] === 'undefined') && this.props.getTicketLocationsById(this.state.ticketId))
       : null
     );
-    
-    // gets the ticketCreator if there not already done & if a user_id on currentTicket is supplied
-    // ((typeof this.props.ticketCreator.name === 'undefined') && (typeof this.props.currentTicket !== 'null')
-    //   ? ((typeof this.props.currentTicket.user_id !== 'undefined') && this.props.getTicketCreator(this.props.currentTicket.user_id))
-    //   : null
-    // );
     
     (this.state.apiRetrysRemaining > 0 && this.setState({apiRetrysRemaining: this.state.apiRetrysRemaining-1}));
   }
@@ -48,25 +42,31 @@ class Ticket extends React.Component {
 
         {(this.props.currentTicket 
           ? (
-            <div>
+            <div className="ticketFlexContainer">
               <div>
-                <h2>{this.props.currentTicket.title}</h2><br />
-                <h3>Description:</h3>
-                <p>{this.props.currentTicket.description}</p><br />
-                <h3>Severity: {this.props.currentTicket.severity}</h3><br />
-                <h3>Created: {this.props.currentTicket.created_at}</h3><br />
-                <h3>Grant Status: {(this.props.currentTicket.has_grant) ? 'Funded' : 'Not Funded'}</h3><br />
-                <h3>Logged by: {this.props.currentTicket.name}</h3>
-              </div>
-              <div className="actionStack">
-                <ActionStack />
+                <Typography variant="h3">{this.props.currentTicket.title}</Typography>
+                <br />
+                <Typography variant="h5"><strong>Description: </strong></Typography>
+                <Typography variant="h5">{this.props.currentTicket.description}</Typography>
+                <br />
+                <Typography variant="h5"><strong>Severity - </strong>{this.props.currentTicket.severity}</Typography>
+                <br />
+                <Typography variant="h5"><strong>Created - </strong>{this.props.currentTicket.created_at}</Typography>
+                <br />
+                <Typography variant="h5"><strong>Grant Status - </strong>{(this.props.currentTicket.has_grant) ? 'Funded' : 'Not Funded'}</Typography>
+                <br />
+                <Typography variant="h5"><strong>Logged By - </strong>{this.props.currentTicket.name}</Typography>
+                <br />
               </div>
               <div className="ticketInfoCard">
                 <TicketInfoCard ticketLocations={this.props.ticketLocations}/>
               </div>
+              <div className="actionStack">
+                <ActionStack />
+              </div>
             </div>
           )
-          : <h2>No Ticket Found Matching That ID</h2>
+          : <Typography variant="h2">No Ticket Found Matching That ID</Typography>
           )
         }
 
