@@ -22,7 +22,11 @@ export function getLocationById(id) {
   return (dispatch) => {
     request.get(`/api/v1/locations/${id}`)
     .then(res => {
+      console.log(res.body);
       dispatch(loadLocationById(res.body))
+      dispatch(getParentByCurrent(res.body[0].parent_id))
+      dispatch(updateCurrentLocation(res.body[0].id))
+      dispatch(loadChildrenByParent(res.body[0].id))
     })
     .catch(err => {
       console.log('ERROR!', err);
@@ -35,6 +39,7 @@ export function getParentByCurrent(id) {
     request.get(`/api/v1/locations/${id}`)
     .then(res => {
       dispatch(loadParentByCurrent(res.body))
+      getChildrenByParent(res.body[0].id)
     })
     .catch(err => {
       console.log('ERROR!', err);

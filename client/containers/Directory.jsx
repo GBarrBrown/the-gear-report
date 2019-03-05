@@ -7,6 +7,7 @@ import {getLocationsByParent} from '../api/local/locations'
 import {getParentByCurrent} from '../api/local/locations'
 import {getChildrenByParent} from '../api/local/locations'
 import {updateCurrentLocation} from '../actions/locations'
+import {sendNewLocation} from '../api/local/locations'
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -44,11 +45,13 @@ const styles = theme => ({
 class Directory extends React.Component {
   state = {
 		open: true,
-		selectedIndex: 1,
+    selectedIndex: 1,
+    updatingLocation: false,
+    key: 'starting-key'
   };
   
   componentDidMount() {
-    {this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(Number(this.props.currentLocation))}
+    {this.props.currentLocation && this.props.getLocationById(Number(this.props.currentLocation))}
     {this.props.currentLocation && this.props.getLocationsByParent(this.props.currentLocation)}
 
   }
@@ -60,13 +63,18 @@ class Directory extends React.Component {
 	}
 
   handleClick = (id) => {
-    console.log('id', id)
-    return function(e) {
-      console.log('inside', id)
-      location.href=`/dashboard/${id}`
-      // this.props.location.push(`/dashboard/${id}`)
-    }
+    this.props.getLocationById(id)
   };
+
+  handleClick = this.handleClick.bind(this)
+
+  handleChildClick = (id) => {
+    this.props.sendNewLocation(id)
+    this.setState({ updatingLocation: true })
+    this.setState({ key: Math.random() }); 
+  }
+
+  handleChildClick = this.handleChildClick.bind(this)
 
   handleListItemClick = (event, index) => {
 		this.setState({ selectedIndex: index });
@@ -89,7 +97,7 @@ class Directory extends React.Component {
             <ListItemText inset primary={this.props.loadParentByCurrent[0].name} 
                                 inset={true} 
                                 value={this.props.loadParentByCurrent[0].id}
-                                onClick={this.handleClick(this.props.loadParentByCurrent[0].id)}
+                                onClick={() => this.handleClick(this.props.loadParentByCurrent[0].id)}
                                 />
           </ListItem>
 
@@ -97,15 +105,17 @@ class Directory extends React.Component {
       
 
           {this.props.loadChildrenByParent.map((child, i) => {
+            {/* If we are not on the item with children, just render the item  */}
             if (child.id != this.props.currentLocation) {
               return (
               <ListItem button
 												selected={this.state.selectedIndex === 2}
                         key={i}
-                        onClick={this.handleClick(child.id)}>
+                        onClick={() => this.handleChildClick(child.id)}>
               	<ListItemText inset secondary={child.name} />
             	</ListItem> 
               )
+            {/* If we are on the item with children, render them  */}
             } else {
               return (
                 <React.Fragment>
@@ -122,7 +132,7 @@ class Directory extends React.Component {
                   <List component="div" disablePadding>
                   {this.props.children.map((child, i) => {
                     return (<ListItem button className={classes.nested}
-                      onClick={this.handleClick(child.id)}>
+                      onClick={() => this.handleClick(child.id)}>
                       <ListItemText inset secondary={child.name} />
                     </ListItem>
                     )
@@ -159,7 +169,7 @@ function mapStateToProps({ updateCurrentLocation, children, currentLocation, loa
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({getLocationsByParent, getLocationById, getParentByCurrent, getChildrenByParent}, dispatch)
+  return bindActionCreators({sendNewLocation, getLocationsByParent, getLocationById, getParentByCurrent, getChildrenByParent}, dispatch)
 }
 
 Directory.propTypes = {
