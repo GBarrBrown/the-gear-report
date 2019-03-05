@@ -24,13 +24,13 @@ export class Globe extends Component {
   updateZoom = (depth) => {
     switch (depth) {
       case '1':
-        return this.mapZoom = 4.75
+        return this.mapZoom = 5.15
       case '2':
         return this.mapZoom = 5.75
       case '2':
         return this.mapZoom = 8.5
       case '3':
-        return this.mapZoom = 8
+        return this.mapZoom = 8.4
       default:
         return this.mapZoom = 10
     }

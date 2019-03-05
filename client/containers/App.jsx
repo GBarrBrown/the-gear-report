@@ -19,7 +19,7 @@ export default function App() {
 			<Header />
 			<Router>	
 				<div className="body">
-					<Route exact path='/' render={() => (<Redirect to="/dashboard/1"/>)} />
+					<Route exact path='/' render={() => (<Redirect to="/dashboard/104"/>)} />
 					<Route exact path='/dashboard/:id' component={Dashboard} />
 					<Route path='/login' component={Login} />
 					<Route path='/register' component={Register} />
