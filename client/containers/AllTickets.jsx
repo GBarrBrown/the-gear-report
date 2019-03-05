@@ -17,7 +17,7 @@ export class AllTickets extends React.Component {
     return (
       <div className='tickets-container'>
       {this.props.allTickets[0] &&
-        <MaterialTable className='tickets-table'
+        <MaterialTable className='tickets-table' 
           columns={[
             { title: 'Title', field: 'title', filtering: false, },
             { title: 'Severity', field: 'severity', type: 'numeric', },
@@ -26,6 +26,9 @@ export class AllTickets extends React.Component {
             { title: 'Date Created', field: 'created_at', type: 'date', filtering: false,},
             { title: 'Last Updated', field: 'updated_at', type: 'numeric', filtering: false,},
           ]}
+          styles={{
+            width: '100%'
+          }}
           data={this.props.allTickets}
           title="All Tickets For New Zealand"
           options={{
@@ -42,7 +45,7 @@ export class AllTickets extends React.Component {
           ]}
         />
       }
-      <a className='add-button' href="/tickets/add"> <AddTicketButton /> </a>
+      <a className='add-button add-button-allTickets' href="/tickets/add"> <AddTicketButton /> </a>
       </div>
     )
   }

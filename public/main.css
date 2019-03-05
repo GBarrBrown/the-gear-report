@@ -307,8 +307,14 @@ body {
 }
 
 .tickets-container{
-  display: flex;
+  display: grid;
+  /* justify-items: center; */
+  grid-template-columns: 10%, 80%, 10%;
   height: 100%;
+}
+
+.tickets-container div:first-child {
+  grid-column: 2 / 3;
 }
 
 .action-button{
@@ -318,6 +324,13 @@ body {
 .add-button{
   align-self: flex-end;
   margin: 1em;
+}
+
+.add-button-allTickets {
+  width: 56px !important;
+  grid-column: 3 / 4;
+  justify-self: flex-end;
+  position: relative;
 }
 
 .ticketFlexContainer {
