@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import Typography from '@material-ui/core/Typography';
+
 
 import MediaCard from './Card'
 
@@ -22,14 +24,32 @@ class TopRecentTi extends React.Component {
       
     return (
       <div className="topRecentTi">
+        <div className="hr-top"> </div>
+        <div className="cards-header">
+          <Typography variant="h5"> Recent Tickets </Typography>
+        </div>
+        <div className="hr-bottom"> </div>
+       
+      <div className="flex-cards">
       {this.props.ticketsByLocation.length > 0 &&
       <React.Fragment>
+         
         {this.props.ticketsByLocation.slice(0, 5).map((ticket, i) => {
-          return <MediaCard classKey={`topRecentTi${i}`} title={ticket.title} description={ticket.description} id={ticket.id} />
-
+          return (
+            <MediaCard 
+            classKey={`topRecentTi${i}`} 
+            title={ticket.title} 
+            description={ticket.description} 
+            id={ticket.id}
+            severity={ticket.severity}
+            />
+          )
+          
         })}
       </React.Fragment>
       }
+      </div>
+     
       </div>
     )
   }
