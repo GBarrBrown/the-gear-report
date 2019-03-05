@@ -72,3 +72,16 @@ export function getTicketCreator(creatorId) {
     })
   }
 }
+
+export function getTopContributors() {
+  return(dispatch) => {
+    request.get('/api/v1/tickets/topContributors')
+    .then(res => {
+      console.log(res.body)
+      // dispatch(loadTopContributors(res.body))
+    })
+    .catch(err => {
+      console.log('ERROR!', err)
+    })
+  }
+}
