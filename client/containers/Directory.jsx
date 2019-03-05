@@ -60,9 +60,7 @@ class Directory extends React.Component {
 	}
 
   handleClick = (id) => {
-    console.log('id', id)
     return function(e) {
-      console.log('inside', id)
       location.href=`/dashboard/${id}`
       // this.props.location.push(`/dashboard/${id}`)
     }
