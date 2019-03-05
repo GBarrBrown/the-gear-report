@@ -2,29 +2,32 @@ import React from 'react'
 
 import TopRecentTi from './TopRecentTi'
 import TopContribs from './TopContribs'
-import TopNewRoutes from './TopNewRoutes'
 import TopResolved from './TopResolvedTi'
-import TopRoutes from './TopRoutes'
 
-class Dashboard extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
+export function Dashboard () {
 
-        }
-    }
-
-    render() {
-        return (
-            <React.Fragment>
-              <TopRecentTi />
-              <TopContribs />
-              <TopNewRoutes />
-              <TopResolved />
-              <TopRoutes />
-            </React.Fragment>
-        )
-    }
+  return (
+    <div className='dashboard-cards'>
+      <div>
+        <div className="cardsheader">
+          Recent tickets
+        </div>
+        <TopRecentTi /> 
+      </div>
+      <div className="topcontributor">
+        <div className="cardsheader">
+          Top contributors
+        </div>
+        <TopContribs />
+      </div>
+      <div className="topresolved">
+        <div className="cardsheader">
+          Recently resolved tickets
+        </div>
+        <TopResolved />
+      </div>
+    </div>
+  )
 }
 
 export default Dashboard
