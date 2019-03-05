@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:700');
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Teko:700');
 
 
 * {
@@ -7,115 +8,178 @@
   margin: 0;
   padding: 0;
   border: 0;
+  font-family: 'Roboto', sans-serif;
+
   }
 
 body {
-    margin: 0px;
-    padding: 0px;
-}
-
-#app {
-    display: grid;
-    height: auto;
-    width: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+  margin: 0px;
+  padding: 0px;
 }
 
 .app-container {
-    display: grid;
-    height: auto;
-    width: 100%;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto, auto, auto;
+  display: grid;
+  min-height: 100%;
+  width: 100%;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  grid-template-columns: 100%;
+  grid-template-rows: auto, 1fr, auto;
 }
 
 .header-container {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    height: 8vh;
-    position: sticky;
-    top: 0;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
+.body {
+  display: grid;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  min-height: calc(100vh - 93.2px);
+  background-color: #95b3aa
+}
+
+/* --  header --  */
 .header {
-    height: 100%;
-    display: flex;
-    flex:start;
-    justify-content: space-between;
+  height: 100%;
+  display: flex;
+  flex:start;
+  justify-content: space-between;
 
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 
-    font-weight: bold;
-    font-size: 5vh;
-    background-color: rgb(148,169,178);
-    align-items: center;
+  font-weight: bold;
+  font-size: 5vh;
+  background-color: rgb(249,249,249);
+  align-items: center;
 }
 
 .header ul {
-    list-style-type: none;
-    list-style: none;
-    height: 100%;
-    text-align: center;
-    padding:0;
-    margin:0;
-    overflow: hidden;
+  list-style-type: none;
+  list-style: none;
+  height: 100%;
+  text-align: center;
+  padding:0;
+  margin:0;
+  overflow: hidden;
 }
 
 .header li {
-    float: left;
-    line-height: 150%;
+  float: left;
+  line-height: 150%;
 }
 
 .header a {
-    display: block;
-    text-decoration: none;
-    color: #353839;
+  display: block;
+  text-decoration: none;
+  color: #353839;
 }
 
 .header a.active {
-    display: block;
-    text-decoration: none;
-    color: #353839;
+  display: block;
+  text-decoration: none;
+  color: #353839;
 }
 
 .header-items {
-    width: 15vw;
-    text-align: center;
-    height: 100%;
-    background-color: rgb(148,169,178);
-    color: #353839;
+  width: 15vw;
+  text-align: center;
+  height: 100%;
+  background-color: rgb(148,169,178);
+  color: #353839;
 }
 
 .header-items:hover {
-    color: #272b2e;
+  color: #272b2e;
 }
+
+/* -- -- Footer -- --  */
 
 .footer {
   grid-column: 1 / 2;
   grid-row: 3 / 4;
-  background-color: #3f51b5;
-  height: 15vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  position: sticky;
+  height: 50px;
+
+  color: #d4d4d5;
+  background-color: #98999a;
+  /* margin-top: -50px; */
 }
 
-.body {
-    display: grid;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    height: auto;
+/* -- footer 'The Gear Report' -- */
+.footer-middle-inner p {
+  font-family: 'Teko', sans-serif;
+  font-size: 30px;
+  letter-spacing: 1px;
+
+  background-color: #565656;
+  color: transparent;
+  text-shadow: 0px 1px 1px rgba(255,255,255,0.2);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
 }
 
+/* -- footer Donate & FAQ -- */
+.footer-right {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8em;
+  font-weight:bold;
+  color: #abbfd3;
+  line-height: 180%;
+}
+
+.footer-right ul {
+  list-style-type: square;
+}
+
+.footer-right a {
+  position: relative;
+  text-decoration: none;
+  color: #abbfd3;
+}
+
+/* -- footer on hover transitions -- */
+.footer a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #abbfd3;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.footer-right a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/* -- dashboard -- */
 .dashboard-container {
-    display: grid;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    grid-template-columns: repeat(14, 1fr);
-    grid-template-rows: repeat(14, 1fr);
-    height: auto;
+  display: grid;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  grid-template-columns: auto 3fr;
+  grid-template-rows: repeat(3, 1fr);
+  height: auto;
 }
 
 .dashboard {
@@ -123,103 +187,114 @@ body {
     grid-column: 4 / 12;
     grid-row: 1 / 15;
     /* height: 80vh; */
-    background-color: orange;
 }
 
 .directory {
-    grid-column: 1 / 4;
-    grid-row: 1 / 10;
-    height: 75vh;
-
-    /* Potential to make position sticky to keep at top */
+  grid-column: 1 / 2;
+  grid-row: 1 / 5;
+  height: 100%;
+  position: sticky;
+  max-width: 360px !important;
+  /* Potential to make position sticky to keep at top */
 }
 
 .globe {
-    grid-column: 4 / 12;
-    grid-row: 1 / 7;
-    background-color: brown;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
 }
 
-.topResolvedTi {
-    grid-column: 4 / 8;
-    grid-row: 7 / 11;
-    background-color: white;
+.globeContainer {
+  height: 450px;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.topNewRoutes {
-    grid-column: 8 / 12;
-    grid-row: 11 / 15;
-    background-color: white;
-}
-
-.topRoutes {
-    grid-column: 4 / 8;
-    grid-row: 11 / 15;
-    background-color: white;
+.globeContainer div:first-child {
+  position: relative !important;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 .topRecentTi {
-    display: grid;
-    grid-column: 12 / 15;
-    grid-row: 1 / 11;
-    background-color: white;
-    grid-template-columns: auto;
-    grid-template-rows: repeat(12, auto)
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
 }
 
-.topRecentTi0 {
-    grid-column: 1 / 2;
-    grid-row: 2 / 4;
-    max-height: 145px;
+.resolvedTickets {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
 }
 
-.topRecentTi1 {
-    grid-column: 1 / 2;
-    grid-row: 4 / 6;
-    max-height: 145px;
+.cards-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: none;
 }
 
-.topRecentTi2 {
-    grid-column: 1 / 2;
-    grid-row: 6 / 8;
-    max-height: 145px;
+.mediacard-width{
+  margin: 1em;
+  width: 40%;
+  max-width: 200px;
+  min-width: 150px;
+  max-height: 250px;
+  min-height: 200px
 }
 
-.topRecentTi3 {
-    grid-column: 1 / 2;
-    grid-row: 8 / 10;
-    max-height: 145px;
+.hr-top{
+  background-color: rgb(8, 11, 12);
+  height: 1px;
+  margin: 1px 10px;
 }
 
-.topRecentTi4 {
-    grid-column: 1 / 2;
-    grid-row: 10 / 12;
-    max-height: 145px;
+.hr-bottom{
+  background-color: rgb(8, 11, 12);
+  height: 1px;
+  margin: 0 20px;
 }
 
-.topContribs {
+/* re-enable if we get to this component */
+/* .topContribs {
     grid-column: 8 / 12;
     grid-row: 7 / 11;
     background-color: white;
+    padding-right: 5%;
+} */
+
+.flex-cards{
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
 }
 
 .ticketComponent {
-    background-color: rgb(211, 240,250)
+  padding: 20px;
+}
+.ticketInfoCard {
+  min-width: 230px;
+  max-width: 350px;
 }
 
 .actionStack {
-    float: right;
+  float: right;
 }
 
 .action-stack {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .tickets-container{
-  display: flex;
+  display: grid;
+  /* justify-items: center; */
+  grid-template-columns: 10%, 80%, 10%;
   height: 100%;
+}
+
+.tickets-container div:first-child {
+  grid-column: 2 / 3;
 }
 
 .action-button{
@@ -231,7 +306,26 @@ body {
   margin: 1em;
 }
 
-.typographyPlaceType {
-    /* display: inline; */
-    color: red;
+.add-button-allTickets {
+  width: 56px !important;
+  grid-column: 3 / 4;
+  justify-self: flex-end;
+  position: relative;
+}
+
+.ticketFlexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 480px) {
+  .ticketFlexContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .action-stack {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
 }

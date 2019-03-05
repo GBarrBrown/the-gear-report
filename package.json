@@ -6,12 +6,17 @@
   "repository": "https://github.com/rebeccajackson/todo-list.git",
   "author": "Rebecca Jackson <zimbecs@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "11.6.0",
+    "npm": "6.5.0",
+    "yarn": "1.13.0"
+  },
   "scripts": {
     "dev": "nodemon server --watch & webpack --watch",
     "server": "node server",
-    "start": "cross-env NODE_ENV=development node_modules/.bin/webpack-dev-server --config webpack.config.js",
+    "start": "node server",
     "test": "jest --watchAll",
-    "postinstall": "webpack",
+    "postinstall": "webpack && knex migrate:latest",
     "win": "webpack --watch"
   },
   "dependencies": {
@@ -30,13 +35,12 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-jwt": "^5.3.1",
+    "google-maps-react": "^2.0.2",
     "jsonwebtoken": "^8.5.0",
     "jwt-decode": "^2.2.0",
     "knex": "^0.16.3",
-    "material-table": "^1.19.0",
     "libsodium-wrappers": "^0.7.4",
     "material-table": "^1.19.0",
-    "libsodium-wrappers": "^0.7.4",
     "nodemon": "^1.18.10",
     "path": "^0.12.7",
     "pg": "^7.8.1",

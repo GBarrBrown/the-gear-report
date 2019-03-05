@@ -42,6 +42,7 @@ function getTicketById(ticketId, testDb) {
     'tickets.severity',
     'tickets.img',
     'tickets.has_grant',
+    'tickets.resolved',
     'tickets.created_at',
     'tickets.updated_at',
     'tickets.user_id',
@@ -63,7 +64,6 @@ function getTicketLocationsById(ticketId, testDb) {
   .join('locations', 'locations.id', 'loc_id')
   .orderBy('depth')
   .select()
-
 }
 
 // getTicketCreator By Ticket Id... could be moved into a users db file, though this seems more relavent
@@ -74,11 +74,18 @@ function getTicketCreator(creatorId, testDb) {
   .where('id', creatorId).select().first()
 }
 
+function resolveTicket(id, testDb) {
+  const db = testDb || connection
+  return db('tickets')
+  .where('id', id).update({resolved: true})
+}
+
 module.exports = {
   addTicket,
   getAllTickets,
   getTicketById,
   getTicketLocationsById,
   getTicketCreator,
-  getTicketsByIds
+  getTicketsByIds,
+  resolveTicket
 }
