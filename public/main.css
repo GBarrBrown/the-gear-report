@@ -177,7 +177,7 @@ body {
   display: grid;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: auto 3fr;
   grid-template-rows: repeat(3, 1fr);
   height: auto;
 }
@@ -194,6 +194,7 @@ body {
   grid-row: 1 / 5;
   height: 100%;
   position: sticky;
+  max-width: 360px !important;
   /* Potential to make position sticky to keep at top */
 }
 
