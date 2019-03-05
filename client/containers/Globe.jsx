@@ -40,11 +40,13 @@ export class Globe extends Component {
     }
   }
   
-  componentWillUpdate() {
+  componentWillReceiveProps() {
+    console.log('ping');
   }
 
 
   render() {
+    console.log(this.props.loadLocationById);
     return (
       <div className='globeContainer'>
         {this.props.loadLocationById.length > 0 &&

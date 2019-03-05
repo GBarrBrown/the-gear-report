@@ -60,10 +60,11 @@ class Directory extends React.Component {
 	}
 
   handleClick = (id) => {
-    return function(e) {
-      location.href=`/dashboard/${id}`
+    // return function(e) {
+      console.log(this.props)
+      // location.href=`/dashboard/${id}`
       // this.props.location.push(`/dashboard/${id}`)
-    }
+    // }
   };
 
   handleListItemClick = (event, index) => {
@@ -87,7 +88,7 @@ class Directory extends React.Component {
             <ListItemText inset primary={this.props.loadParentByCurrent[0].name} 
                                 inset={true} 
                                 value={this.props.loadParentByCurrent[0].id}
-                                onClick={this.handleClick(this.props.loadParentByCurrent[0].id)}
+                                onClick={() => this.handleClick(this.props.loadParentByCurrent[0].id)}
                                 />
           </ListItem>
 
@@ -100,7 +101,7 @@ class Directory extends React.Component {
               <ListItem button
 												selected={this.state.selectedIndex === 2}
                         key={i}
-                        onClick={this.handleClick(child.id)}>
+                        onClick={() => this.handleClick(child.id)}>
               	<ListItemText inset secondary={child.name} />
             	</ListItem> 
               )
@@ -120,7 +121,7 @@ class Directory extends React.Component {
                   <List component="div" disablePadding>
                   {this.props.children.map((child, i) => {
                     return (<ListItem button className={classes.nested}
-                      onClick={this.handleClick(child.id)}>
+                      onClick={() => this.handleClick(child.id)}>
                       <ListItemText inset secondary={child.name} />
                     </ListItem>
                     )
