@@ -65,7 +65,7 @@ export class Header extends Component {
           <a className='menu-ticket-link' href="/tickets"><MenuItem onClick={this.handleClose}>View tickets</MenuItem></a>
           <a className='menu-ticket-link' href="/tickets/add"><MenuItem onClick={this.handleClose}>Add ticket</MenuItem></a>
         </Menu>
-        <a href="/about">
+        <a href="https://kwf.co.nz/">
           <Button color="inherit">
             About
           </Button>
