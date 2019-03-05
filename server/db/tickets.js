@@ -74,11 +74,23 @@ function getTicketCreator(creatorId, testDb) {
   .where('id', creatorId).select().first()
 }
 
+function getTopContributors(testDb) {
+  const db = testDb || connection
+  // this function is unfinished but is returning something resembling what i was aiming to get..
+  // might need to join to users table to assign users name to their rank in the list?? else will
+  // a second db call with the user id's to get their names for the dashboard topContributor card
+  return db('tickets').join('users', 'users.id', 'tickets.user_id').count('user_id as popularity').groupBy('user_id')
+  .then(res => {
+    console.log(res)
+  })
+}
+
 module.exports = {
   addTicket,
   getAllTickets,
   getTicketById,
   getTicketLocationsById,
   getTicketCreator,
-  getTicketsByIds
+  getTicketsByIds,
+  getTopContributors
 }
