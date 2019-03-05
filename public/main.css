@@ -12,6 +12,7 @@
 body {
     margin: 0px;
     padding: 0px;
+    
 }
 
 #app {
@@ -20,6 +21,7 @@ body {
     width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+    
 }
 
 .app-container {
@@ -30,6 +32,7 @@ body {
     grid-row: 1 / 2;
     grid-template-columns: 1fr;
     grid-template-rows: auto, auto, auto;
+    
 }
 
 .header-container {
@@ -137,6 +140,7 @@ body {
     grid-column: 4 / 12;
     grid-row: 1 / 7;
     padding: 5%;
+    z-index: -1;
 }
 
 .topResolvedTi {

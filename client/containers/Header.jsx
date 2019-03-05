@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 class Header extends React.Component {
 
@@ -38,49 +39,13 @@ class Header extends React.Component {
     )
   }
 }
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({auth, children, loadLocationById}) => {
     return {
-      auth
+      auth,
+      children,
+      loadLocationById
     }
   }
 
-    export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps)(Header)
 
-
-      //     <div className="header">
-      //   <a href="/">
-      //     <div className="header-items">
-      //       Home
-      //     </div>
-      //   </a>
-      //   <a href="/tickets">
-      //     <div className="header-items">
-      //       Tickets
-      //     </div>
-      //   </a>
-      //   <a href="/faq">
-      //     <div className="header-items">
-      //       FAQ
-      //     </div>
-      //   </a>
-      //   <a href="/about">
-      //     <div className="header-items">
-      //       About
-      //     </div>
-      //   </a>
-      //   {auth.isAuthenticated ? 
-      //   ( <div className="header-items-login">
-      //       <h3>{auth.user.name}</h3>
-      //       <img src={auth.user.picture} alt="Profile pic"/>
-      //     </div>
-      //   ) : 
-      //   (
-      //     <a href="/login">
-      //       <div className="header-items-login">
-      //         Login {auth.errorMessage}
-      //       </div>
-      //     </a>
-      //   )
-      // }
-
-      // </div>
