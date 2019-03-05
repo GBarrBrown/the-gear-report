@@ -274,6 +274,7 @@ body {
   padding: 20px;
 }
 .ticketInfoCard {
+  min-width: 230px;
   max-width: 350px;
 }
 
@@ -299,4 +300,21 @@ body {
 .add-button{
   align-self: flex-end;
   margin: 1em;
+}
+
+.ticketFlexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 480px) {
+  .ticketFlexContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .action-stack {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
 }
