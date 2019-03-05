@@ -5,6 +5,8 @@ import {loadLocationById} from '../../actions/locations'
 import {loadParentByCurrent} from '../../actions/locations'
 import {loadChildrenByParent} from '../../actions/locations'
 import {updateCurrentLocation} from '../../actions/locations'
+import {loadTicketsByLocation} from '../../actions/tickets'
+
 
 export function getLocationsByParent(parentId) {
   return (dispatch) => {
@@ -19,14 +21,15 @@ export function getLocationsByParent(parentId) {
 }
 
 export function getLocationById(id) {
+  
   return (dispatch) => {
     request.get(`/api/v1/locations/${id}`)
     .then(res => {
-      console.log(res.body);
       dispatch(loadLocationById(res.body))
       dispatch(getParentByCurrent(res.body[0].parent_id))
       dispatch(updateCurrentLocation(res.body[0].id))
       dispatch(loadChildrenByParent(res.body[0].id))
+      dispatch(getTicketsByLocation(res.body[0].id))
     })
     .catch(err => {
       console.log('ERROR!', err);
@@ -64,3 +67,23 @@ export function sendNewLocation(id) {
     dispatch(updateCurrentLocation(id))
   }
 }
+
+export function getTicketsByLocation(locationId) {
+  console.log(locationId);
+  return (dispatch) => {
+    request.get(`/api/v1/tickets/locationId/${locationId}`)
+    .then(res => {
+    let result = res.body.map(a => a.ticket_id);
+    console.log('ticket', result);
+    request.post(`/api/v1/tickets/ticketIds`)
+            .send(result)
+            .then(res => {
+            var tickets = JSON.parse(res.text)
+            dispatch(loadTicketsByLocation(tickets))
+            })
+            .catch(err => {
+              console.log('ERROR!', err)
+            })
+          }
+    )}
+  }

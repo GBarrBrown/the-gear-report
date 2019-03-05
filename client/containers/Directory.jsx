@@ -69,9 +69,7 @@ class Directory extends React.Component {
   handleClick = this.handleClick.bind(this)
 
   handleChildClick = (id) => {
-    this.props.sendNewLocation(id)
-    this.setState({ updatingLocation: true })
-    this.setState({ key: Math.random() }); 
+    this.props.getLocationById(id)
   }
 
   handleChildClick = this.handleChildClick.bind(this)

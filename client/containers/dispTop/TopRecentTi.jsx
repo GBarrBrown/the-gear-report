@@ -12,12 +12,11 @@ var count = 0
 class TopRecentTi extends React.Component {
 
   componentWillReceiveProps() {
-    if (typeof this.props.currentLocation === 'string' && this.props.loadLocationById && count < 10 && this.props.ticketsByLocation.length < 1) {
-      
-      count += 1
-      console.log(count);
-      this.props.getTicketsByLocation(this.props.currentLocation)
-    }
+    
+    // if (typeof this.props.currentLocation === 'number' && this.props.ticketsByLocation < 1 && count < 20) {
+    //   count += 1
+    //   this.props.getTicketsByLocation(this.props.currentLocation)
+    // }
   }
 
   render() {
