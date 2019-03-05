@@ -47,13 +47,12 @@ class Dashboard extends React.Component {
         return (
             <div className="dashboard-container">
               <Directory />
-              <div className="dashboard"></div>
-              <TopDisp />
               <div className='globe'>
               {this.props.loadLocationById.length > 0 && 
                 this.props.loadParentByCurrent.length > 0 && 
                 this.renderCondition(this.props.loadLocationById[0].type)} 
               </div>
+              <TopDisp />
             </div>
         )
     }

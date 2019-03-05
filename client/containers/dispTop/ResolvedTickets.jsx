@@ -1,20 +1,19 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
 
-class TopContribs extends React.Component {
+class ResolvedTickets extends React.Component {
 
   render() {
     return (
-      <div className="topContribs">
+      <div className="resolvedTickets">
         <div className="hr-top"> </div>
         <div className="cards-header">
-        <Typography variant="h5"> Top Contributors </Typography>
+          <Typography variant="h5"> Resolved Tickets </Typography>
         </div>
         <div className="hr-bottom"> </div>
-      
       </div>
-      )
+    )
   }
 }
 
-export default TopContribs
+export default ResolvedTickets
