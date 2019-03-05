@@ -31,10 +31,14 @@ const styles = theme => ({
     height: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
+    
   },
   nested: {
     paddingLeft: theme.spacing.unit * 4,
   },
+  header: {
+    
+  }
 });
 
 class Directory extends React.Component {
@@ -44,14 +48,14 @@ class Directory extends React.Component {
   };
   
   componentDidMount() {
-    {this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(this.props.currentLocation)}
+    {this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(Number(this.props.currentLocation))}
     {this.props.currentLocation && this.props.getLocationsByParent(this.props.currentLocation)}
 
   }
 	
 	componentWillReceiveProps() {
-		{this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(this.props.currentLocation)}
-		{this.props.loadLocationById.length > 0 && this.props.loadLocationById[0].parent_id && this.props.loadParentByCurrent.length < 1 && this.props.getParentByCurrent(this.props.loadLocationById[0].parent_id)}
+		{this.props.loadLocationById.length < 1 && this.props.currentLocation && this.props.getLocationById(Number(this.props.currentLocation))}
+		{this.props.loadLocationById.length > 0 && this.props.loadParentByCurrent.length < 1 && this.props.getParentByCurrent(this.props.loadLocationById[0].parent_id)}
     {this.props.loadParentByCurrent.length > 0 && !this.props.loadChildrenByParent.length > 0 && this.props.getChildrenByParent(this.props.loadParentByCurrent[0].id)}
 	}
 
@@ -74,7 +78,7 @@ class Directory extends React.Component {
         <div className='directory'>
         {this.props.loadChildrenByParent.length > 0 && 
           <List component="nav"
-            subheader={<ListSubheader component="div">Directory</ListSubheader>}
+            subheader={<ListSubheader className = {classes.header} component="div">Directory</ListSubheader>}
             className={classes.root}>
 
 					
