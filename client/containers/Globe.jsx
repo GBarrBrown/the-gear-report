@@ -12,7 +12,7 @@ const mapStyles = {
 export class Globe extends Component {
   constructor(props) {
     super(props)
-    this.zoom = ''
+    this.mapZoom = ''
     this.updateZoom = this.updateZoom.bind(this)
   }
 
@@ -21,27 +21,18 @@ export class Globe extends Component {
     location.href=`/dashboard/${props.id}`
   }
 
-  renderCondition(depth) {
-    switch(type) {
-      case '2':
-      return zoom=9
-      default:
-      return zoom=14
-    }
-  }
-
   updateZoom = (depth) => {
     switch (depth) {
       case '1':
-        return this.zoom = 7
+        return this.mapZoom = 7
       case '2':
-        return this.zoom = 8
+        return this.mapZoom = 8
       case '2':
-        return this.zoom = 9
+        return this.mapZoom = 9
       case '3':
-        return this.zoom = 10
+        return this.mapZoom = 10
       default:
-        return this.zoom = 10
+        return this.mapZoom = 10
     }
   }
 
@@ -50,10 +41,10 @@ export class Globe extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.loadLocationById &&
+        {this.props.loadLocationById.length > 0 &&
         this.updateZoom(this.props.loadLocationById[0].depth) &&
-        console.log(this.zoom) &&
         <Map
+          zoomControl={false}
           mapTypeControl={true}
           scaleControl={true}
           streetViewControl={false}
@@ -61,7 +52,7 @@ export class Globe extends Component {
           rotateControl={false}
           fullscreenControl={false}
           google={this.props.google}
-          zoom={this.zoom}
+          zoom={this.mapZoom}
           style={mapStyles}
           initialCenter={{
           lat: -36.927863,
