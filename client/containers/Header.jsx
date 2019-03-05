@@ -1,11 +1,8 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-<<<<<<< HEAD
-import { bindActionCreators } from 'redux'
-=======
+// import { bindActionCreators } from 'redux'
 import {Button, Menu, MenuItem} from '@material-ui/core';
->>>>>>> d43d5ad7ee2ce42c66f5ba8e52b8210d42404628
 
 
 export class Header extends Component {
@@ -93,7 +90,6 @@ export class Header extends Component {
     )
   }
 }
-<<<<<<< HEAD
 const mapStateToProps = ({auth, children, loadLocationById}) => {
     return {
       auth,
@@ -104,11 +100,3 @@ const mapStateToProps = ({auth, children, loadLocationById}) => {
 
 export default connect(mapStateToProps)(Header)
 
-=======
-
-function mapStateToProps({auth}){
-  return {auth}
-}
-
-export default connect(mapStateToProps)(Header)
->>>>>>> d43d5ad7ee2ce42c66f5ba8e52b8210d42404628

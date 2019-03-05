@@ -20,6 +20,7 @@ const styles = {
   };
 
   function eventHandler(viewId) { 
+    
     viewId ?
     location.href=`/tickets/ticketId/${viewId}`
     : location.href=`/tickets/`
