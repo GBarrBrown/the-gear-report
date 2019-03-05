@@ -8,6 +8,8 @@
   margin: 0;
   padding: 0;
   border: 0;
+  font-family: 'Roboto', sans-serif;
+
   }
 
 body {
@@ -269,7 +271,10 @@ body {
 }
 
 .ticketComponent {
-
+  padding: 20px;
+}
+.ticketInfoCard {
+  max-width: 350px;
 }
 
 .actionStack {
