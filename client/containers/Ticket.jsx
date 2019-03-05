@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
 
 import TicketInfoCard from '../components/TicketInfoCard'
-
 import ActionStack from './ActionStack'
 
 import {getCurrentTicketById, getTicketLocationsById, getTicketCreator} from '../api/local/tickets'
@@ -25,7 +24,6 @@ class Ticket extends React.Component {
       // increase apiRetrysRemaining stops inifinite loops when looking for tickets that dont exist
       var apiRetrysRemaining = 10;
       this.setState({apiRetrysRemaining: apiRetrysRemaining});     //adds apiRetrys to local state
-
   }
 
   componentWillReceiveProps() {
@@ -34,12 +32,6 @@ class Ticket extends React.Component {
       ? ((typeof this.props.ticketLocations[0] === 'undefined') && this.props.getTicketLocationsById(this.state.ticketId))
       : null
     );
-    
-    // gets the ticketCreator if there not already done & if a user_id on currentTicket is supplied
-    // ((typeof this.props.ticketCreator.name === 'undefined') && (typeof this.props.currentTicket !== 'null')
-    //   ? ((typeof this.props.currentTicket.user_id !== 'undefined') && this.props.getTicketCreator(this.props.currentTicket.user_id))
-    //   : null
-    // );
     
     (this.state.apiRetrysRemaining > 0 && this.setState({apiRetrysRemaining: this.state.apiRetrysRemaining-1}));
   }
@@ -72,7 +64,6 @@ class Ticket extends React.Component {
               <div className="actionStack">
                 <ActionStack />
               </div>
-
             </div>
           )
           : <Typography variant="h2">No Ticket Found Matching That ID</Typography>
