@@ -5,7 +5,6 @@ import Header from './Header'
 import Dashboard from './Dashboard'
 import Login from './Login'
 import Register from './Register'
-import About from '../components/About'
 import Ticket from './Ticket'
 import AllTickets from './AllTickets'
 import ResolveTicket from './ResolveTicket'
@@ -20,12 +19,10 @@ export default function App() {
 			<Header />
 			<Router>	
 				<div className="body">
-					{/* <Route path='/' component={Header} /> */}
 					<Route exact path='/' render={() => (<Redirect to="/dashboard/1"/>)} />
 					<Route exact path='/dashboard/:id' component={Dashboard} />
 					<Route path='/login' component={Login} />
 					<Route path='/register' component={Register} />
-					<Route path='/about' component={About} />
 					
 					<Route exact path='/tickets/ticketId/:ticketId' component={Ticket} />
 					<Route exact path='/tickets/add' component={AddTicket} />
