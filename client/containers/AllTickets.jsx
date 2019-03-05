@@ -14,6 +14,7 @@ export class AllTickets extends React.Component {
   }
 
   render() {
+    const { isLoggedIn } = this.props
     return (
       <div className='tickets-container'>
       {this.props.allTickets[0] &&
@@ -42,15 +43,22 @@ export class AllTickets extends React.Component {
           ]}
         />
       }
-      <a className='add-button' href="/tickets/add"> <AddTicketButton /> </a>
+       {isLoggedIn.user ? 
+          <a className='action-button' href="/tickets/add"> 
+            <AddTicketButton /> 
+          </a>
+        : <div className='action-button disabled'> 
+            <AddTicketButton /> 
+          </div>}
       </div>
     )
   }
 }
 
-function mapStateToProps({ allTickets }){
+function mapStateToProps({ allTickets, isLoggedIn }){
   return {
-    allTickets
+    allTickets,
+    isLoggedIn
   }
 }
 
