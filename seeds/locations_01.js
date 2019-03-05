@@ -59,7 +59,7 @@ exports.seed = function(knex, Promise) {
                 {id: 102, lat: '', long: '', depth: '6', name: 'The Angel of Calcutta', parent_id: '92', type: 'route', grade: '17', height: '20m', style: 'sport', quality: '2', pitches: '', quickdraws: '6'},
                 {id: 103, lat: '', long: '', depth: '6', name: '52nd Symphony', parent_id: '92', type: 'route', grade: '22', height: '20m', style: 'sport', quality: '2', pitches: '', quickdraws: '6'},
 
-                {id: 104, lat: '', long: '', depth: '1', name: 'New Zealand', parent_id: '', type: 'country', lat: '', long: ''}
+                {id: 104, lat: -40.639411, long: 173.587231, depth: '1', name: 'New Zealand', parent_id: '', type: 'country'}
         
       ]);
 };

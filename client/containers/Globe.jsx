@@ -24,13 +24,13 @@ export class Globe extends Component {
   updateZoom = (depth) => {
     switch (depth) {
       case '1':
-        return this.mapZoom = 7
+        return this.mapZoom = 4.75
       case '2':
-        return this.mapZoom = 8
+        return this.mapZoom = 5.75
       case '2':
-        return this.mapZoom = 9
+        return this.mapZoom = 8.5
       case '3':
-        return this.mapZoom = 10
+        return this.mapZoom = 8
       default:
         return this.mapZoom = 10
     }
@@ -55,10 +55,11 @@ export class Globe extends Component {
           zoom={this.mapZoom}
           style={mapStyles}
           initialCenter={{
-          lat: -36.927863,
-          lng: 175.624601
+          lat: this.props.loadLocationById[0].lat,
+          lng: this.props.loadLocationById[0].long
           }}>
           {this.props.children &&
+          this.props.loadLocationById[0].depth > 2 &&
           this.props.children.map(child => {
             return <Marker
             title={child.name}

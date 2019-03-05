@@ -17,7 +17,6 @@ function Info (props) {
       <React.Fragment>
         <br/>
         <br/>
-        <br/>
         <Typography>
         <h1>{item.name}</h1>
         </Typography>
