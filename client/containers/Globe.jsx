@@ -13,6 +13,12 @@ export class Globe extends Component {
   constructor(props) {
     super(props)
   }
+
+
+  markerClick = (props) => {
+    location.href=`/dashboard/${props.id}`
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -34,8 +40,10 @@ export class Globe extends Component {
           }}>
           <Marker
               title={'The marker`s title will appear as a tooltip.'}
+              id = {1}
               name={'SOMA'}
-              position={{lat: -37.066696, lng: 175.557862}} />
+              position={{lat: -37.066696, lng: 175.557862}} 
+              onClick={this.markerClick}/>
           </Map>
 
       }
