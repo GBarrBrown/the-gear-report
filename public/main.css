@@ -226,26 +226,6 @@ body {
   grid-row: 3 / 4;
 }
 
-.topRecentTi0 {
-  margin: 1em;
-}
-
-.topRecentTi1 {
-  margin: 1em;
-}
-
-.topRecentTi2 {
-  margin: 1em;
-}
-
-.topRecentTi3 {
-  margin: 1em;
-}
-
-.topRecentTi4 {
-  margin: 1em;
-}
-
 .cards-header{
   display: flex;
   flex-direction: column;
@@ -254,12 +234,12 @@ body {
 }
 
 .mediacard-width{
+  margin: 1em;
   width: 40%;
   max-width: 200px;
   min-width: 150px;
   max-height: 250px;
   min-height: 200px
-
 }
 
 .hr-top{

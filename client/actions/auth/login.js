@@ -10,7 +10,7 @@ function requestLogin () {
   }
 }
 
-export function receiveLogin (user) {
+function receiveLogin (user) {
   return {
     type: 'LOGIN_SUCCESS',
     isFetching: false,
@@ -19,7 +19,7 @@ export function receiveLogin (user) {
   }
 }
 
-export function loginError (message) {
+function loginError (message) {
   return {
     type: 'LOGIN_FAILURE',
     isFetching: false,
@@ -27,6 +27,38 @@ export function loginError (message) {
     message
   }
 }
+
+function login (user) {
+  return {
+    type: 'LOGIN',
+    user
+  }
+}
+
+function logout () {
+  return {
+    type: 'LOGOUT',
+    user: false
+  }
+}
+
+export function toggleLogin(){
+  return dispatch => {
+    request.get(`/api/v1/login`)
+    .then(res => {
+      dispatch(login(res.body))
+    })
+  }
+}
+
+export function toggleLogout(){
+  return dispatch => {
+    dispatch(logout())
+   
+  }
+}
+
+//function below is for logging in with Facebook
 
 export function loginUser(creds){
   return (dispatch) => {

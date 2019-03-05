@@ -1,29 +1,39 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-
 import AddTicketButton from '../components/AddTicketButton';
-import EditTicketButton from '../components/EditTicketButton';
 import ResolveTicketButton from '../components/ResolveTicketButton';
 
 export class ActionStack extends Component {
   render() {
+    const { isLoggedIn } = this.props
     return (
       <div className='action-stack'>
-      
-        <a className='action-button' href="/tickets/add"> <AddTicketButton /> </a>
-        <a className='action-button' href="/tickets/:id/edit"> <EditTicketButton /> </a>  
-        <a className='action-button' href="/tickets/:id/resolve"> <ResolveTicketButton /> </a>
+        {isLoggedIn.user ? 
+          <a className='action-button' href="/tickets/add"> 
+            <AddTicketButton /> 
+          </a>
+        : <div className='action-button disabled'> 
+            <AddTicketButton /> 
+          </div>}
+        {isLoggedIn.user && isLoggedIn.user.admin ?  
+            <a className='action-button' href="/tickets/:id/resolve"> 
+              <ResolveTicketButton /> 
+            </a>
+        : <div className='action-button disabled' > 
+            <ResolveTicketButton /> 
+          </div>
+        }
         
       </div>
     )
   }
 }
 
-function mapStateToProps({ isAuth }){
+function mapStateToProps({ isLoggedIn }){
   return {
-    isAuth
+    isLoggedIn
   }
 }
 
-export default connect(mapStateToProps)(ActionStack )
+export default connect(mapStateToProps)(ActionStack)
