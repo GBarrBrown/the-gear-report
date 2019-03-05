@@ -7,7 +7,10 @@ exports.seed = function(knex, Promise) {
       return knex('users').insert([
         {id: 1, name: 'Bob Blogs', email: 'bob@test.email.com', hash: '', admin: false, profile_url: '/images/blankProfilePic.png'},
         {id: 2, name: 'Alice Alan', email: 'alice@test.email.com', hash: '', admin: false, profile_url: '/images/blankProfilePic.png'},
-        {id: 3, name: 'Eve Eden', email: 'eve@test.email.com', hash: '', admin: false, profile_url: '/images/blankProfilePic.png'}
+        {id: 3, name: 'Eve Eden', email: 'eve@test.email.com', hash: '', admin: false, profile_url: '/images/blankProfilePic.png'},
+        {id: 4, name: 'Carlos Carlington', email: 'carlos@test.email.com', hash: '', admin: true, profile_url: '/images/blankProfilePic.png'},
+        {id: 5, name: 'Danny Devito', email: 'magnum-dong@test.email.com', hash: '', admin: true, profile_url: '/images/blankProfilePic.png'},
+        {id: 6, name: 'Franklin Fischer', email: 'franklin@test.email.com', hash: '', admin: false, profile_url: '/images/blankProfilePic.png'}
       ])
     });
 };
