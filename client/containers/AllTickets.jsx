@@ -14,6 +14,7 @@ export class AllTickets extends React.Component {
   }
 
   render() {
+    const { isLoggedIn } = this.props
     return (
       <div className='tickets-container'>
       {this.props.allTickets[0] &&
@@ -22,6 +23,7 @@ export class AllTickets extends React.Component {
             { title: 'Title', field: 'title', filtering: false, },
             { title: 'Severity', field: 'severity', type: 'numeric', },
             { title: 'Sponsored', field: 'has_grant', type: 'boolean' },
+            { title: 'Resolved', field: 'resolved', type: 'boolean' },
             { title: 'Created By', field: 'createdBy'},
             { title: 'Date Created', field: 'created_at', type: 'date', filtering: false,},
             { title: 'Last Updated', field: 'updated_at', type: 'numeric', filtering: false,},
@@ -42,15 +44,22 @@ export class AllTickets extends React.Component {
           ]}
         />
       }
-      <a className='add-button' href="/tickets/add"> <AddTicketButton /> </a>
+       {isLoggedIn.user ? 
+          <a className='action-button' href="/tickets/add"> 
+            <AddTicketButton /> 
+          </a>
+        : <div className='action-button disabled'> 
+            <AddTicketButton /> 
+          </div>}
       </div>
     )
   }
 }
 
-function mapStateToProps({ allTickets }){
+function mapStateToProps({ allTickets, isLoggedIn }){
   return {
-    allTickets
+    allTickets,
+    isLoggedIn
   }
 }
 

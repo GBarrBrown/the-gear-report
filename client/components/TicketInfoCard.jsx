@@ -25,7 +25,7 @@ class TicketInfoCard extends Component {
         <CardContent>
           <div>
             <Typography variant="h4">
-              Ticket Location Info
+              Ticket Locations
             </Typography>
             {this.props.ticketLocations.map((place, i) => {  
               var type = place.type.charAt(0).toUpperCase() + place.type.slice(1) // capitalize first letter of place type

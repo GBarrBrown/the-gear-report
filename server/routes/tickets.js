@@ -30,6 +30,17 @@ router.get('/all', (req, res) => {
   })
 })
 
+router.get('/resolve/:ticketId', (req, res) => {
+  const id = req.params.ticketId
+  ticketDb.resolveTicket(id)
+  .then(ticket => {
+    res.json(ticket)
+  })
+  .catch(err => {
+    console.log('ERROR!',err)
+  })
+})
+
 router.get('/ticketId/:ticketId', (req, res) => {
   var ticketId = req.params.ticketId
   ticketDb.getTicketById(ticketId)
