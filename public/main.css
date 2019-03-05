@@ -200,8 +200,19 @@ body {
 .globe {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
-  padding: 5%;
-  margin: 10px;
+}
+
+.globeContainer {
+  height: 300px;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.globeContainer div:first-child {
+  position: relative !important;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 .topRecentTi {

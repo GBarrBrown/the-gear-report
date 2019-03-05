@@ -3,8 +3,8 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { connect } from 'react-redux'
 
 const mapStyles = {
-  width: '50%',
-  height: '40%'
+  width: '50px',
+  height: '40px'
 };
 
 
@@ -40,12 +40,12 @@ export class Globe extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className='globeContainer'>
         {this.props.loadLocationById.length > 0 &&
         this.updateZoom(this.props.loadLocationById[0].depth) &&
         <Map
           zoomControl={false}
-          mapTypeControl={true}
+          mapTypeControl={false}
           scaleControl={true}
           streetViewControl={false}
           panControl={true}
@@ -72,7 +72,7 @@ export class Globe extends Component {
           </Map>
 
       }
-      </React.Fragment>
+      </div>
     );
   }
 }
