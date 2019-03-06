@@ -24,3 +24,16 @@ test('GET gets all the tickets', () => {
     expect(actual).toEqual(expected)
   })
 })
+
+test('GET ticket by id', () => {
+  let expected = 'Fallen Tree'
+
+  return db.getTicketById(5)
+  .then(ticket => {
+    let actual = ticket.title
+    
+    expect(actual).toBe(expected)
+  })
+
+
+})
