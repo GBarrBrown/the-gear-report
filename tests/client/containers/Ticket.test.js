@@ -2,6 +2,8 @@ import React from 'react'
 import {shallow, mount} from 'enzyme'
 
 import {Ticket} from '../../../client/containers/Ticket'
+import {TicketInfoCard} from '../../../client/components/TicketInfoCard'
+import { Typography } from '@material-ui/core';
 
 describe('<Ticket />', () => {
   it('renders "noMatchingTicket" Typography component when given non-existent id value - 0', () => {
@@ -44,7 +46,7 @@ describe('<Ticket />', () => {
     // console.log(wrapper.debug())
     
     // there should only be one tag with className "ticketFlexContainer" if currentTicket is an obj
-    console.log(wrapper.find('.ticketFlexContainer'))
+    // console.log(wrapper.find('.ticketFlexContainer'))
 
     let actual = wrapper.find('.ticketFlexContainer').length
     let expected = 1
@@ -52,5 +54,16 @@ describe('<Ticket />', () => {
     expect(actual).toEqual(expected)
   })
 
-  // next test -> see if the currentTicket.title input matches the text of its Typography component
+  it('renders the correct text for the tickets title', () => {
+    const match = {params: {ticketId: 1}}
+    const wrapper = shallow(<Ticket match={match} getCurrentTicketById={id => {{}}} currentTicket={{title:'Worn cable at the Arete Route'}}/>)
+    
+    const target = <Typography>Worn cable at the Arete Route</Typography>
+
+    const expected = true
+    const actual = wrapper.containsMatchingElement(target)
+
+    expect(actual).toBe(expected)
+  })
+
 })
