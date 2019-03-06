@@ -25,15 +25,24 @@ test('GET gets all the tickets', () => {
   })
 })
 
-test('GET ticket by id', () => {
+test('GET ticket by id with existing ticket id', () => {
   let expected = 'Fallen Tree'
 
   return db.getTicketById(5)
   .then(ticket => {
     let actual = ticket.title
-    
+
     expect(actual).toBe(expected)
   })
+})
 
+test('GET ticket by id with non-existent ticket id', () => {
+  let expected = []
 
+  return db.getTicketById(0)
+  .then(ticket => {
+    let actual = ticket
+
+    expect(actual).toBe(expected)
+  })
 })
