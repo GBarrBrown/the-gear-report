@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Footer extends React.Component {
+export class Footer extends React.Component {
 
   render() {
     return (
@@ -13,8 +13,8 @@ class Footer extends React.Component {
         </div>
         <div className="footer-right">
           <ul>
-            <li><a href="about:blank">Donate / Support</a></li>
-            <li><a href="/faq">F.A.Q</a></li>
+            <li><a className='footer-links' href="/faq">F.A.Q</a></li>
+            <li><a className='footer-links' href="https://kwf.co.nz/donate">Donate / Support</a></li>
           </ul>
         </div>
       </div>

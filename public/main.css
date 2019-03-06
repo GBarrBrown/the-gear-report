@@ -9,7 +9,6 @@
   padding: 0;
   border: 0;
   font-family: 'Roboto', sans-serif;
-
   }
 
 body {
@@ -42,7 +41,7 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   min-height: calc(100vh - 93.2px);
-  background-color: #95b3aabe
+  background-color: #979b9ace
 }
 
 /* --  header --  */
@@ -50,7 +49,7 @@ body {
   height: 100%;
   display: flex;
   flex:start;
-  justify-content: space-between;
+  justify-content: space-around;
 
   font-family: 'Roboto', sans-serif;
 
@@ -58,6 +57,9 @@ body {
   font-size: 5vh;
   background-color: rgb(249,249,249);
   align-items: center;
+  -webkit-box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
+  -moz-box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
+  box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
 }
 
 .header ul {
@@ -107,7 +109,7 @@ body {
 
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 
   position: sticky;
   height: 50px;
@@ -125,7 +127,7 @@ body {
 
   background-color: #565656;
   color: transparent;
-  text-shadow: 0px 1px 1px rgba(255,255,255,0.2);
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.137);
   -webkit-background-clip: text;
      -moz-background-clip: text;
           background-clip: text;
@@ -141,13 +143,14 @@ body {
 }
 
 .footer-right ul {
-  list-style-type: square;
+  list-style-type: none;
+  text-align: left;
 }
 
 .footer-right a {
   position: relative;
   text-decoration: none;
-  color: #abbfd3;
+  color: #272b2e;
 }
 
 /* -- footer on hover transitions -- */
@@ -158,7 +161,7 @@ body {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #abbfd3;
+  background-color: #272b2e;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -183,10 +186,10 @@ body {
 }
 
 .dashboard {
-    display: grid;
-    grid-column: 4 / 12;
-    grid-row: 1 / 15;
-    /* height: 80vh; */
+  display: grid;
+  grid-column: 4 / 12;
+  grid-row: 1 / 15;
+  /* height: 80vh; */
 }
 
 .directory {
@@ -221,16 +224,40 @@ body {
   grid-row: 2 / 3;
 }
 
-.resolvedTickets {
+.topContribs {
   grid-column: 2 / 3;
   grid-row: 3 / 4;
 }
+
+.add-ticket-container {
+  max-height: 87vh;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.formHeading {
+  margin-bottom: 5px;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+  grid-column: 4 / 8;
+  grid-row: 2 / 5;
+}
+
 
 .cards-header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: none;
+  font-size: 1.5em;
+  background-color: #272b2e;
+  color: white;
+  -webkit-box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
+-moz-box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
+box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
 }
 
 .mediacard-width{
@@ -242,7 +269,7 @@ body {
   min-height: 200px
 }
 
-.hr-top{
+/* .hr-top{
   background-color: rgb(8, 11, 12);
   height: 1px;
   margin: 1px 10px;
@@ -252,15 +279,9 @@ body {
   background-color: rgb(8, 11, 12);
   height: 1px;
   margin: 0 20px;
-}
-
-/* re-enable if we get to this component */
-/* .topContribs {
-    grid-column: 8 / 12;
-    grid-row: 7 / 11;
-    background-color: white;
-    padding-right: 5%;
 } */
+
+
 
 .flex-cards{
   display: flex;
