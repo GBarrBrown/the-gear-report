@@ -6,17 +6,18 @@ import MaterialTable from 'material-table'
 export class TopContribs extends React.Component {
 
   render() {
-    console.log(this.props.topContributors);
     return (
       <div className="topContribs">
         <div className="cards-header">
           <p> Top Contributors </p>
         </div>
        
-        <div className="flex-cards">
+        <div className="grid-table">
+        <div className='child'>
         {this.props.topContributors.length > 0 &&
         <MaterialTable
           columns={[
+            
             {
               title: 'Name',
               render: rowData => rowData.name,
@@ -25,18 +26,18 @@ export class TopContribs extends React.Component {
               title: 'Score',
               field: 'successScore',
               render: rowData => {
-                const score = rowData.num * 10
-                const color = rowData.successScore > 40 ? '#4CAF50' : '#f44336'
+                const score = rowData.num * 5
+                const color = rowData.successScore > 21 ? '#4CAF50' : '#f44336'
                 return (
-                  <div style={{ width: '100%', backgroundColor: '#ddd', height: 20 }}>
+                  <div style={{ width: '45vw', backgroundColor: '#ddd', height: 20 }}>
                     <div
                       style={{
                         textAlign: 'left',
                         padding: 1,
                         color: 'white',
-                        width: score,
+                        width: score * 15,
                         backgroundColor: color,
-                        height: 20,
+                        height: 20
                       }}
                     >
                       {score}
@@ -51,7 +52,7 @@ export class TopContribs extends React.Component {
           />
         }
         </div>
-     
+        </div>
       </div>
     )
   }

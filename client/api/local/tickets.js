@@ -94,7 +94,6 @@ export function getTopContributors() {
   return(dispatch) => {
     request.get('/api/v1/tickets/topContributors')
     .then(res => {
-      console.log(res.body);
       var result = []
       function doStuff(body) {body.map(item => {
         return result.push({name: item[0], num: item[1]})
