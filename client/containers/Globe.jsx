@@ -3,7 +3,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { connect } from 'react-redux'
 
 import {getMarkersByType} from '../api/local/locations'
-import { bindActionCreators } from '../../../../Library/Caches/typescript/3.3/node_modules/redux';
+import { bindActionCreators } from 'redux';
 
 const mapStyles = {
   width: '50px',
