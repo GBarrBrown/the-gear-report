@@ -65,5 +65,20 @@ describe('<Ticket />', () => {
     expect(actual).toBe(expected)
   })
 
+  it('TicketInfoCard renders on Ticket page for existing ticket', () => {
+    const match = {params: {ticketId: 1}}
+    const locations = [{name: 'place1', loc_id: 1}, {name: 'place2', loc_id: 2}]
+    const wrapper = mount(<Ticket match = {match} getCurrentTicketById={id => {{}}} ticketLocations={locations} />)
+
+    // console.log(wrapper.debug())
+
+    let actual = wrapper.find('.ticketInfoCard').length
+    let expected = 1
+
+    expect(actual).toEqual(expected)
+  })
+
+  // next test - TicketInfoCard does not render on page for non-existent ticket
+  // next test - ActionStack renders on Ticket page for existing ticket
 
 })
