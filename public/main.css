@@ -40,8 +40,13 @@ body {
   grid-row: 2 / 3;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+<<<<<<< HEAD
+  min-height: calc(100vh - 93.2px);
+  background-color: #979b9a98
+=======
   min-height: calc(100vh - 100px);
   background-color: #979b9ace
+>>>>>>> 34167116cfcff5e46727eaa76bffc5f026eacfca
 }
 
 /* --  header --  */
@@ -293,9 +298,11 @@ box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
 
 .actionStack {
   float: right;
+  align-self: flex-end;
 }
 
 .action-stack {
+  align-self: flex-end;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -330,7 +337,7 @@ box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
 
 .ticketFlexContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .menu-ticket-link{

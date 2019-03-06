@@ -43,7 +43,7 @@ export class Ticket extends React.Component {
         {(this.props.currentTicket 
           ? (
             <div className="ticketFlexContainer">
-              <div>
+              <div className='info'>
                 <Typography variant="h3">{this.props.currentTicket.title}</Typography>
                 <br />
                 <Typography variant="h5"><strong>Description: </strong></Typography>
