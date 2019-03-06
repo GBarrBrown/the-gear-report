@@ -70,9 +70,13 @@ export class AddTicket extends Component {
     return (
       <div className='content add-ticket-container'>
       <form onSubmit={this.handleSumbit}>
-        <FormControl >
+        <FormControl 
+        fullWidth>
         
-          <TextField 
+          <TextField
+          styles={{
+            width: '100%'
+          }}
           id='AddTicket-title'
           required
           label="Title" 
