@@ -47,13 +47,13 @@ export class AllTickets extends React.Component {
           ]}
         />
       }
-       {isLoggedIn.user ? 
+       {/* {isLoggedIn.user ? 
           <a className='action-button' href="/tickets/add"> 
             <AddTicketButton /> 
           </a>
         : <div className='action-button disabled'> 
             <AddTicketButton /> 
-          </div>}
+          </div>} */}
       </div>
     )
   }
