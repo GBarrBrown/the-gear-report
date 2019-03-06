@@ -40,13 +40,8 @@ body {
   grid-row: 2 / 3;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-<<<<<<< HEAD
-  min-height: calc(100vh - 93.2px);
-  background-color: #979b9a98
-=======
   min-height: calc(100vh - 100px);
   background-color: #979b9ace
->>>>>>> 34167116cfcff5e46727eaa76bffc5f026eacfca
 }
 
 /* --  header --  */
