@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
-import {TextField, MenuItem, Button, FormControl} from '@material-ui/core';
+import {TextField, MenuItem, Button, FormControl, Paper} from '@material-ui/core';
 
 import {islandRanges, severityRanges } from '../helper-functions/addTickets'
 import { addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent, getFifthByParent } from '../api/local/form'
@@ -70,8 +70,14 @@ export class AddTicket extends Component {
     return (
       <div className='content add-ticket-container'>
       <form onSubmit={this.handleSumbit}>
+      <div >
+        <h3 className='formHeading'>Add Ticket</h3>
+      </div>
+      <Paper>
         <FormControl 
-        fullWidth>
+        fullWidth
+        margin={'normal'}
+        >
         
           <TextField
           styles={{
@@ -209,6 +215,7 @@ export class AddTicket extends Component {
           </Button>}
         
         </div>
+        </Paper>
         </form>
       </div>
     )
