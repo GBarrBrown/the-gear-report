@@ -94,15 +94,7 @@ export function getTopContributors() {
   return(dispatch) => {
     request.get('/api/v1/tickets/topContributors')
     .then(res => {
-      var result = []
-      function doStuff(body) {body.map(item => {
-        return result.push({name: item[0], num: item[1]})
-      })
-    }
-    doStuff(res.body)
-    
-      
-      dispatch(loadTopContributors(result))
+      dispatch(loadTopContributors(res))
     })
     .catch(err => {
       console.log('ERROR!', err)
