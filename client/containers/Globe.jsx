@@ -3,7 +3,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { connect } from 'react-redux'
 
 import {getMarkersByType} from '../api/local/locations'
-import { bindActionCreators } from '../../../../Library/Caches/typescript/3.3/node_modules/redux';
+import { bindActionCreators } from 'redux';
 
 const mapStyles = {
   width: '50px',
@@ -41,16 +41,14 @@ export class Globe extends Component {
   }
   
   componentWillReceiveProps() {
-    console.log('ping');
   }
 
 
   render() {
-    console.log(this.props.loadLocationById);
     return (
       <div className='globeContainer'>
         {this.props.loadLocationById.length > 0 &&
-        this.updateZoom(this.props.loadLocationById[0].depth) &&
+        this.updateZoom(this.props.loadLocationById[0].depth) && 
         <Map
           zoomControl={false}
           mapTypeControl={false}
@@ -65,6 +63,10 @@ export class Globe extends Component {
           initialCenter={{
           lat: this.props.loadLocationById[0].lat,
           lng: this.props.loadLocationById[0].long
+          }}
+          center={{
+          lat: this.props.loadLocationById[0].lat,
+          lng: this.props.loadLocationById[0].long
           }}>
           {this.props.children &&
           this.props.loadLocationById[0].depth > 2 &&
@@ -76,6 +78,7 @@ export class Globe extends Component {
             position={{lat: child.lat, lng: child.long}} 
             onClick={this.markerClick}/>
           })
+
             }
           </Map>
 

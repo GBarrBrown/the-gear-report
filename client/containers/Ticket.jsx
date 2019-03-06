@@ -9,7 +9,7 @@ import ActionStack from './ActionStack'
 import {getCurrentTicketById, getTicketLocationsById, getTicketCreator} from '../api/local/tickets'
 
 
-class Ticket extends React.Component {
+export class Ticket extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -66,7 +66,7 @@ class Ticket extends React.Component {
               </div>
             </div>
           )
-          : <Typography variant="h2">No Ticket Found Matching That ID</Typography>
+          : <Typography id="noMatchingTicket" variant="h2">No Ticket Found Matching That ID</Typography>
           )
         }
 

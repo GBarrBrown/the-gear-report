@@ -42,7 +42,7 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   min-height: calc(100vh - 93.2px);
-  background-color: #95b3aa
+  background-color: #95b3aabe
 }
 
 /* --  header --  */
