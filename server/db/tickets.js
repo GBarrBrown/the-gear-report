@@ -20,6 +20,7 @@ function addTicket(user, title, description, severity, location, testDb){
         })
       }
     }))
+    console.log('server db tickets', newTicketId);
     return newTicketId
   })
   .catch(err => {

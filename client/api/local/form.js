@@ -65,11 +65,12 @@ export function getFifthByParent(parentId) {
 }
 
 export function addTicket(payload){
+  console.log('payload', payload);
   return (dispatch) => {
     request.post('/api/v1/tickets', payload)
     .then(res => {
       let ticketId = res.body[0]
-      console.log(res.body);
+      console.log('res.body', res.body);
       document.location = `/tickets/ticketId/${ticketId}`
     })
     .catch(err => {
