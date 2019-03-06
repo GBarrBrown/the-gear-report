@@ -2,7 +2,7 @@ import {combineReducers} from 'redux'
 
 import {currentTicket, dropdownArr, allTickets, ticketLocations, ticketCreator, ticketsByLocation} from './tickets'
 import { updateCurrentLocation, updateLocationsByParent, loadLocationById, loadParentByCurrent, loadChildrenByParent } from './location'
-import auth from './auth'
+import isLoggedIn from './login'
 
 export default combineReducers({
   currentTicket,
@@ -10,7 +10,7 @@ export default combineReducers({
   children: updateLocationsByParent,
   dropdownArr,
   allTickets,
-  auth,
+  isLoggedIn,
   ticketLocations,
   loadLocationById,
   loadParentByCurrent,

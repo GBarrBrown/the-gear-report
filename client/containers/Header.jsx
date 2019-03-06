@@ -1,86 +1,110 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-class Header extends React.Component {
+import {Button, Menu, MenuItem} from '@material-ui/core';
 
-  render() {
-    const { auth } = this.props
+import { toggleLogin, toggleLogout } from '../actions/auth/login'
+
+export class Header extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      login: false,
+      anchorEl: null,
+    };
+  }
+
+  handleLogin = () => {
+    this.props.toggleLogin()
+  } 
+ 
+  handleLogout = () => {
+    this.props.toggleLogout()
+  } 
+
+  handleMenu = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+  
+  render(){
+    const { isLoggedIn } = this.props
+    const { anchorEl } = this.state;
+    const open = Boolean(anchorEl);
     return (
-      <div className="header-container">
-        <div className="header">
-          <ul>
-            <li className="header-items"><a href="/">Home</a></li>
-            <li className="header-items"><a href="/tickets">Tickets</a></li>
-            <li className="header-items"><a href="/faq">FAQ</a></li>
-            <li className="header-items"><a href="/about">About</a></li>
-            <li className="header-items"><a href="/register">Register</a></li>
-
-          </ul>
-          {auth.isAuthenticated ? 
-            ( <div className="header-items-login">
-                <h3>{auth.user.name}</h3>
-                <img src={auth.user.picture} alt="Profile pic"/>
-              </div>
-            ) : 
-            (
-              <a href="/login">
-              <div className="header-items-login">
-                {auth.errorMessage}
-              </div>
-              </a>
-            )
+     
+      <div className='header-container header'>
+        <a href="/">
+          <Button color="inherit">
+            Home
+          </Button>
+        </a>
+        
+        <Button 
+          color="default"
+          aria-owns={open ? 'menu-appbar' : undefined}
+          aria-haspopup="true"
+          onClick={this.handleMenu}
+        >
+          Tickets
+        </Button>
+        
+        <Menu
+          id="menu-appbar"
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={open}
+          onClose={this.handleClose}
+        >
+          <a className='menu-ticket-link' href="/tickets"><MenuItem onClick={this.handleClose}>View tickets</MenuItem></a>
+          {isLoggedIn.user && <a className='menu-ticket-link' href="/tickets/add"><MenuItem onClick={this.handleClose}>Add ticket</MenuItem></a>}
+        </Menu>
+        <a href="https://kwf.co.nz/">
+          <Button color="inherit">
+            About
+          </Button>
+        </a>
+        
+        {isLoggedIn.user ? 
+          ( <div className="header-items-login">
+              <Button color="inherit" onClick={this.handleLogout}>
+                Logout
+              </Button>
+              <img src={isLoggedIn.user.picture}/>
+            </div>
+          ) : 
+            <Button color="inherit" onClick={this.handleLogin}>
+              Login
+            </Button>
           }
-        </div>
       </div>
-
-
-
     )
   }
 }
-const mapStateToProps = ({auth}) => {
-    return {
-      auth
-    }
+const mapStateToProps = ({auth, children, loadLocationById, isLoggedIn}) => {
+  return {
+    auth,
+    children,
+    loadLocationById,
+    isLoggedIn
   }
+}
 
-    export default connect(mapStateToProps)(Header)
 
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ toggleLogin, toggleLogout }, dispatch)
+}
 
-      //     <div className="header">
-      //   <a href="/">
-      //     <div className="header-items">
-      //       Home
-      //     </div>
-      //   </a>
-      //   <a href="/tickets">
-      //     <div className="header-items">
-      //       Tickets
-      //     </div>
-      //   </a>
-      //   <a href="/faq">
-      //     <div className="header-items">
-      //       FAQ
-      //     </div>
-      //   </a>
-      //   <a href="/about">
-      //     <div className="header-items">
-      //       About
-      //     </div>
-      //   </a>
-      //   {auth.isAuthenticated ? 
-      //   ( <div className="header-items-login">
-      //       <h3>{auth.user.name}</h3>
-      //       <img src={auth.user.picture} alt="Profile pic"/>
-      //     </div>
-      //   ) : 
-      //   (
-      //     <a href="/login">
-      //       <div className="header-items-login">
-      //         Login {auth.errorMessage}
-      //       </div>
-      //     </a>
-      //   )
-      // }
-
-      // </div>
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

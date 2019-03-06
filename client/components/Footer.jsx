@@ -1,18 +1,25 @@
 import React from 'react'
 
 class Footer extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
 
-        }
-    }
-
-    render() {
-        return (
-            <div className="footer">Footer</div>
-        )
-    }
+  render() {
+    return (
+      <div className="footer">
+        <div className="footer-left"></div>
+        <div className="footer-middle">
+          <div className="footer-middle-inner">
+            <p>The Gear Report</p>
+          </div>
+        </div>
+        <div className="footer-right">
+          <ul>
+            <li><a href="about:blank">Donate / Support</a></li>
+            <li><a href="/faq">F.A.Q</a></li>
+          </ul>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Footer
