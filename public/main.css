@@ -155,7 +155,6 @@ body {
 
 /* -- footer on hover transitions -- */
 .footer a:before {
-  content: "";
   position: absolute;
   width: 100%;
   height: 2px;
