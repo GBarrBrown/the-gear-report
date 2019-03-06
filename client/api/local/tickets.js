@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import {loadAllTickets, loadCurrentTicket, loadTicketLocations, loadTicketCreator, loadTicketsByLocation} from '../../actions/tickets'
+import {loadAllTickets, loadCurrentTicket, loadTicketLocations, loadTicketCreator, loadTicketsByLocation, loadTopContributors} from '../../actions/tickets'
 
 
 export function getAllTickets() {
@@ -83,6 +83,18 @@ export function getTicketCreator(creatorId) {
     request.get(`/api/v1/tickets/creatorById/${creatorId}`)
     .then(res => {
       dispatch(loadTicketCreator(res.body))
+    })
+    .catch(err => {
+      console.log('ERROR!', err)
+    })
+  }
+}
+
+export function getTopContributors() {
+  return(dispatch) => {
+    request.get('/api/v1/tickets/topContributors')
+    .then(res => {
+      dispatch(loadTopContributors(res.body))
     })
     .catch(err => {
       console.log('ERROR!', err)

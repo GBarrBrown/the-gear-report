@@ -70,3 +70,12 @@ export function ticketCreator (state = {}, action) {
       return state
   }
 }
+
+export function topContributors (state = [], action) {
+  switch (action.type){
+    case 'UPDATE_TOP_CONTRIBUTORS':
+      return action.topContributors
+    default:
+      return state
+  }
+}
