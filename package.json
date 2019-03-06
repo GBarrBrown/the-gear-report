@@ -1,10 +1,10 @@
 {
-  "name": "todo-list",
+  "name": "the-gear-report",
   "version": "1.0.0",
-  "description": "Full stack build of a typical todo list",
+  "description": "A web app that allows users to report faulty gear around NZ rock climbs",
   "main": "server/index.js",
-  "repository": "https://github.com/rebeccajackson/todo-list.git",
-  "author": "Rebecca Jackson <zimbecs@gmail.com>",
+  "repository": "https://github.com/kahu-2019/the-gear-report",
+  "author": "Richard Graham",
   "license": "MIT",
   "engines": {
     "node": "11.6.0",

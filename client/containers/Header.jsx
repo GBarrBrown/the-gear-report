@@ -102,6 +102,7 @@ const mapStateToProps = ({auth, children, loadLocationById, isLoggedIn}) => {
   }
 }
 
+
 function mapDispatchToProps(dispatch){
   return bindActionCreators({ toggleLogin, toggleLogout }, dispatch)
 }
