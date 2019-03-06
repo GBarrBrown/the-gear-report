@@ -37,7 +37,7 @@ class Dashboard extends React.Component {
           case 'cliff':
             return <Info props={this.props}/>
           default:
-            return <Globe props={this.props}/>
+            return <Globe props={this.props} />
         }
       }
 

@@ -94,13 +94,14 @@ export class Header extends Component {
   }
 }
 const mapStateToProps = ({auth, children, loadLocationById, isLoggedIn}) => {
-    return {
-      auth,
-      children,
-      loadLocationById,
-      isLoggedIn
-    }
+  return {
+    auth,
+    children,
+    loadLocationById,
+    isLoggedIn
   }
+}
+
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({ toggleLogin, toggleLogout }, dispatch)
