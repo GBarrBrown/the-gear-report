@@ -9,7 +9,7 @@ import MediaCard from './Card'
 import {getTicketsByLocation} from '../../api/local/tickets'
 
 var count = 0
-class TopRecentTi extends React.Component {
+export class TopRecentTi extends React.Component {
 
   // componentWillReceiveProps() {
     

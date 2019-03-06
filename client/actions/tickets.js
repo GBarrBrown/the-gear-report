@@ -67,3 +67,10 @@ export function loadTicketCreator(creator) {
     creator
   }
 }
+
+export function loadTopContributors(topContributors) {
+  return {
+    type: 'UPDATE_TOP_CONTRIBUTORS',
+    topContributors
+  }
+}
