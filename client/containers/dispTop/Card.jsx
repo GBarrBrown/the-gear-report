@@ -15,12 +15,13 @@ const styles = {
   };
 
   function eventHandler(viewId) { 
+    
     viewId ?
     location.href=`/tickets/ticketId/${viewId}`
     : location.href=`/tickets/`
   }
   
-  function MediaCard(props) {
+  export function MediaCard(props) {
     const { classes } = props;
 
     var text = props.description
