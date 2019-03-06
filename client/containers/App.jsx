@@ -7,7 +7,6 @@ import Login from './Login'
 import Register from './Register'
 import Ticket from './Ticket'
 import AllTickets from './AllTickets'
-import ResolveTicket from './ResolveTicket'
 import Footer from '../components/Footer'
 import AddTicket from './AddTicket'
 import EditTicket from './EditTicket'
@@ -26,7 +25,6 @@ export default function App() {
 					
 					<Route exact path='/tickets/ticketId/:ticketId' component={Ticket} />
 					<Route exact path='/tickets/add' component={AddTicket} />
-					<Route exact path='/tickets/:id/resolve' component={ResolveTicket} />
 					<Route exact path='/tickets/:id/edit' component={EditTicket} />
 					<Route exact path='/tickets' component={AllTickets} />
 				</div>

@@ -1,20 +1,36 @@
 import React from 'react'
-import Typography from '@material-ui/core/Typography';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-class TopContribs extends React.Component {
+export class TopContribs extends React.Component {
 
   render() {
+      
     return (
       <div className="topContribs">
-        <div className="hr-top"> </div>
         <div className="cards-header">
-        <Typography variant="h5"> Top Contributors </Typography>
+          <p> Top Contributors </p>
         </div>
-        <div className="hr-bottom"> </div>
-      
+       
+        <div className="flex-cards">
+          {/* put table in here */}
+        </div>
+     
       </div>
-      )
+    )
   }
 }
 
-export default TopContribs
+function mapStateToProps ({ticketsByLocation, currentLocation, loadLocationById}) {
+  return {
+    ticketsByLocation,
+    currentLocation,
+    loadLocationById
+}
+}   
+
+
+
+
+export default connect(mapStateToProps)(TopContribs)
+

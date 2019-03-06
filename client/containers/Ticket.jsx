@@ -17,13 +17,13 @@ export class Ticket extends React.Component {
   }
 
   componentDidMount() {
-      var ticketId = this.props.match.params.ticketId
-      this.setState({ticketId: ticketId})       //adds ticketId to local state
-      this.props.getCurrentTicketById(ticketId)
+    var ticketId = this.props.match.params.ticketId
+    this.setState({ticketId: ticketId})       //adds ticketId to local state
+    this.props.getCurrentTicketById(ticketId)
 
-      // increase apiRetrysRemaining stops inifinite loops when looking for tickets that dont exist
-      var apiRetrysRemaining = 10;
-      this.setState({apiRetrysRemaining: apiRetrysRemaining});     //adds apiRetrys to local state
+    // increase apiRetrysRemaining stops inifinite loops when looking for tickets that dont exist
+    var apiRetrysRemaining = 10;
+    this.setState({apiRetrysRemaining: apiRetrysRemaining});     //adds apiRetrys to local state
   }
 
   componentWillReceiveProps() {
