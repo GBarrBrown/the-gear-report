@@ -250,20 +250,6 @@ box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
   min-height: 200px
 }
 
-/* .hr-top{
-  background-color: rgb(8, 11, 12);
-  height: 1px;
-  margin: 1px 10px;
-}
-
-.hr-bottom{
-  background-color: rgb(8, 11, 12);
-  height: 1px;
-  margin: 0 20px;
-} */
-
-
-
 .flex-cards{
   display: flex;
   flex-wrap: wrap;
@@ -318,6 +304,12 @@ box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
 .ticketFlexContainer {
   display: flex;
   justify-content: space-between;
+}
+
+.menu-ticket-link{
+  list-style-type: none;
+  text-decoration: none;
+  border: none;
 }
 
 @media screen and (max-width: 480px) {
