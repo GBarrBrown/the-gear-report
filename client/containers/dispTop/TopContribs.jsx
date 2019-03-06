@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import MaterialTable from 'material-table'
 
 export class TopContribs extends React.Component {
 
   render() {
-      
+    console.log(this.props.topContributors);
     return (
       <div className="topContribs">
         <div className="cards-header">
@@ -13,7 +14,42 @@ export class TopContribs extends React.Component {
         </div>
        
         <div className="flex-cards">
-          {/* put table in here */}
+        {this.props.topContributors.length > 0 &&
+        <MaterialTable
+          columns={[
+            {
+              title: 'Name',
+              render: rowData => rowData.name,
+            },
+            {
+              title: 'Score',
+              field: 'successScore',
+              render: rowData => {
+                const score = rowData.num
+                const color = rowData.successScore > 1 ? '#4CAF50' : '#f44336'
+                return (
+                  <div style={{ width: '100%', backgroundColor: '#ddd', height: 10 }}>
+                    <div
+                      style={{
+                        textAlign: 'left',
+                        padding: 1,
+                        color: 'white',
+                        width: score,
+                        backgroundColor: color,
+                        height: 10,
+                      }}
+                    >
+                      {score}
+                    </div>
+                  </div>
+                )
+              },
+            },
+          ]}
+          data={this.props.topContributors}
+          title="Top Contributors"
+          />
+        }
         </div>
      
       </div>
@@ -21,11 +57,12 @@ export class TopContribs extends React.Component {
   }
 }
 
-function mapStateToProps ({ticketsByLocation, currentLocation, loadLocationById}) {
+function mapStateToProps ({ticketsByLocation, currentLocation, loadLocationById, topContributors}) {
   return {
     ticketsByLocation,
     currentLocation,
-    loadLocationById
+    loadLocationById,
+    topContributors
 }
 }   
 
