@@ -69,6 +69,7 @@ export function addTicket(payload){
     request.post('/api/v1/tickets', payload)
     .then(res => {
       let ticketId = res.body[0]
+      console.log(res.body);
       document.location = `/tickets/ticketId/${ticketId}`
     })
     .catch(err => {
