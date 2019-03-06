@@ -74,6 +74,37 @@ function getTicketCreator(creatorId, testDb) {
   .where('id', creatorId).select().first()
 }
 
+function getTopContributors(testDb) {
+  const db = testDb || connection
+  return db('tickets')
+  .join('users', 'users.id', 'tickets.user_id')
+  .then(res => {
+    let count = res.reduce((acc,cur) => {
+      if(acc[cur.name]){
+        acc[cur.name] += 1;
+      }
+      else {
+        acc[cur.name] = 1;
+      }
+      return acc
+    },{})
+
+    var sortable = []
+    for (let person in count){
+      sortable.push([person, count[person]])
+    }
+    //sorts sortable smallest to biggest
+    sortable.sort(function(a,b){
+      return a[1] - b[1]
+    })
+    //grab the last 5 (highest contributors)
+    let topContributors = sortable.slice(-5)
+    //put the highest contributor as number 1
+    topContributors.reverse()
+    return topContributors
+  })
+}
+
 function resolveTicket(id, testDb) {
   const db = testDb || connection
   return db('tickets')
@@ -87,5 +118,6 @@ module.exports = {
   getTicketLocationsById,
   getTicketCreator,
   getTicketsByIds,
+  getTopContributors,
   resolveTicket
 }

@@ -42,7 +42,7 @@ const styles = theme => ({
   }
 });
 
-class Directory extends React.Component {
+export class Directory extends React.Component {
   state = {
 		open: true,
     selectedIndex: 1,

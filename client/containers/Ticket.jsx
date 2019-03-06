@@ -17,13 +17,13 @@ export class Ticket extends React.Component {
   }
 
   componentDidMount() {
-      var ticketId = this.props.match.params.ticketId
-      this.setState({ticketId: ticketId})       //adds ticketId to local state
-      this.props.getCurrentTicketById(ticketId)
+    var ticketId = this.props.match.params.ticketId
+    this.setState({ticketId: ticketId})       //adds ticketId to local state
+    this.props.getCurrentTicketById(ticketId)
 
-      // increase apiRetrysRemaining stops inifinite loops when looking for tickets that dont exist
-      var apiRetrysRemaining = 10;
-      this.setState({apiRetrysRemaining: apiRetrysRemaining});     //adds apiRetrys to local state
+    // increase apiRetrysRemaining stops inifinite loops when looking for tickets that dont exist
+    var apiRetrysRemaining = 10;
+    this.setState({apiRetrysRemaining: apiRetrysRemaining});     //adds apiRetrys to local state
   }
 
   componentWillReceiveProps() {
@@ -43,7 +43,7 @@ export class Ticket extends React.Component {
         {(this.props.currentTicket 
           ? (
             <div className="ticketFlexContainer">
-              <div>
+              <div className='info'>
                 <Typography variant="h3">{this.props.currentTicket.title}</Typography>
                 <br />
                 <Typography variant="h5"><strong>Description: </strong></Typography>
