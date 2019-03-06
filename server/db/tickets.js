@@ -14,7 +14,9 @@ function addTicket(user, title, description, severity, location, testDb){
   .then(async newTicketId => {
     await Promise.all (location.map(id => {
       if(typeof id == 'number'){
-        return db('ticket_loc').insert({
+        return db('ticket_loc')
+        .returning('id')
+        .insert({
           ticket_id: newTicketId[0], 
           loc_id: id
         })
