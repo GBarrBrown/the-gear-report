@@ -13,7 +13,7 @@ export class TopContribs extends React.Component {
         </div>
        
         <div className="flex-cards">
-          
+          {/* put table in here */}
         </div>
      
       </div>
