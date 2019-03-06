@@ -14,7 +14,7 @@ export class AllTickets extends React.Component {
   }
 
   render() {
-    const { isLoggedIn } = this.props
+ 
     return (
       <div className='tickets-container'>
       {this.props.allTickets[0] &&
@@ -26,10 +26,10 @@ export class AllTickets extends React.Component {
             { title: 'Resolved', field: 'resolved', type: 'boolean' },
             { title: 'Created By', field: 'createdBy'},
             { title: 'Date Created', field: 'created_at', type: 'date', filtering: false,},
-            { title: 'Last Updated', field: 'updated_at', type: 'numeric', filtering: false,},
+            { title: 'Last Updated', field: 'updated_at', type: 'date', filtering: false,},
           ]}
           styles={{
-            width: '100%'
+            width: '80%'
           }}
           data={this.props.allTickets}
           title="All Tickets For New Zealand"
@@ -47,13 +47,6 @@ export class AllTickets extends React.Component {
           ]}
         />
       }
-       {/* {isLoggedIn.user ? 
-          <a className='action-button' href="/tickets/add"> 
-            <AddTicketButton /> 
-          </a>
-        : <div className='action-button disabled'> 
-            <AddTicketButton /> 
-          </div>} */}
       </div>
     )
   }
