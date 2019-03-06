@@ -54,8 +54,6 @@ class Dashboard extends React.Component {
                 this.renderCondition(this.props.loadLocationById[0].type)} 
               </div>
               <TopDisp />
-              {/* button for testing getTopContributors - please DO NOT remove :) */}
-              {/* <button onClick={() => {console.log('get top contributors button clicked'), this.props.getTopContributors()}}>GET TOP CONTRIBUTORS</button> */}
             </div>
         )
     }
