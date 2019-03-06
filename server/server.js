@@ -10,7 +10,6 @@ server.use(express.static(path.join(__dirname, '../public')))
 
 server.use('/api/v1/locations', require('./routes/locations'))
 server.use('/api/v1/tickets', require('./routes/tickets'))
-server.use('/api/v1/globe', require('./routes/globe'))
 server.use('/api/v1/login', require('./routes/login'))
 server.use('/api/v1/auth', require('./routes/auth'))
 
