@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 
 import AddTicketButton from '../components/AddTicketButton';
 import ResolveTicketButton from '../components/ResolveTicketButton';
+import EditTicketButton from '../components/EditTicketButton';
 
 import { resolveTicket } from '../api/local/tickets'
-import EditTicketButton from '../components/EditTicketButton';
 
 export class ActionStack extends Component {
 

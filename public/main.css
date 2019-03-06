@@ -41,7 +41,7 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   min-height: calc(100vh - 93.2px);
-  background-color: #979b9ace
+  background-color: #979b9a98
 }
 
 /* --  header --  */
@@ -293,9 +293,11 @@ box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
 
 .actionStack {
   float: right;
+  align-self: flex-end;
 }
 
 .action-stack {
+  align-self: flex-end;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -330,7 +332,7 @@ box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
 
 .ticketFlexContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .menu-ticket-link{
