@@ -5,6 +5,7 @@ const connection = require('./connection')
 function addTicket(user, title, description, severity, location, testDb){
   const db = testDb || connection
   return db('tickets')
+  .returning('id')
   .insert({
     user_id: user,
     title: title,
