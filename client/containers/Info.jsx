@@ -1,7 +1,7 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
 
-function Info (props) {
+export function Info (props) {
   var item = props.props.loadLocationById[0]
   var parent = props.props.loadParentByCurrent[0]
 
@@ -12,9 +12,9 @@ function Info (props) {
   
   
   return (
-    <React.Fragment>
+    <div className='info-container'>
       {props &&
-      <React.Fragment>
+      <div className='info'>
         <br/>
         <br/>
         <Typography>
@@ -34,7 +34,7 @@ function Info (props) {
         <h3>Description</h3>
         </Typography>}
         <Typography>
-        <p>{item.description}</p>
+        <p className='justify-text'>{item.description}</p>
         </Typography>
         
         {item.approach &&
@@ -70,13 +70,13 @@ function Info (props) {
         </Typography>}
         {item.quickdraws &&
         <Typography>
-          <h3>Bolts: {item.quickdraws} quickdraws and a 60m rope</h3>
+          <h3>Bolts: {item.quickdraws}</h3>
         </Typography>}
 
 
-      </React.Fragment>
+      </div>
       }
-    </React.Fragment>
+    </div>
 
     
   )

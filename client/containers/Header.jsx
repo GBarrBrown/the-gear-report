@@ -68,13 +68,16 @@ export class Header extends Component {
           open={open}
           onClose={this.handleClose}
         >
-          <a className='menu-ticket-link' href="/tickets"><MenuItem onClick={this.handleClose}>View tickets</MenuItem></a>
-          {isLoggedIn.user && <a className='menu-ticket-link' href="/tickets/add"><MenuItem onClick={this.handleClose}>Add ticket</MenuItem></a>}
+          <a className='menu-ticket-link' href="/tickets">
+            <MenuItem onClick={this.handleClose}> View tickets </MenuItem>
+          </a>
+          {isLoggedIn.user && 
+          <a className='menu-ticket-link' href="/tickets/add">
+            <MenuItem onClick={this.handleClose}> Add ticket </MenuItem>
+          </a>}
         </Menu>
         <a href="https://kwf.co.nz/">
-          <Button color="inherit">
-            About
-          </Button>
+          <Button color="inherit"> About </Button>
         </a>
         
         {isLoggedIn.user ? 
