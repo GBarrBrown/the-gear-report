@@ -1,7 +1,7 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
 
-function Info (props) {
+export function Info (props) {
   var item = props.props.loadLocationById[0]
   var parent = props.props.loadParentByCurrent[0]
 
@@ -70,7 +70,7 @@ function Info (props) {
         </Typography>}
         {item.quickdraws &&
         <Typography>
-          <h3>Bolts: {item.quickdraws} quickdraws and a 60m rope</h3>
+          <h3>Bolts: {item.quickdraws}</h3>
         </Typography>}
 
 
