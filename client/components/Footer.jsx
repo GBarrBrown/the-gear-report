@@ -13,8 +13,8 @@ export class Footer extends React.Component {
         </div>
         <div className="footer-right">
           <ul>
-            <li><a className='footer-links' href="https://kwf.co.nz/">Donate / Support</a></li>
             <li><a className='footer-links' href="/faq">F.A.Q</a></li>
+            <li><a className='footer-links' href="https://kwf.co.nz/donate">Donate / Support</a></li>
           </ul>
         </div>
       </div>
