@@ -25,10 +25,10 @@ export class TopContribs extends React.Component {
               title: 'Score',
               field: 'successScore',
               render: rowData => {
-                const score = rowData.num
-                const color = rowData.successScore > 1 ? '#4CAF50' : '#f44336'
+                const score = rowData.num * 10
+                const color = rowData.successScore > 40 ? '#4CAF50' : '#f44336'
                 return (
-                  <div style={{ width: '100%', backgroundColor: '#ddd', height: 10 }}>
+                  <div style={{ width: '100%', backgroundColor: '#ddd', height: 20 }}>
                     <div
                       style={{
                         textAlign: 'left',
@@ -36,7 +36,7 @@ export class TopContribs extends React.Component {
                         color: 'white',
                         width: score,
                         backgroundColor: color,
-                        height: 10,
+                        height: 20,
                       }}
                     >
                       {score}
