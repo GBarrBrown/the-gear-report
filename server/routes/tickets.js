@@ -99,8 +99,7 @@ router.get('/creatorById/:creatorId', (req, res) => {
 router.get('/topContributors', (req, res) => {
   ticketDb.getTopContributors()
   .then(topContributors => {
-    console.log('topContributors api res', topContributors)
-    // res.json(topContributors)
+    res.json(topContributors)
   })
   .catch(err => {
     console.log('ERROR!', err)
