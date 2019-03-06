@@ -19,7 +19,7 @@ export class AddTicket extends Component {
     thirdDropdown: '',
     fourthDropdown: '',
     fifthDropdown: '',
-    user: 2 //TODO user should be from this.props
+    user: 10
   };
   
 
@@ -73,6 +73,7 @@ export class AddTicket extends Component {
         <FormControl >
         
           <TextField 
+          id='AddTicket-title'
           required
           label="Title" 
           onChange={this.handleChange}
@@ -210,12 +211,12 @@ export class AddTicket extends Component {
   }
 }
 
-function mapStateToProps({ user, dropdownArr }){
-  return { user, dropdownArr }
+function mapStateToProps({ user, dropdownArr, isLoggedIn }){
+  return { user, dropdownArr, isLoggedIn }
 }
 
 function mapDispatchToProps( dispatch ){
-  return bindActionCreators({addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent, getFifthByParent}, dispatch)
+  return bindActionCreators({addTicket, getFirstByParent, getSecondByParent, getThirdByParent, getFourthByParent, getFifthByParent }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTicket)
