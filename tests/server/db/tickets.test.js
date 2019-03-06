@@ -14,6 +14,7 @@ afterEach(() => testEnv.cleanup(testDb))
 
 // suggested test structure
 
+
 test('GET gets all the tickets', () => {
   let expected = 9
 
@@ -28,21 +29,33 @@ test('GET gets all the tickets', () => {
 test('GET ticket by id with existing ticket id', () => {
   let expected = 'Fallen Tree'
 
-  return db.getTicketById(5)
-  .then(ticket => {
+  return db.getTicketById(5, testDb)
+  .then(res => {
+    let ticket = res[0]
     let actual = ticket.title
 
-    expect(actual).toBe(expected)
+    expect(actual).toEqual(expected)
   })
 })
 
 test('GET ticket by id with non-existent ticket id', () => {
   let expected = []
 
-  return db.getTicketById(0)
+  return db.getTicketById(0, testDb)
   .then(ticket => {
     let actual = ticket
 
-    expect(actual).toBe(expected)
+    expect(actual).toEqual(expected)
+  })
+})
+
+test('GET ticket by id passing it a string', () => {
+  let expected = []
+
+  return db.getTicketById('testString', testDb)
+  .then(ticket => {
+    let actual = ticket
+
+    expect(actual).toEqual(expected)
   })
 })
