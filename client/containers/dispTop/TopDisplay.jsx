@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react'
 
 import TopRecentTi from './TopRecentTi'
-import ResolvedTickets from './ResolvedTickets'
+import TopContribs from './TopContribs'
 
 export function Dashboard () {
 
   return (
     <Fragment>
       <TopRecentTi /> 
-      <ResolvedTickets />
+      <TopContribs />
     </Fragment>
   )
 }
