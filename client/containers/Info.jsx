@@ -12,9 +12,9 @@ export function Info (props) {
   
   
   return (
-    <React.Fragment>
+    <div className='info-container'>
       {props &&
-      <React.Fragment>
+      <div className='info'>
         <br/>
         <br/>
         <Typography>
@@ -34,7 +34,7 @@ export function Info (props) {
         <h3>Description</h3>
         </Typography>}
         <Typography>
-        <p>{item.description}</p>
+        <p className='justify-text'>{item.description}</p>
         </Typography>
         
         {item.approach &&
@@ -74,9 +74,9 @@ export function Info (props) {
         </Typography>}
 
 
-      </React.Fragment>
+      </div>
       }
-    </React.Fragment>
+    </div>
 
     
   )

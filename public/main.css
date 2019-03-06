@@ -232,21 +232,29 @@ body {
 .add-ticket-container {
   max-height: 87vh;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .formHeading {
   margin-bottom: 5px;
+  padding-left: 5%;
+  padding-top: 5%;
 }
 
 form {
   width: 100%;
   height: 100%;
-  grid-column: 4 / 8;
-  grid-row: 2 / 5;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
 }
 
+.create-ticket{
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  padding-left: 15px;
+}
 
 .cards-header{
   display: flex;
@@ -268,20 +276,6 @@ box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
   max-height: 250px;
   min-height: 200px
 }
-
-/* .hr-top{
-  background-color: rgb(8, 11, 12);
-  height: 1px;
-  margin: 1px 10px;
-}
-
-.hr-bottom{
-  background-color: rgb(8, 11, 12);
-  height: 1px;
-  margin: 0 20px;
-} */
-
-
 
 .flex-cards{
   display: flex;
@@ -337,6 +331,32 @@ box-shadow: 0px 2px 18px -3px rgba(0,0,0,0.67);
 .ticketFlexContainer {
   display: flex;
   justify-content: space-between;
+}
+
+.menu-ticket-link{
+  list-style-type: none;
+  text-decoration: none;
+  border: none;
+}
+
+.info-container{
+  padding:5%;
+  display: flex;
+  justify-content: center;
+}
+
+.info{
+  background-color: rgb(249,249,249);
+  border-radius: 5px;
+  padding: 2%;
+  max-width: 500px;
+  -webkit-box-shadow: 0px 1px 18px -3px rgba(0,0,0,0.67);
+  -moz-box-shadow: 0px 1px 18px -3px rgba(0,0,0,0.67);
+  box-shadow: 0px 1px 18px -3px rgba(0,0,0,0.67);
+}
+
+.justify-text{
+  text-justify: inter-word;
 }
 
 @media screen and (max-width: 480px) {
