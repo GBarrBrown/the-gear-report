@@ -20,6 +20,16 @@ router.post('/', (req,res)=>{
   })
 })
 
+router.post('/edit/', (req, res) => {
+  ticketDb.updateTicket(req.body)
+  .then((result) => {
+    res.json(result)
+  })
+  .catch(err => {
+    console.log('ERROR', err)
+  })
+})
+
 router.get('/all', (req, res) => {
   ticketDb.getAllTickets()
   .then(tickets => {
