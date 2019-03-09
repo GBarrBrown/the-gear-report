@@ -115,6 +115,13 @@ function resolveTicket(id, testDb) {
   .where('id', id).update({resolved: true})
 }
 
+function updateTicket(id, update, testDb) {
+  const db = testDb || connection
+  return db('tickets')
+  .where('id', id)
+  .update(update)
+}
+
 module.exports = {
   addTicket,
   getAllTickets,
@@ -123,5 +130,6 @@ module.exports = {
   getTicketCreator,
   getTicketsByIds,
   getTopContributors,
-  resolveTicket
+  resolveTicket,
+  updateTicket
 }
