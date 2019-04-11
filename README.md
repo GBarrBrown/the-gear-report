@@ -1,14 +1,14 @@
-# the-gear-report
+# The Gear Report
+
+*Hazard reporting tool for the unregulated sport of rock climbing to increase awareness of faulty gear and dangerous climbs.*
 
 ## Why?
-Outdoor rock climbing is an extreme sport with no governing body or regulatory committe, due to this any time someone is out climbing they are relying on the assumption that the gear fixed to the routes is secured porperly and in working order. If however something is faulty or a wall itself has become hazardous, other climbers need to be made be made aware.
+Outdoor rock climbing is an extreme sport with no governing body or regulatory committe, due to this any time someone is out climbing they are relying on the assumption that the gear fixed to the routes is secured porperly and in working order. If however something is faulty or a wall itself has become hazardous, other climbers need to be made be made aware as mishaps can be fatal.
 
 The Gear Report was created with this in mind and is intended to become a platform for climbers to check their destinations for issues prior to climbing or to report issues they come across. Hopefully this can keep climbers of all skill levels safer and allow those with the tools and know-how to get out and address the hazards.
 
 Backing by charities such as the [Kimi Worrell Foundation](https://kwf.co.nz "kwf.co.nz") or other large companies will allow the platforms admins to direct funding through a reimbursement scheme to those who get out there and address the issues.
 
-
-*Hazard reporting tool for the unregulated sport of rock climbing to increase awareness of faulty gear and dangerous climbs.*
 
 ## Group Roles
 - Becs: Gitmaster
@@ -40,6 +40,7 @@ As a user I want to:
 - [ ] Apply for grants
 - [ ] Edit user profile
 
+----
 
 ### Stretch Goals
 **Admin/ Charity**
