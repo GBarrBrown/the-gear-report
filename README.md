@@ -15,6 +15,24 @@ Backing by charities such as the [Kimi Worrell Foundation](https://kwf.co.nz "kw
 - George: Scrummaster & Vibeswatcher
 - Richard: Product owner & Domain expert
 
+
+## Technologies & Packages
+- React with Redux
+- Redux-thunk
+- Yarn
+- Node.js
+- Webpack & Babel
+- Nodemon
+- Express
+- Superagent
+- Material-UI
+- ~~Firebase~~
+- Jest, Enzyme & Supertest
+- Sqlite3 with knex.js
+- JWT & Libsodium
+- Google-maps-react
+
+
 ## User Stories
 
 **Base User (Not Logged-in)**
