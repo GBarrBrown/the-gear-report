@@ -21,24 +21,24 @@ Backing by charities such as the [Kimi Worrell Foundation](https://kwf.co.nz "kw
 
 As a user I want to:
 
-[x] View individual climbs (routes) in NZ and filter by ‘area’
-[x] View recent tickets by area
-[x] View individual tickets with additional information: description, date submitted, severity, grant status, logged by, location
-[x] View a map highlighting climbing locations
-[ ] View & filter through all tickets by: keywords, date created & updated, grant or resolved status, severity, location, logged by
-[x] Jump to an individual ticket from the all tickets page
+- [x] View individual climbs (routes) in NZ and filter by ‘area’
+- [x] View recent tickets by area
+- [x] View individual tickets with additional information: description, date submitted, severity, grant status, logged by, location
+- [x] View a map highlighting climbing locations
+- [ ] View & filter through all tickets by: keywords, date created & updated, grant or resolved status, severity, location, logged by
+- [x] Jump to an individual ticket from the all tickets page
 
 
 **Authenticated User (Logged-in)**
 
 As a user I want to:
 
-[x] Add new tickets 
-[ ] When viewing a route or crag I want to be able to add a ticket and have the ticket form auto-populate with said crag or route
-[x] When adding a ticket, location choices should only be relavent to the parent location selection eg. North Island should not offer Christchurch as a sub-area
-[ ] Edit existing tickets, requiring review from an admin
-[ ] Apply for grants
-[ ] Edit user profile
+- [x] Add new tickets 
+- [ ] When viewing a route or crag I want to be able to add a ticket and have the ticket form auto-populate with said crag or route
+- [x] When adding a ticket, location choices should only be relavent to the parent location selection eg. North Island should not offer Christchurch as a sub-area
+- [ ] Edit existing tickets, requiring review from an admin
+- [ ] Apply for grants
+- [ ] Edit user profile
 
 
 ##### Stretch Goals
@@ -46,10 +46,10 @@ As a user I want to:
 
 As a user I want to:
 
-[ ] Review new tickets
-[ ] Create new tickets
-[ ] Update funding status on an individual ticket
-[ ] Update area status
-[ ] Edit ticket
-[ ] Close ticket
-[ ] Review submitted proof of resoultion
+- [ ] Review new tickets
+- [ ] Create new tickets
+- [ ] Update funding status on an individual ticket
+- [ ] Update area status
+- [ ] Edit ticket
+- [ ] Close ticket
+- [ ] Review submitted proof of resoultion
