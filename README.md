@@ -41,7 +41,7 @@ As a user I want to:
 - [ ] Edit user profile
 
 
-##### Stretch Goals
+#### Stretch Goals
 **Admin/ Charity**
 
 As a user I want to:
