@@ -12,7 +12,7 @@ Backing by charities such as the [Kimi Worrell Foundation](https://kwf.co.nz "kw
 
 ## Group Roles
 - Becs: Gitmaster
-- George: Scrummaster, vibeswatcher
+- George: Scrummaster & Vibeswatcher
 - Richard: Product owner & Domain expert
 
 ## User Stories
